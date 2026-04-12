@@ -39,7 +39,7 @@ body {
   padding: 80px 24px 60px;
   text-align: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero::before {
@@ -105,6 +105,7 @@ body {
 
 /* SECTION */
 .section {
+  overflow-x: auto;
   padding: 56px 0;
 }
 
@@ -223,7 +224,7 @@ body {
   border-collapse: separate;
   border-spacing: 0;
   border-radius: 16px;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   font-size: 14px;
 }
@@ -559,7 +560,7 @@ body {
   margin-bottom: 20px;
   border: 1px solid rgba(0,0,0,0.06);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   transition: transform 0.3s;
 }
 .tier-card:hover { transform: translateY(-2px); }
@@ -632,7 +633,7 @@ body {
 .accordion-toggle .arrow { transition: transform 0.3s; display: inline-block; }
 .accordion-toggle.open .arrow { transform: rotate(180deg); }
 .accordion-body {
-  max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+  max-height: 0; overflow: visible; transition: max-height 0.4s ease;
   margin-top: 0;
 }
 .accordion-body.open { max-height: 800px; }
@@ -733,7 +734,7 @@ body {
       <p style="font-size:13px;color:var(--warm-gray);">금융주 + 필수소비재 중심 · 출처: SEC 13F (2025년 Q4) · 42개 종목 보유</p>
     </div>
 
-    <div style="overflow-x:auto;">
+    
     <table class="compare-table" style="margin-bottom:14px;">
       <thead>
         <tr><th>종목</th><th>비중</th><th>첫 매수</th><th>추정 매수가</th><th>현재 주가 (4월 초)</th><th>보유 수익률</th><th>배당수익률</th></tr>
@@ -761,7 +762,7 @@ body {
     </div>
     <p style="font-size:14px;margin-bottom:12px;">세계 최대 자선재단도 <strong>배당을 주는 우량주</strong>로 기금을 운용해요. "안정적인 배당 수익 → 자선 활동 재원"이라는 구조예요.</p>
 
-    <div style="overflow-x:auto;">
+    
     <table class="compare-table" style="margin-bottom:30px;">
       <thead>
         <tr><th>종목</th><th>비중</th><th>업종</th><th>현재 주가 (4월 초)</th><th>배당수익률</th><th>특징</th></tr>
@@ -787,22 +788,22 @@ body {
     </div>
     <p style="font-size:14px;margin-bottom:12px;">슈왑이 운용하는 SCHD는 매년 3월, 배당 성장 + 재무 건전성 기준으로 가장 좋은 배당주 100개를 새로 뽑아요. 아래는 104개 종목 중 <strong>보유 비중이 가장 높은 상위 10개</strong> 종목이에요.</p>
 
-    <div style="overflow-x:auto;">
+    
     <table class="compare-table" style="margin-bottom:20px;">
       <thead>
-        <tr><th>순위</th><th>종목 (티커)</th><th>업종</th><th>현재 주가 (4월 초)</th><th>배당수익률</th><th>추정 매수 구간</th></tr>
+        <tr><th class="narrow">순위</th><th>종목 (티커)</th><th>업종</th><th>현재 주가 (4월 초)</th><th>배당수익률</th><th>추정 매수 구간</th></tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td><strong>텍사스인스트루먼츠 (TXN)</strong></td><td>반도체</td><td>~$180</td><td>~2.9%</td><td>$147~$220</td></tr>
-        <tr><td>2</td><td><strong>유나이티드헬스 (UNH)</strong></td><td>헬스케어</td><td>~$470</td><td>~1.7%</td><td>$390~$630</td></tr>
-        <tr><td>3</td><td><strong>셰브론 (CVX)</strong></td><td>에너지</td><td>~$160</td><td>~4.1%</td><td>$132~$169</td></tr>
-        <tr><td>4</td><td><strong>머크 (MRK)</strong></td><td>제약</td><td>~$90</td><td>~3.4%</td><td>$85~$134</td></tr>
-        <tr><td>5</td><td><strong>코카콜라 (KO)</strong></td><td>음료</td><td>~$77</td><td>~2.7%</td><td>$65~$82</td></tr>
-        <tr><td>6</td><td><strong>코노코필립스 (COP)</strong></td><td>에너지</td><td>~$100</td><td>~3.1%</td><td>$86~$125</td></tr>
-        <tr><td>7</td><td><strong>펩시코 (PEP)</strong></td><td>음료/식품</td><td>~$150</td><td>~3.6%</td><td>$130~$180</td></tr>
-        <tr><td>8</td><td><strong>암젠 (AMGN)</strong></td><td>바이오</td><td>~$290</td><td>~3.4%</td><td>$250~$340</td></tr>
-        <tr><td>9</td><td><strong>버라이즌 (VZ)</strong></td><td>통신</td><td>~$45</td><td>~5.9%</td><td>$37~$48</td></tr>
-        <tr><td>10</td><td><strong>애보트 (ABT)</strong></td><td>헬스케어</td><td>~$125</td><td>~1.8%</td><td>$98~$131</td></tr>
+        <tr><td class="narrow">1</td><td><strong>텍사스인스트루먼츠 (TXN)</strong></td><td>반도체</td><td>~$180</td><td>~2.9%</td><td>$147~$220</td></tr>
+        <tr><td class="narrow">2</td><td><strong>유나이티드헬스 (UNH)</strong></td><td>헬스케어</td><td>~$470</td><td>~1.7%</td><td>$390~$630</td></tr>
+        <tr><td class="narrow">3</td><td><strong>셰브론 (CVX)</strong></td><td>에너지</td><td>~$160</td><td>~4.1%</td><td>$132~$169</td></tr>
+        <tr><td class="narrow">4</td><td><strong>머크 (MRK)</strong></td><td>제약</td><td>~$90</td><td>~3.4%</td><td>$85~$134</td></tr>
+        <tr><td class="narrow">5</td><td><strong>코카콜라 (KO)</strong></td><td>음료</td><td>~$77</td><td>~2.7%</td><td>$65~$82</td></tr>
+        <tr><td class="narrow">6</td><td><strong>코노코필립스 (COP)</strong></td><td>에너지</td><td>~$100</td><td>~3.1%</td><td>$86~$125</td></tr>
+        <tr><td class="narrow">7</td><td><strong>펩시코 (PEP)</strong></td><td>음료/식품</td><td>~$150</td><td>~3.6%</td><td>$130~$180</td></tr>
+        <tr><td class="narrow">8</td><td><strong>암젠 (AMGN)</strong></td><td>바이오</td><td>~$290</td><td>~3.4%</td><td>$250~$340</td></tr>
+        <tr><td class="narrow">9</td><td><strong>버라이즌 (VZ)</strong></td><td>통신</td><td>~$45</td><td>~5.9%</td><td>$37~$48</td></tr>
+        <tr><td class="narrow">10</td><td><strong>애보트 (ABT)</strong></td><td>헬스케어</td><td>~$125</td><td>~1.8%</td><td>$98~$131</td></tr>
       </tbody>
     </table>
     </div>
@@ -814,7 +815,7 @@ body {
       <p style="font-size:13px;color:var(--warm-gray);">SCHD 2026.3 리컨스티튜션: 22개 삭제, 25개 신규 편입 + 버핏 최근 추가 매수 종목 포함</p>
     </div>
 
-    <div style="overflow-x:auto;">
+    
     <table class="compare-table" style="margin-bottom:20px;">
       <thead>
         <tr><th>종목</th><th>업종</th><th>추정 매수 구간</th><th>배당수익률</th><th>누가, 왜 담았나</th></tr>
@@ -841,6 +842,7 @@ body {
     <h2 class="section-title">배당 ETF로 한 번에 투자하기</h2>
     <p class="section-subtitle">직접 종목 고르기 부담스러우면, ETF 하나로 위의 우량 배당주를 한 번에!</p>
 
+    
     <table class="compare-table" style="margin-bottom:24px;">
       <thead>
         <tr><th>ETF</th><th>시장</th><th>배당수익률</th><th>보수</th><th>배당 주기</th><th>종목 수</th></tr>
@@ -900,6 +902,7 @@ body {
 
     <h3 style="font-size:16px;font-weight:700;color:var(--forest);margin-bottom:8px;">🇰🇷 한국 핵심 배당주</h3>
     <p style="font-size:12px;color:var(--warm-gray);margin-bottom:8px;">📌 배당금: 2025년 결산 확정치 · 주가: 2026년 4월 초 기준</p>
+    
     <table class="compare-table" style="margin-bottom:24px;">
       <thead>
         <tr><th>종목</th><th>업종</th><th>주당 배당금</th><th>주가</th><th>수익률</th><th>연속 배당</th><th>52주 범위</th></tr>
@@ -910,6 +913,7 @@ body {
         <tr><td><strong>SK텔레콤</strong></td><td>통신</td><td>3,320원</td><td>~70,000원</td><td>~4.7%</td><td>15년+</td><td>48,000~73,000원</td></tr>
       </tbody>
     </table>
+    </div>
   </div>
 
 </div>
