@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>엄마를 위한 배당주 투자 가이드</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F8F6FF;
+  --peach: #E8E0F5;
+  --coral: #FF8A6C;
+  --deep-coral: #E85D3A;
+  --forest: #5B4A9E;
+  --sage: #8B7EC8;
+  --sage-light: #EEEAF5;
+  --charcoal: #2C2C2C;
+  --warm-gray: #6B6560;
+  --gold: #E8C547;
+  --gold-light: #FFF9E0;
+  --white: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--cream);
+  color: var(--charcoal);
+  line-height: 1.8;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #4A3B7C 0%, var(--forest) 50%, var(--sage) 100%);
+  color: var(--white);
+  padding: 80px 24px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 20%, rgba(212,168,83,0.15) 0%, transparent 40%);
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-20px, 15px) rotate(2deg); }
+}
+
+.hero-content { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 6px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.hero h1 {
+  font-size: clamp(28px, 6vw, 44px);
+  font-weight: 900;
+  line-height: 1.3;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.15);
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.hero p {
+  font-size: 16px;
+  opacity: 0.9;
+  font-weight: 300;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* SECTION */
+.section {
+  padding: 56px 0;
+}
+
+.section-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--forest);
+  color: var(--white);
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(22px, 4.5vw, 30px);
+  font-weight: 900;
+  color: var(--forest);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: var(--warm-gray);
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+/* DIVIDER */
+.divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--peach), transparent);
+}
+
+/* CARD GRID */
+.card-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.card-grid.cols-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.card-grid.cols-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (max-width: 600px) {
+  .card-grid.cols-2, .card-grid.cols-3 { grid-template-columns: 1fr; }
+}
+
+/* CARDS */
+.card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.card-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--forest);
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 14px;
+  color: var(--warm-gray);
+  line-height: 1.7;
+}
+
+/* HIGHLIGHT CARD */
+.highlight-card {
+  background: linear-gradient(135deg, var(--sage-light) 0%, var(--gold-light) 100%);
+  border-radius: 20px;
+  padding: 32px;
+  border: 1px solid rgba(123,160,91,0.2);
+}
+
+.highlight-card h3 {
+  font-size: 18px;
+  color: var(--forest);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.highlight-card p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--charcoal);
+}
+
+/* COMPARISON TABLE */
+.compare-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  font-size: 14px;
+}
+
+.compare-table thead th {
+  background: var(--forest);
+  color: var(--white);
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.compare-table tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f0ece8;
+  background: var(--white);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.compare-table tbody tr:last-child td { border-bottom: none; }
+
+.compare-table tbody tr:hover td { background: #fdfcfa; }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 32px; }
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--sage), var(--gold));
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -26px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  background: var(--white);
+  border: 3px solid var(--sage);
+  border-radius: 50%;
+}
+
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--coral);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.timeline-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 4px;
+}
+
+.timeline-desc {
+  font-size: 14px;
+  color: var(--warm-gray);
+  line-height: 1.7;
+}
+
+/* STOCK LIST */
+.stock-category {
+  margin-bottom: 24px;
+}
+
+.stock-category-title {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.stock-category-title.kr { background: var(--sage-light); color: var(--forest); }
+.stock-category-title.us { background: var(--gold-light); color: #8B6914; }
+.stock-category-title.etf { background: #EDE4F5; color: #5B2D8E; }
+
+.stock-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stock-chip {
+  background: var(--white);
+  border: 1px solid #e8e4e0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: border-color 0.2s;
+  min-width: 130px;
+  flex: 1;
+}
+
+.stock-chip:hover { border-color: var(--sage); }
+
+.stock-chip .name { font-weight: 700; color: var(--charcoal); font-size: 14px; }
+.stock-chip .detail { color: var(--warm-gray); font-size: 12px; }
+
+/* RULE CARDS */
+.rule-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: transform 0.2s;
+}
+
+.rule-card:hover { transform: translateX(4px); }
+
+.rule-num {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--forest), var(--sage));
+  color: var(--white);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.rule-content h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 4px;
+}
+
+.rule-content p {
+  font-size: 14px;
+  color: var(--warm-gray);
+  line-height: 1.7;
+}
+
+/* WARNING BOX */
+.warning-box {
+  background: #FFF5F3;
+  border-left: 4px solid var(--coral);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin-top: 24px;
+}
+
+.warning-box h4 {
+  color: var(--deep-coral);
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.warning-box p {
+  font-size: 14px;
+  color: var(--warm-gray);
+  line-height: 1.7;
+}
+
+/* TIP BOX */
+.tip-box {
+  background: var(--sage-light);
+  border-left: 4px solid var(--sage);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin-top: 20px;
+}
+
+.tip-box h4 {
+  color: var(--forest);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.tip-box p {
+  font-size: 14px;
+  color: var(--charcoal);
+  line-height: 1.7;
+}
+
+/* FORMULA */
+.formula-box {
+  background: var(--charcoal);
+  color: var(--white);
+  border-radius: 14px;
+  padding: 24px 28px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.formula-box .label {
+  font-size: 12px;
+  opacity: 0.6;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.formula-box .formula {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+.formula-box .example {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* CTA */
+.cta-section {
+  background: linear-gradient(135deg, #4A3B7C 0%, var(--forest) 100%);
+  color: var(--white);
+  padding: 48px 24px;
+  text-align: center;
+  border-radius: 0;
+}
+
+.cta-section h2 {
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.cta-section p {
+  font-size: 15px;
+  opacity: 0.85;
+  max-width: 500px;
+  margin: 0 auto 20px;
+  line-height: 1.7;
+}
+
+/* CHECKLIST */
+.checklist { list-style: none; }
+
+.checklist li {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0ece8;
+  font-size: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.6;
+}
+
+.checklist li:last-child { border-bottom: none; }
+
+.check-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  background: var(--sage-light);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--forest);
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 32px 20px;
+  font-size: 12px;
+  color: var(--warm-gray);
+  line-height: 1.7;
+}
+
+.footer strong { color: var(--deep-coral); }
+
+/* PROSE */
+.prose { font-size: 15px; line-height: 1.85; color: #4a4540; }
+.prose strong { color: var(--charcoal); font-weight: 700; }
+
+/* BADGE LIST */
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge.green { background: var(--sage-light); color: var(--forest); }
+.badge.gold { background: var(--gold-light); color: #8B6914; }
+.badge.coral { background: #FFE8E0; color: var(--deep-coral); }
+
+/* TIER SYSTEM */
+.tier-card {
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0,0,0,0.06);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.tier-card:hover { transform: translateY(-2px); }
+.tier-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 5px; height: 100%;
+}
+.tier-card.king { background: linear-gradient(135deg, #FFF8E7, #FFF1CC); }
+.tier-card.king::before { background: linear-gradient(to bottom, #D4A853, #B8860B); }
+.tier-card.aristocrat { background: linear-gradient(135deg, #F0F4FF, #E4ECFF); }
+.tier-card.aristocrat::before { background: linear-gradient(to bottom, #4A6FA5, #2D4A7A); }
+.tier-card.champion { background: linear-gradient(135deg, #F0FFF0, #E0F5E0); }
+.tier-card.champion::before { background: linear-gradient(to bottom, var(--sage), var(--forest)); }
+.tier-card.bluechip { background: linear-gradient(135deg, #FFF5F0, #FFE8DE); }
+.tier-card.bluechip::before { background: linear-gradient(to bottom, var(--coral), var(--deep-coral)); }
+
+.tier-header { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+.tier-icon { font-size: 28px; }
+.tier-name { font-size: 20px; font-weight: 900; color: var(--charcoal); }
+.tier-eng { font-size: 12px; font-weight: 600; letter-spacing: 1px; opacity: 0.5; text-transform: uppercase; }
+.tier-criteria {
+  font-size: 14px; color: var(--warm-gray); margin-bottom: 16px;
+  padding-bottom: 14px; border-bottom: 1px dashed rgba(0,0,0,0.1); line-height: 1.6;
+}
+.tier-criteria strong { color: var(--charcoal); }
+.tier-stocks { display: flex; flex-wrap: wrap; gap: 8px; }
+.tier-stock {
+  background: rgba(255,255,255,0.75); border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 10px; padding: 10px 14px; font-size: 13px;
+  min-width: 155px; flex: 1; backdrop-filter: blur(4px);
+}
+.tier-stock .ts-name { font-weight: 700; color: var(--charcoal); font-size: 14px; }
+.tier-stock .ts-ticker { font-size: 11px; color: var(--warm-gray); font-weight: 600; letter-spacing: 0.5px; }
+.tier-stock .ts-desc { font-size: 12px; color: var(--warm-gray); margin-top: 2px; }
+.tier-stock .ts-years {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  padding: 1px 8px; border-radius: 10px; margin-top: 4px;
+}
+.tier-card.king .ts-years { background: #F5E6C4; color: #8B6914; }
+.tier-card.aristocrat .ts-years { background: #D6E2F5; color: #2D4A7A; }
+.tier-card.champion .ts-years { background: #D0E8D0; color: var(--forest); }
+.tier-card.bluechip .ts-years { background: #FFD6C4; color: #A04420; }
+
+.tier-pyramid {
+  display: flex; flex-direction: column; align-items: center; gap: 4px; margin: 28px 0;
+}
+.pyramid-row {
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 8px; padding: 10px 0; font-weight: 700; font-size: 13px;
+  text-align: center; color: var(--white); line-height: 1.4;
+}
+.pyramid-row.p1 { width: 45%; background: linear-gradient(135deg, #B8860B, #D4A853); }
+.pyramid-row.p2 { width: 60%; background: linear-gradient(135deg, #2D4A7A, #4A6FA5); }
+.pyramid-row.p3 { width: 75%; background: linear-gradient(135deg, var(--forest), var(--sage)); }
+.pyramid-row.p4 { width: 90%; background: linear-gradient(135deg, var(--deep-coral), var(--coral)); }
+.pyramid-label { font-size: 11px; opacity: 0.8; font-weight: 400; }
+
+/* ACCORDION */
+.accordion-toggle {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  width: 100%; padding: 10px 0 4px; margin-top: 14px;
+  border: none; background: none; cursor: pointer;
+  font-size: 13px; font-weight: 600; color: var(--warm-gray);
+  border-top: 1px dashed rgba(0,0,0,0.1);
+  transition: color 0.2s;
+}
+.accordion-toggle:hover { color: var(--forest); }
+.accordion-toggle .arrow { transition: transform 0.3s; display: inline-block; }
+.accordion-toggle.open .arrow { transform: rotate(180deg); }
+.accordion-body {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+  margin-top: 0;
+}
+.accordion-body.open { max-height: 800px; }
+.accordion-list {
+  font-size: 13px; color: var(--warm-gray); line-height: 2;
+  padding: 10px 0 4px; column-count: 2; column-gap: 20px;
+}
+@media (max-width: 500px) { .accordion-list { column-count: 1; } }
+.accordion-list span { color: var(--charcoal); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-content">
+    <span class="hero-badge">2부 · 실전편</span>
+    <h1>내 아이 첫 <em>배당주</em> 고르기</h1>
+    <p>바쁜 엄마라 일일이 분석할 시간 없잖아요.<br>글로벌 큰손들이 이미 골라놓은 배당주를 참고하고,<br>기준 몇 가지만 알아두면 충분해요.</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- SECTION 1 -->
+  <div class="section">
+    <span class="section-number">1</span>
+    <h2 class="section-title">좋은 배당주의 5가지 조건</h2>
+    <p class="section-subtitle">이 5가지 지표만 확인하면 돼요</p>
+
+    <div class="rule-card">
+      <div class="rule-num">1</div>
+      <div class="rule-content">
+        <h4>배당수익률 3~6% — 내 투자금 대비 매년 몇 %를 받는가</h4>
+        <p>10% 이상이면 주의! 주가가 많이 떨어져서 상대적으로 수익률이 높아 보이는 것일 수 있어요.</p>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-num">2</div>
+      <div class="rule-content">
+        <h4>연속 배당 인상 10년 이상</h4>
+        <p><strong>10년+</strong> 안심, <strong>25년+</strong> 배당귀족, <strong>50년+</strong> 배당킹!</p>
+        <p style="margin-top:6px;font-size:13px;background:#F3F0FF;padding:10px 14px;border-radius:10px;">
+          <strong>👑 배당킹 (50년+):</strong> P&amp;G(68년) · 코카콜라(62년) · J&amp;J(62년) · 콜게이트(61년) · 알트리아(55년) · 타깃(53년+) · 킴벌리-클라크(52년) · 펩시코(52년) · 애보트(52년)<br><br>
+          <strong>🏛️ 배당귀족 (25년+):</strong> 셰브론(37년) · 맥도날드(49년) · 월마트(49년) · 엑손모빌(42년) · IBM(29년) · 캐터필러(31년)<br><br>
+          ❌ 3M — 66년 유지 후 2024년 배당 삭감으로 자격 상실
+        </p>
+        <p style="margin-top:6px;font-size:13px;">📩 <a href="https://www.instagram.com/reel/DWvnabIEqns/" target="_blank" style="color:var(--deep-coral);font-weight:600;">배당귀족과 배당킹 리스트 보러가기 (1부 자료) →</a></p>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-num">3</div>
+      <div class="rule-content">
+        <h4>매출·영업이익이 꾸준히 증가</h4>
+        <p>증권 앱에서 종목 검색 → <strong>"영업이익"</strong> 항목을 보세요. 최근 3~5년간 매년 늘고 있으면 OK, 갑자기 줄거나 적자 전환이면 위험!</p>
+        <p style="margin-top:6px;font-size:13px;">❌ 월그린스(WBA) — 영업이익 적자 전환 → 48년 만에 배당 90% 삭감</p>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-num">4</div>
+      <div class="rule-content">
+        <h4>배당성향 40~60%가 건강</h4>
+        <p>월 100만 원 번 회사가 50만 원(50%) 배당하면 적정, 90만 원(90%)이면 무리. 증권 앱에서 <strong>"배당성향"</strong> 또는 <strong>"Payout Ratio"</strong>를 찾아보세요.</p>
+        <p style="margin-top:6px;font-size:13px;">❌ 레깃앤플랫(LEG) — 배당성향 100% 초과 → 2024년 배당 대폭 삭감</p>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-num">5</div>
+      <div class="rule-content">
+        <h4>기관·외국인 보유 비율이 높은가</h4>
+        <p>증권 앱에서 <strong>"외국인 보유율"</strong>, <strong>"기관 순매수"</strong>를 확인하세요. 한국은 외국인 보유율 <strong>20% 이상</strong>, 미국은 기관 보유율 <strong>50% 이상</strong>이면 검증된 종목이에요.</p>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <h4>💡 5가지 체크 요약</h4>
+      <p>✅ 배당수익률 3~6% ✅ 연속 인상 10년+ ✅ 매출·영업이익 증가 ✅ 배당성향 40~60% ✅ 기관 보유 높음<br>
+      → 시가총액 상위에서 이 조건을 충족하는 대형 우량주가 제일 안전해요.<br>
+      → 직접 분석이 부담스러우면? <strong>배당 ETF가 이 5가지를 자동으로 걸러줘요.</strong> 섹션 3에서 자세히!</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SECTION 2 -->
+  <div class="section">
+    <span class="section-number">2</span>
+    <h2 class="section-title">큰손/기관들의 배당주 포트폴리오 엿보기</h2>
+
+    <h3 style="font-size:18px;font-weight:800;color:var(--forest);margin-bottom:16px;">👀 큰손들은 어떤 배당주를 담고 있을까?</h3>
+
+    <!-- 버핏 -->
+    <div style="border-left:4px solid var(--gold);background:var(--gold-light);border-radius:0 16px 16px 0;padding:20px 24px;margin-bottom:20px;">
+      <h3 style="color:#8B6914;margin-bottom:4px;">👤 워렌 버핏 (버크셔 해서웨이) — 포트폴리오 $2,741억</h3>
+      <p style="font-size:13px;color:var(--warm-gray);">금융주 + 필수소비재 중심 · 출처: SEC 13F (2025년 Q4) · 42개 종목 보유</p>
+    </div>
+
+    <div style="overflow-x:auto;">
+    <table class="compare-table" style="margin-bottom:14px;">
+      <thead>
+        <tr><th>종목</th><th>비중</th><th>첫 매수</th><th>추정 매수가</th><th>현재 주가 (4월 초)</th><th>보유 수익률</th><th>배당수익률</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>애플 (AAPL)</strong></td><td>22.6%</td><td>2016년</td><td>~$36</td><td>~$200</td><td>+456%</td><td>~0.5%</td></tr>
+        <tr><td><strong>아멕스 (AXP)</strong></td><td>20.5%</td><td>1991년</td><td>~$25</td><td>~$280</td><td>+1,020%</td><td>~1.2%</td></tr>
+        <tr><td><strong>뱅크오브아메리카 (BAC)</strong></td><td>10.4%</td><td>2011년</td><td>~$7</td><td>~$42</td><td>+500%</td><td>~2.5%</td></tr>
+        <tr><td><strong>코카콜라 (KO)</strong></td><td>10.2%</td><td>1988년</td><td>~$3.25 (분할 반영)</td><td>~$77</td><td>+2,269%</td><td>~2.7%</td></tr>
+        <tr><td><strong>셰브론 (CVX)</strong></td><td>7.2%</td><td>2020년</td><td>~$80</td><td>~$160</td><td>+100%</td><td>~4.1%</td></tr>
+        <tr><td><strong>옥시덴탈 (OXY)</strong></td><td>5.2%</td><td>2019년</td><td>~$40</td><td>~$45</td><td>+13%</td><td>~1.6%</td></tr>
+        <tr><td><strong>크래프트 하인즈 (KHC)</strong></td><td>4.6%</td><td>2015년</td><td>~$77</td><td>~$30</td><td style="color:red;">-61%</td><td>~5.3%</td></tr>
+        <tr><td><strong>무디스 (MCO)</strong></td><td>4.5%</td><td>2000년</td><td>~$10</td><td>~$460</td><td>+4,500%</td><td>~0.7%</td></tr>
+        <tr><td><strong>처브 (CB)</strong></td><td>2.9%</td><td>2023년</td><td>~$220</td><td>~$290</td><td>+32%</td><td>~1.3%</td></tr>
+        <tr><td><strong>다비타 (DVA)</strong></td><td>2.3%</td><td>2012년</td><td>~$50</td><td>~$160</td><td>+220%</td><td>—</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:13px;color:var(--warm-gray);margin-bottom:24px;">💡 버핏은 코카콜라를 1994년 이후 <strong>추가 매수 없이 30년간 보유</strong>만 했어요. 원금 $13억 → 현재 $280억+, 배당금만 누적 $70억+.</p>
+
+    <!-- 빌 게이츠 재단 -->
+    <div style="border-left:4px solid #5B2D8E;background:#F3F0FF;border-radius:0 16px 16px 0;padding:20px 24px;margin-bottom:20px;">
+      <h3 style="color:#5B2D8E;margin-bottom:4px;">🏛️ 빌 게이츠 재단 (Gates Foundation Trust) — $353억</h3>
+      <p style="font-size:13px;color:var(--warm-gray);">인프라 + 필수산업 중심 · 출처: SEC 13F (2025년 Q4) · 23개 종목</p>
+    </div>
+    <p style="font-size:14px;margin-bottom:12px;">세계 최대 자선재단도 <strong>배당을 주는 우량주</strong>로 기금을 운용해요. "안정적인 배당 수익 → 자선 활동 재원"이라는 구조예요.</p>
+
+    <div style="overflow-x:auto;">
+    <table class="compare-table" style="margin-bottom:30px;">
+      <thead>
+        <tr><th>종목</th><th>비중</th><th>업종</th><th>현재 주가 (4월 초)</th><th>배당수익률</th><th>특징</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>버크셔 해서웨이 (BRK.B)</strong></td><td>27.6%</td><td>투자</td><td>~$530</td><td>— (배당 없음)</td><td>버핏과의 우정, 최대 보유</td></tr>
+        <tr><td><strong>웨이스트매니지먼트 (WM)</strong></td><td>18.0%</td><td>환경</td><td>~$230</td><td>~1.3%</td><td>미국 1위 폐기물 처리, 독점적 지위</td></tr>
+        <tr><td><strong>캐나디안내셔널 (CNI)</strong></td><td>14.5%</td><td>철도</td><td>~$105</td><td>~2.6%</td><td>캐나다 최대 철도, 20년+ 배당 인상</td></tr>
+        <tr><td><strong>마이크로소프트 (MSFT)</strong></td><td>10.5%</td><td>기술</td><td>~$380</td><td>~0.8%</td><td>공동 창업자, AI 성장 수혜</td></tr>
+        <tr><td><strong>캐터필러 (CAT)</strong></td><td>10.3%</td><td>산업재</td><td>~$340</td><td>~1.6%</td><td>세계 1위 건설장비, 31년 배당 인상</td></tr>
+        <tr><td><strong>월마트 (WMT)</strong></td><td>3.5%</td><td>유통</td><td>~$95</td><td>~1.0%</td><td>세계 최대 유통, 49년 배당 인상</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- 파트 B -->
+    <h3 style="font-size:18px;font-weight:800;color:var(--forest);margin-bottom:16px;">💰 그래서, 얼마에 사면 될까?</h3>
+
+    <!-- SCHD TOP10 -->
+    <div style="border-left:4px solid var(--deep-coral);background:#FFF5F0;border-radius:0 16px 16px 0;padding:20px 24px;margin-bottom:20px;">
+      <h3 style="color:var(--deep-coral);margin-bottom:4px;">📊 슈왑(Schwab) — 미국 배당 ETF 1위 SCHD 운용, 약 $850억</h3>
+      <p style="font-size:13px;color:var(--warm-gray);">배당 성장 + 재무 건전성 중심 · 출처: Schwab Asset Management (2026.4 기준)</p>
+    </div>
+    <p style="font-size:14px;margin-bottom:12px;">슈왑이 운용하는 SCHD는 매년 3월, 배당 성장 + 재무 건전성 기준으로 가장 좋은 배당주 100개를 새로 뽑아요. 아래는 104개 종목 중 <strong>보유 비중이 가장 높은 상위 10개</strong> 종목이에요.</p>
+
+    <div style="overflow-x:auto;">
+    <table class="compare-table" style="margin-bottom:20px;">
+      <thead>
+        <tr><th>순위</th><th>종목 (티커)</th><th>업종</th><th>현재 주가 (4월 초)</th><th>배당수익률</th><th>추정 매수 구간</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong>텍사스인스트루먼츠 (TXN)</strong></td><td>반도체</td><td>~$180</td><td>~2.9%</td><td>$147~$220</td></tr>
+        <tr><td>2</td><td><strong>유나이티드헬스 (UNH)</strong></td><td>헬스케어</td><td>~$470</td><td>~1.7%</td><td>$390~$630</td></tr>
+        <tr><td>3</td><td><strong>셰브론 (CVX)</strong></td><td>에너지</td><td>~$160</td><td>~4.1%</td><td>$132~$169</td></tr>
+        <tr><td>4</td><td><strong>머크 (MRK)</strong></td><td>제약</td><td>~$90</td><td>~3.4%</td><td>$85~$134</td></tr>
+        <tr><td>5</td><td><strong>코카콜라 (KO)</strong></td><td>음료</td><td>~$77</td><td>~2.7%</td><td>$65~$82</td></tr>
+        <tr><td>6</td><td><strong>코노코필립스 (COP)</strong></td><td>에너지</td><td>~$100</td><td>~3.1%</td><td>$86~$125</td></tr>
+        <tr><td>7</td><td><strong>펩시코 (PEP)</strong></td><td>음료/식품</td><td>~$150</td><td>~3.6%</td><td>$130~$180</td></tr>
+        <tr><td>8</td><td><strong>암젠 (AMGN)</strong></td><td>바이오</td><td>~$290</td><td>~3.4%</td><td>$250~$340</td></tr>
+        <tr><td>9</td><td><strong>버라이즌 (VZ)</strong></td><td>통신</td><td>~$45</td><td>~5.9%</td><td>$37~$48</td></tr>
+        <tr><td>10</td><td><strong>애보트 (ABT)</strong></td><td>헬스케어</td><td>~$125</td><td>~1.8%</td><td>$98~$131</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:13px;color:var(--warm-gray);margin-bottom:24px;">💡 추정 매수 구간은 SCHD 리컨스티튜션(2026.3.23) 전후 주가 범위 기준이에요. 현재 주가가 하단에 가까울수록 저평가 구간!</p>
+
+    <!-- 신규 편입 + 최근 추가 매수 -->
+    <div style="border-left:4px solid var(--sage);background:var(--sage-light);border-radius:0 16px 16px 0;padding:20px 24px;margin-bottom:20px;">
+      <h3 style="color:var(--forest);margin-bottom:4px;">🆕 올해 큰손/기관이 새로 담거나 추가 매수한 배당주</h3>
+      <p style="font-size:13px;color:var(--warm-gray);">SCHD 2026.3 리컨스티튜션: 22개 삭제, 25개 신규 편입 + 버핏 최근 추가 매수 종목 포함</p>
+    </div>
+
+    <div style="overflow-x:auto;">
+    <table class="compare-table" style="margin-bottom:20px;">
+      <thead>
+        <tr><th>종목</th><th>업종</th><th>추정 매수 구간</th><th>배당수익률</th><th>누가, 왜 담았나</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>유나이티드헬스 (UNH)</strong></td><td>헬스케어</td><td>$420~$520</td><td>~1.7%</td><td>SCHD 신규 편입, 고점 대비 48%↓로 즉시 TOP2</td></tr>
+        <tr><td><strong>애보트 (ABT)</strong></td><td>헬스케어</td><td>$110~$130</td><td>~1.8%</td><td>SCHD 신규 편입, 52년 배당킹</td></tr>
+        <tr><td><strong>P&amp;G (PG)</strong></td><td>생활용품</td><td>$160~$175</td><td>~2.4%</td><td>SCHD 신규 편입, 68년 연속 인상</td></tr>
+        <tr><td><strong>퀄컴 (QCOM)</strong></td><td>반도체</td><td>$150~$180</td><td>~2.2%</td><td>SCHD 신규 편입, 5G·AI칩 핵심</td></tr>
+        <tr><td><strong>액센츄어 (ACN)</strong></td><td>IT서비스</td><td>$290~$370</td><td>~1.8%</td><td>SCHD 신규 편입, 글로벌 1위, 고점 대비 35%↓</td></tr>
+        <tr><td><strong>셰브론 (CVX)</strong></td><td>에너지</td><td>$140~$165</td><td>~4.1%</td><td>버핏 2025 Q2 추가 매수 + SCHD 유지 TOP3</td></tr>
+        <tr><td><strong>코카콜라 (KO)</strong></td><td>음료</td><td>SCHD 유지 TOP5</td><td>~2.7%</td><td>버핏 30년+ 보유, 62년 배당킹</td></tr>
+        <tr><td><strong>머크 (MRK)</strong></td><td>제약</td><td>$85~$100</td><td>~3.4%</td><td>SCHD 유지 TOP4, 고점 대비 34%↓</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <span class="section-number">3</span>
+    <h2 class="section-title">배당 ETF로 한 번에 투자하기</h2>
+    <p class="section-subtitle">직접 종목 고르기 부담스러우면, ETF 하나로 위의 우량 배당주를 한 번에!</p>
+
+    <table class="compare-table" style="margin-bottom:24px;">
+      <thead>
+        <tr><th>ETF</th><th>시장</th><th>배당수익률</th><th>보수</th><th>배당 주기</th><th>종목 수</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>SCHD</strong></td><td>🇺🇸 미국</td><td>~3.4%</td><td>0.06%</td><td>분기</td><td>~104개</td></tr>
+        <tr><td><strong>VYM</strong></td><td>🇺🇸 미국</td><td>~2.3%</td><td>0.04%</td><td>분기</td><td>~565개</td></tr>
+        <tr><td><strong>ACE 미국배당다우존스</strong></td><td>🇰🇷 국내상장</td><td>~3.4%</td><td>0.01%</td><td>월배당</td><td>~100개</td></tr>
+      </tbody>
+    </table>
+
+    <div class="card-grid cols-3">
+      <div class="card" style="border-top:4px solid var(--deep-coral);">
+        <h3>SCHD</h3>
+        <p style="font-size:13px;margin-bottom:10px;">배당 성장률 연 10.6%, 수익률 3.4%. 재무 건전성 + 배당 이력으로 100개 종목을 엄격하게 골라요. 2026년 YTD +12%로 배당 ETF 중 1등.</p>
+        <div style="background:var(--deep-coral);color:#fff;padding:10px 14px;border-radius:10px;font-size:13px;font-weight:700;text-align:center;">👉 배당 수익 + 주가 성장 둘 다 원하는 분</div>
+      </div>
+      <div class="card" style="border-top:4px solid var(--sage);">
+        <h3>VYM</h3>
+        <p style="font-size:13px;margin-bottom:10px;">배당수익률 2.3%, 보수 0.04%로 업계 최저. 미국 대형 배당주 565개에 골고루 투자해서 위험을 최대한 분산해요.</p>
+        <div style="background:var(--sage);color:#fff;padding:10px 14px;border-radius:10px;font-size:13px;font-weight:700;text-align:center;">👉 안정적으로 넓게 분산하고 싶은 분</div>
+      </div>
+      <div class="card" style="border-top:4px solid var(--gold);">
+        <h3>ACE 미국배당다우존스</h3>
+        <p style="font-size:13px;margin-bottom:10px;">SCHD와 같은 지수 추종 + 매월 배당 + 보수 0.01% 최저. ISA 계좌로 투자하면 배당소득 비과세 혜택까지!</p>
+        <div style="background:var(--gold);color:#fff;padding:10px 14px;border-radius:10px;font-size:13px;font-weight:700;text-align:center;">👉 원화로 쉽게, 매월 배당 받고 싶은 분</div>
+      </div>
+    </div>
+
+    <div class="highlight-card" style="margin-top:20px;margin-bottom:24px;">
+      <h3>💰 월 30만 원 투자하면 배당금이 얼마나 들어올까?</h3>
+      <table class="compare-table" style="margin-top:12px;">
+        <thead><tr><th>ETF</th><th>1년 (360만 원)</th><th>3년 (1,080만 원)</th><th>5년 (1,800만 원)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>SCHD (3.4%)</strong></td><td>연 ~12만 원</td><td>연 ~37만 원</td><td>연 ~61만 원</td></tr>
+          <tr><td><strong>VYM (2.3%)</strong></td><td>연 ~8만 원</td><td>연 ~25만 원</td><td>연 ~41만 원</td></tr>
+          <tr><td><strong>ACE (3.4%)</strong></td><td>월 ~1만 원</td><td>월 ~3.1만 원</td><td>월 ~5.1만 원</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:12px;color:var(--warm-gray);margin-top:8px;">※ 주가 변동·배당 인상 고려한 단순 추정. 실제 금액은 달라질 수 있어요.</p>
+    </div>
+
+    <div class="highlight-card" style="margin-bottom:24px;">
+      <h3>📈 SCHD vs VYM 성과 비교</h3>
+      <table class="compare-table" style="margin-top:12px;">
+        <thead><tr><th>구분</th><th>SCHD</th><th>VYM</th></tr></thead>
+        <tbody>
+          <tr><td><strong>2026년 수익률 (YTD)</strong></td><td>+12%</td><td>+5%</td></tr>
+          <tr><td><strong>10년 연평균 배당 성장률</strong></td><td>10.6%</td><td>5.0%</td></tr>
+          <tr><td><strong>배당수익률</strong></td><td>3.4%</td><td>2.3%</td></tr>
+          <tr><td><strong>보수</strong></td><td>0.06%</td><td>0.04%</td></tr>
+          <tr><td><strong>2011년 이후 누적 수익률</strong></td><td>+478%</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:13px;margin-top:10px;">💡 SCHD가 수익률·배당 성장 모두 앞서지만, VYM은 565개 종목으로 <strong>분산 효과</strong>가 더 커요.</p>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:700;color:var(--forest);margin-bottom:8px;">🇰🇷 한국 핵심 배당주</h3>
+    <p style="font-size:12px;color:var(--warm-gray);margin-bottom:8px;">📌 배당금: 2025년 결산 확정치 · 주가: 2026년 4월 초 기준</p>
+    <table class="compare-table" style="margin-bottom:24px;">
+      <thead>
+        <tr><th>종목</th><th>업종</th><th>주당 배당금</th><th>주가</th><th>수익률</th><th>연속 배당</th><th>52주 범위</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>KB금융</strong></td><td>금융</td><td>3,566원</td><td>~105,000원</td><td>~3.4%</td><td>10년+</td><td>72,000~115,000원</td></tr>
+        <tr><td><strong>KT&amp;G</strong></td><td>소비재</td><td>5,600원</td><td>~158,000원</td><td>~3.5%</td><td>20년+</td><td>98,000~160,000원</td></tr>
+        <tr><td><strong>SK텔레콤</strong></td><td>통신</td><td>3,320원</td><td>~70,000원</td><td>~4.7%</td><td>15년+</td><td>48,000~73,000원</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <p style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;">만든이 · 구채희</p>
+  <p style="font-size:14px;line-height:2;color:rgba(255,255,255,0.85);">신혼부부 재테크 멘토이자 47만 경제 인플루언서.<br>재테크 · 자기관리 · 교육에 진심인 육각형 엄마.<br>돈 관리 노하우와 기준 있는 소비를 나눠요.</p>
+  <p style="margin-top:20px;font-size:18px;"><a href="https://www.instagram.com/chaeheekoo/" target="_blank" style="color:var(--gold);text-decoration:underline;font-weight:700;">📩 @chaeheekoo 팔로우하기</a></p>
+  <p style="margin-top:12px;font-size:14px;"><a href="https://www.instagram.com/reel/DWvnabIEqns/" target="_blank" style="color:#fff;text-decoration:underline;">📚 배당귀족과 배당킹 리스트 보러가기 (1부 자료)</a></p>
+</div>
+
+<!-- 서비스 홍보 -->
+<div style="max-width:600px;margin:0 auto;padding:30px 20px;">
+  <h3 style="text-align:center;font-size:17px;color:var(--charcoal);margin-bottom:20px;">📌 순자산 10배 늘려주는 재테크 인생템</h3>
+
+  <a href="https://smartstore.naver.com/prettywife" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:16px;background:linear-gradient(135deg,var(--forest),var(--sage));color:#fff;border-radius:16px;padding:24px 20px;text-decoration:none;margin-bottom:12px;box-shadow:0 4px 15px rgba(91,74,158,0.2);">
+    <span style="font-size:40px;">📊</span>
+    <div>
+      <p style="font-weight:700;font-size:17px;">국내 판매량 1위, 채움 가계부</p>
+      <p style="font-size:12px;opacity:0.85;margin-top:2px;">엑셀/구글시트 · 원화/달러</p>
+    </div>
+  </a>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <a href="https://smartstore.naver.com/prettywife" target="_blank" style="display:block;background:var(--white);border-radius:14px;padding:20px;text-align:center;text-decoration:none;color:var(--charcoal);box-shadow:0 2px 10px rgba(0,0,0,0.06);border:1px solid #eee;">
+      <span style="font-size:32px;">🎓</span>
+      <p style="font-weight:700;margin-top:8px;font-size:14px;">원데이 특강</p>
+      <p style="font-size:11px;color:var(--warm-gray);margin-top:4px;">가계부 원데이 클래스</p>
+    </a>
+    <a href="https://smartstore.naver.com/prettywife" target="_blank" style="display:block;background:var(--white);border-radius:14px;padding:20px;text-align:center;text-decoration:none;color:var(--charcoal);box-shadow:0 2px 10px rgba(0,0,0,0.06);border:1px solid #eee;">
+      <span style="font-size:32px;">📒</span>
+      <p style="font-weight:700;margin-top:8px;font-size:14px;">채우다 수기 가계부</p>
+      <p style="font-size:11px;color:var(--warm-gray);margin-top:4px;">손글씨로 채우는 가계부</p>
+    </a>
+    <a href="https://smartstore.naver.com/prettywife" target="_blank" style="display:block;background:var(--white);border-radius:14px;padding:20px;text-align:center;text-decoration:none;color:var(--charcoal);box-shadow:0 2px 10px rgba(0,0,0,0.06);border:1px solid #eee;">
+      <span style="font-size:32px;">📔</span>
+      <p style="font-weight:700;margin-top:8px;font-size:14px;">미미 다이어리</p>
+      <p style="font-size:11px;color:var(--warm-gray);margin-top:4px;">엄마들을 위한 다이어리</p>
+    </a>
+    <a href="https://smartstore.naver.com/prettywife" target="_blank" style="display:block;background:var(--white);border-radius:14px;padding:20px;text-align:center;text-decoration:none;color:var(--charcoal);box-shadow:0 2px 10px rgba(0,0,0,0.06);border:1px solid #eee;">
+      <span style="font-size:32px;">🍽️</span>
+      <p style="font-weight:700;margin-top:8px;font-size:14px;">냉장고 식단표</p>
+      <p style="font-size:11px;color:var(--warm-gray);margin-top:4px;">일주일 식단 한눈에</p>
+    </a>
+  </div>
+  <p style="text-align:center;margin-top:16px;">
+    <a href="https://smartstore.naver.com/prettywife" target="_blank" style="color:var(--deep-coral);font-weight:700;font-size:14px;text-decoration:underline;">🛒 스마트스토어에서 전체 상품 보기 →</a>
+  </p>
+</div>
+
+<div class="footer">
+  <p>본 콘텐츠는 정보 제공 목적이며, <strong>투자 권유가 아닙니다.</strong><br>
+  모든 투자에는 원금 손실의 위험이 있으며, 투자 판단과 결과의 책임은 투자자 본인에게 있습니다.<br>
+  구체적인 투자 결정 전 전문가 상담을 권장합니다.<br><br>
+  데이터 출처: SEC 13F, Schwab Asset Management, Vanguard, 네이버증권, DART, Investing.com, Fintel.io</p>
+</div>
+
+</body>
+</html>
