@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>엄마를 위한 배당주 투자 가이드</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <style>
@@ -105,8 +105,14 @@ body {
 
 /* SECTION */
 .section {
-  overflow-x: auto;
   padding: 56px 0;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -20px;
+  padding: 0 20px;
 }
 
 .section-number {
@@ -224,22 +230,30 @@ body {
   border-collapse: separate;
   border-spacing: 0;
   border-radius: 16px;
-  overflow: visible;
+  overflow: hidden;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   font-size: 14px;
+  min-width: 600px;
 }
 
 .compare-table thead th {
   background: var(--forest);
   color: var(--white);
-  padding: 14px 16px;
+  padding: 12px 10px;
   text-align: left;
   font-weight: 600;
   font-size: 13px;
+  white-space: nowrap;
 }
 
+.compare-table thead th.col-name { min-width: 90px; }
+.compare-table thead th.col-sector { min-width: 50px; }
+.compare-table thead th.col-num { min-width: 70px; }
+.compare-table thead th.col-text { min-width: 150px; white-space: normal; }
+.compare-table thead th.col-rank { min-width: 30px; width: 30px; text-align: center; }
+
 .compare-table tbody td {
-  padding: 14px 16px;
+  padding: 12px 10px;
   border-bottom: 1px solid #f0ece8;
   background: var(--white);
   vertical-align: top;
@@ -735,9 +749,10 @@ body {
     </div>
 
     
+    <div class="table-wrap">
     <table class="compare-table" style="margin-bottom:14px;">
       <thead>
-        <tr><th>종목</th><th>비중</th><th>첫 매수</th><th>추정 매수가</th><th>현재 주가 (4월 초)</th><th>보유 수익률</th><th>배당수익률</th></tr>
+        <tr><th class="col-name">종목</th><th class="col-num">비중</th><th class="col-num">첫 매수</th><th class="col-num">추정 매수가</th><th class="col-num">현재 주가 (4월 초)</th><th class="col-num">보유 수익률</th><th class="col-num">배당수익률</th></tr>
       </thead>
       <tbody>
         <tr><td><strong>애플 (AAPL)</strong></td><td>22.6%</td><td>2016년</td><td>~$36</td><td>~$200</td><td>+456%</td><td>~0.5%</td></tr>
@@ -753,6 +768,7 @@ body {
       </tbody>
     </table>
     </div>
+    </div>
     <p style="font-size:13px;color:var(--warm-gray);margin-bottom:24px;">💡 버핏은 코카콜라를 1994년 이후 <strong>추가 매수 없이 30년간 보유</strong>만 했어요. 원금 $13억 → 현재 $280억+, 배당금만 누적 $70억+.</p>
 
     <!-- 빌 게이츠 재단 -->
@@ -763,9 +779,10 @@ body {
     <p style="font-size:14px;margin-bottom:12px;">세계 최대 자선재단도 <strong>배당을 주는 우량주</strong>로 기금을 운용해요. "안정적인 배당 수익 → 자선 활동 재원"이라는 구조예요.</p>
 
     
+    <div class="table-wrap">
     <table class="compare-table" style="margin-bottom:30px;">
       <thead>
-        <tr><th>종목</th><th>비중</th><th>업종</th><th>현재 주가 (4월 초)</th><th>배당수익률</th><th>특징</th></tr>
+        <tr><th class="col-name">종목</th><th class="col-num">비중</th><th class="col-sector">업종</th><th class="col-num">현재 주가 (4월 초)</th><th class="col-num">배당수익률</th><th class="col-text">특징</th></tr>
       </thead>
       <tbody>
         <tr><td><strong>버크셔 해서웨이 (BRK.B)</strong></td><td>27.6%</td><td>투자</td><td>~$530</td><td>— (배당 없음)</td><td>버핏과의 우정, 최대 보유</td></tr>
@@ -776,6 +793,7 @@ body {
         <tr><td><strong>월마트 (WMT)</strong></td><td>3.5%</td><td>유통</td><td>~$95</td><td>~1.0%</td><td>세계 최대 유통, 49년 배당 인상</td></tr>
       </tbody>
     </table>
+    </div>
     </div>
 
     <!-- 파트 B -->
@@ -789,9 +807,10 @@ body {
     <p style="font-size:14px;margin-bottom:12px;">슈왑이 운용하는 SCHD는 매년 3월, 배당 성장 + 재무 건전성 기준으로 가장 좋은 배당주 100개를 새로 뽑아요. 아래는 104개 종목 중 <strong>보유 비중이 가장 높은 상위 10개</strong> 종목이에요.</p>
 
     
+    <div class="table-wrap">
     <table class="compare-table" style="margin-bottom:20px;">
       <thead>
-        <tr><th class="narrow">순위</th><th>종목 (티커)</th><th>업종</th><th>현재 주가 (4월 초)</th><th>배당수익률</th><th>추정 매수 구간</th></tr>
+        <tr><th class="col-rank">순위</th><th class="col-name">종목 (티커)</th><th class="col-sector">업종</th><th class="col-num">현재 주가 (4월 초)</th><th class="col-num">배당수익률</th><th class="col-num">추정 매수 구간</th></tr>
       </thead>
       <tbody>
         <tr><td class="narrow">1</td><td><strong>텍사스인스트루먼츠 (TXN)</strong></td><td>반도체</td><td>~$180</td><td>~2.9%</td><td>$147~$220</td></tr>
@@ -807,6 +826,7 @@ body {
       </tbody>
     </table>
     </div>
+    </div>
     <p style="font-size:13px;color:var(--warm-gray);margin-bottom:24px;">💡 추정 매수 구간은 SCHD 리컨스티튜션(2026.3.23) 전후 주가 범위 기준이에요. 현재 주가가 하단에 가까울수록 저평가 구간!</p>
 
     <!-- 신규 편입 + 최근 추가 매수 -->
@@ -816,9 +836,10 @@ body {
     </div>
 
     
+    <div class="table-wrap">
     <table class="compare-table" style="margin-bottom:20px;">
       <thead>
-        <tr><th>종목</th><th>업종</th><th>추정 매수 구간</th><th>배당수익률</th><th>누가, 왜 담았나</th></tr>
+        <tr><th class="col-name">종목</th><th class="col-sector">업종</th><th class="col-num">추정 매수 구간</th><th class="col-num">배당수익률</th><th class="col-text">누가, 왜 담았나</th></tr>
       </thead>
       <tbody>
         <tr><td><strong>유나이티드헬스 (UNH)</strong></td><td>헬스케어</td><td>$420~$520</td><td>~1.7%</td><td>SCHD 신규 편입, 고점 대비 48%↓로 즉시 TOP2</td></tr>
@@ -832,6 +853,7 @@ body {
       </tbody>
     </table>
     </div>
+    </div>
   </div>
 
   <hr class="divider">
@@ -843,9 +865,10 @@ body {
     <p class="section-subtitle">직접 종목 고르기 부담스러우면, ETF 하나로 위의 우량 배당주를 한 번에!</p>
 
     
+    <div class="table-wrap">
     <table class="compare-table" style="margin-bottom:24px;">
       <thead>
-        <tr><th>ETF</th><th>시장</th><th>배당수익률</th><th>보수</th><th>배당 주기</th><th>종목 수</th></tr>
+        <tr><th class="col-name">ETF</th><th class="col-sector">시장</th><th class="col-num">배당수익률</th><th class="col-num">보수</th><th class="col-num">배당 주기</th><th class="col-num">종목 수</th></tr>
       </thead>
       <tbody>
         <tr><td><strong>SCHD</strong></td><td>🇺🇸 미국</td><td>~3.4%</td><td>0.06%</td><td>분기</td><td>~104개</td></tr>
@@ -853,6 +876,7 @@ body {
         <tr><td><strong>ACE 미국배당다우존스</strong></td><td>🇰🇷 국내상장</td><td>~3.4%</td><td>0.01%</td><td>월배당</td><td>~100개</td></tr>
       </tbody>
     </table>
+    </div>
 
     <div class="card-grid cols-3">
       <div class="card" style="border-top:4px solid var(--deep-coral);">
@@ -874,21 +898,24 @@ body {
 
     <div class="highlight-card" style="margin-top:20px;margin-bottom:24px;">
       <h3>💰 월 30만 원 투자하면 배당금이 얼마나 들어올까?</h3>
+    <div class="table-wrap">
       <table class="compare-table" style="margin-top:12px;">
-        <thead><tr><th>ETF</th><th>1년 (360만 원)</th><th>3년 (1,080만 원)</th><th>5년 (1,800만 원)</th></tr></thead>
+        <thead><tr><th class="col-name">ETF</th><th class="col-num">1년 (360만 원)</th><th class="col-num">3년 (1,080만 원)</th><th class="col-num">5년 (1,800만 원)</th></tr></thead>
         <tbody>
           <tr><td><strong>SCHD (3.4%)</strong></td><td>연 ~12만 원</td><td>연 ~37만 원</td><td>연 ~61만 원</td></tr>
           <tr><td><strong>VYM (2.3%)</strong></td><td>연 ~8만 원</td><td>연 ~25만 원</td><td>연 ~41만 원</td></tr>
           <tr><td><strong>ACE (3.4%)</strong></td><td>월 ~1만 원</td><td>월 ~3.1만 원</td><td>월 ~5.1만 원</td></tr>
         </tbody>
       </table>
+    </div>
       <p style="font-size:12px;color:var(--warm-gray);margin-top:8px;">※ 주가 변동·배당 인상 고려한 단순 추정. 실제 금액은 달라질 수 있어요.</p>
     </div>
 
     <div class="highlight-card" style="margin-bottom:24px;">
       <h3>📈 SCHD vs VYM 성과 비교</h3>
+    <div class="table-wrap">
       <table class="compare-table" style="margin-top:12px;">
-        <thead><tr><th>구분</th><th>SCHD</th><th>VYM</th></tr></thead>
+        <thead><tr><th class="col-text">구분</th><th class="col-num">SCHD</th><th class="col-num">VYM</th></tr></thead>
         <tbody>
           <tr><td><strong>2026년 수익률 (YTD)</strong></td><td>+12%</td><td>+5%</td></tr>
           <tr><td><strong>10년 연평균 배당 성장률</strong></td><td>10.6%</td><td>5.0%</td></tr>
@@ -897,15 +924,17 @@ body {
           <tr><td><strong>2011년 이후 누적 수익률</strong></td><td>+478%</td><td>—</td></tr>
         </tbody>
       </table>
+    </div>
       <p style="font-size:13px;margin-top:10px;">💡 SCHD가 수익률·배당 성장 모두 앞서지만, VYM은 565개 종목으로 <strong>분산 효과</strong>가 더 커요.</p>
     </div>
 
     <h3 style="font-size:16px;font-weight:700;color:var(--forest);margin-bottom:8px;">🇰🇷 한국 핵심 배당주</h3>
     <p style="font-size:12px;color:var(--warm-gray);margin-bottom:8px;">📌 배당금: 2025년 결산 확정치 · 주가: 2026년 4월 초 기준</p>
     
+    <div class="table-wrap">
     <table class="compare-table" style="margin-bottom:24px;">
       <thead>
-        <tr><th>종목</th><th>업종</th><th>주당 배당금</th><th>주가</th><th>수익률</th><th>연속 배당</th><th>52주 범위</th></tr>
+        <tr><th class="col-name">종목</th><th class="col-sector">업종</th><th class="col-num">주당 배당금</th><th class="col-num">주가</th><th class="col-num">수익률</th><th class="col-num">연속 배당</th><th class="col-num">52주 범위</th></tr>
       </thead>
       <tbody>
         <tr><td><strong>KB금융</strong></td><td>금융</td><td>3,566원</td><td>~105,000원</td><td>~3.4%</td><td>10년+</td><td>72,000~115,000원</td></tr>
@@ -913,6 +942,7 @@ body {
         <tr><td><strong>SK텔레콤</strong></td><td>통신</td><td>3,320원</td><td>~70,000원</td><td>~4.7%</td><td>15년+</td><td>48,000~73,000원</td></tr>
       </tbody>
     </table>
+    </div>
     </div>
   </div>
 
