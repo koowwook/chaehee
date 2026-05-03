@@ -1,0 +1,2074 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>미국 주식 급락-회복 15년 패턴 자료집</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #faf5ff 0%, #fff5f5 100%);
+    color: #2a2244;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 28px 22px 60px;
+  }
+
+  /* ========== 메인 헤더 ========== */
+  .header {
+    text-align: center;
+    padding: 40px 20px 36px;
+    background: linear-gradient(135deg, #fef3f8 0%, #f8f3ff 100%);
+    border-radius: 24px;
+    margin-bottom: 28px;
+  }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #2a2244;
+    line-height: 1.4;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+  }
+  .header h1 strong {
+    color: #7c4dff;
+  }
+  .header .subtitle {
+    font-size: 15px;
+    color: #6a5a8a;
+    font-weight: 500;
+  }
+
+  /* ========== 인트로 ========== */
+  .intro {
+    background: white;
+    padding: 30px 26px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 12px rgba(124,77,255,0.06);
+  }
+  .intro p {
+    font-size: 15px;
+    color: #4a4a6a;
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+  .intro p:last-child { margin-bottom: 0; }
+  .intro .highlight {
+    background: linear-gradient(180deg, transparent 60%, #fff0a3 60%);
+    font-weight: 700;
+    color: #2a2244;
+  }
+  .intro .key-message {
+    margin-top: 22px;
+    padding: 22px 20px;
+    background: linear-gradient(135deg, #f8f3ff 0%, #fef3f8 100%);
+    border-radius: 14px;
+    border-left: 4px solid #7c4dff;
+  }
+  .intro .key-message .label {
+    font-size: 12px;
+    color: #7c4dff;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .intro .key-message .text {
+    font-size: 16px;
+    color: #2a2244;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  /* ========== PART 헤더 ========== */
+  .part-header {
+    margin: 44px 0 22px;
+    text-align: center;
+  }
+  .part-header .part-num {
+    display: inline-block;
+    padding: 5px 14px;
+    background: #7c4dff;
+    color: white;
+    border-radius: 14px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+  .part-header h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #2a2244;
+    line-height: 1.4;
+    letter-spacing: -0.5px;
+  }
+  .part-header .desc {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #6a5a8a;
+  }
+
+  /* ========== 핵심 개념 카드 ========== */
+  .concept-box {
+    background: white;
+    padding: 26px 22px;
+    border-radius: 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 10px rgba(124,77,255,0.05);
+  }
+  .concept-box h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .concept-box .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .concept-box.danger h3 { color: #c44a1e; }
+  .concept-box.danger .badge { background: #ffe1d3; color: #c44a1e; }
+  .concept-box.opportunity h3 { color: #7c4dff; }
+  .concept-box.opportunity .badge { background: #f0e4ff; color: #7c4dff; }
+  .concept-box.bonus h3 { color: #2a8a5f; }
+  .concept-box.bonus .badge { background: #d3f5e1; color: #2a8a5f; }
+  .concept-box p {
+    font-size: 14.5px;
+    color: #4a4a6a;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .concept-box .examples {
+    background: #faf8ff;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.7;
+  }
+  .concept-box .examples strong { color: #2a2244; }
+
+  /* ========== 핵심 한 줄 ========== */
+  .core-line {
+    background: linear-gradient(135deg, #7c4dff 0%, #b88dff 100%);
+    color: white;
+    padding: 24px 22px;
+    border-radius: 18px;
+    margin: 22px 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.6;
+    box-shadow: 0 4px 16px rgba(124,77,255,0.2);
+  }
+  .core-line strong {
+    color: #fff0a3;
+  }
+
+  /* ========== 사건 카드 ========== */
+  .event-card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px 20px;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 12px rgba(124,77,255,0.07);
+  }
+  .event-card .event-num {
+    display: inline-block;
+    padding: 4px 11px;
+    background: #f0e4ff;
+    color: #7c4dff;
+    border-radius: 11px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
+  }
+  .event-card h3 {
+    font-size: 19px;
+    font-weight: 800;
+    color: #2a2244;
+    margin-bottom: 6px;
+    line-height: 1.4;
+    letter-spacing: -0.3px;
+  }
+  .event-card .event-date {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 14px;
+  }
+  .event-card .event-desc {
+    font-size: 14.5px;
+    color: #4a4a6a;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    padding: 14px 16px;
+    background: #faf8ff;
+    border-radius: 12px;
+    border-left: 3px solid #b88dff;
+  }
+  .event-card .event-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    background: #fff0a3;
+    color: #8a6700;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    vertical-align: middle;
+    margin-left: 6px;
+    position: relative;
+    top: -2px;
+  }
+
+  /* ========== 표 ========== */
+  .table-section {
+    margin-top: 18px;
+  }
+  .table-section .table-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .table-section .table-title.index { color: #4a90e2; }
+  .table-section .table-title.opportunity { color: #7c4dff; }
+  .table-section .table-title.danger { color: #c44a1e; }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .data-table thead {
+    background: #faf8ff;
+  }
+  .data-table th {
+    padding: 9px 8px;
+    font-weight: 700;
+    color: #6a5a8a;
+    font-size: 11.5px;
+    text-align: center;
+    border-bottom: 1px solid #f0e4ff;
+  }
+  .data-table td {
+    padding: 9px 8px;
+    text-align: center;
+    border-bottom: 1px solid #f5f0fa;
+    color: #2a2244;
+  }
+  .data-table tbody tr:last-child td { border-bottom: none; }
+  .data-table tbody tr:nth-child(even) { background: #fafbff; }
+  .data-table .stock-name {
+    font-weight: 700;
+    text-align: left;
+    color: #2a2244;
+  }
+  .data-table .ticker {
+    color: #888;
+    font-size: 11px;
+  }
+  .data-table .price {
+    color: #4a4a6a;
+    font-size: 12px;
+  }
+  .data-table .fall {
+    color: #c44a1e;
+    font-weight: 700;
+  }
+  .data-table .gain {
+    color: #9a6dff;
+    font-weight: 700;
+  }
+  .data-table .huge-gain {
+    color: #7c4dff;
+    font-weight: 800;
+  }
+  .data-table .no-recovery {
+    color: #c44a1e;
+    font-size: 11px;
+  }
+
+  /* ========== 인사이트 박스 ========== */
+  .insight {
+    margin-top: 16px;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, #f8f3ff 0%, #fef9e0 100%);
+    border-radius: 12px;
+    font-size: 13.5px;
+    color: #4a4a6a;
+    line-height: 1.7;
+  }
+  .insight strong { color: #7c4dff; font-weight: 700; }
+  .insight .insight-label {
+    display: inline-block;
+    margin-bottom: 6px;
+    color: #7c4dff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+
+  /* ========== 진행 중 박스 ========== */
+  .ongoing-card {
+    background: linear-gradient(135deg, #fff5f5 0%, #fff9e0 100%);
+    border: 2px dashed #f5a623;
+    padding: 20px;
+    border-radius: 18px;
+    margin-bottom: 22px;
+  }
+  .ongoing-card .ongoing-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #f5a623;
+    color: white;
+    border-radius: 11px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  /* ========== 그룹 헤더 ========== */
+  .group-header {
+    margin: 36px 0 18px;
+    padding: 22px 22px;
+    border-radius: 18px;
+    color: white;
+  }
+  .group-header.external {
+    background: linear-gradient(135deg, #7c4dff 0%, #b88dff 100%);
+  }
+  .group-header.policy {
+    background: linear-gradient(135deg, #4a90e2 0%, #7eb8f5 100%);
+  }
+  .group-header.industry {
+    background: linear-gradient(135deg, #ff7e5f 0%, #ffa68d 100%);
+  }
+  .group-header.macro {
+    background: linear-gradient(135deg, #6a6a8a 0%, #9a9ab5 100%);
+  }
+  .group-header.ongoing {
+    background: linear-gradient(135deg, #f5a623 0%, #f5c842 100%);
+  }
+  .group-header .group-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  .group-header .group-title {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+  }
+  .group-header .group-desc {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+  }
+  .group-header .group-meta {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 11px;
+    background: rgba(255,255,255,0.22);
+    border-radius: 11px;
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+
+  /* ========== 그룹 통합 인사이트 ========== */
+  .group-insight {
+    margin: 8px 0 30px;
+    padding: 22px 22px;
+    border-radius: 16px;
+    background: white;
+    border-left: 5px solid #7c4dff;
+    box-shadow: 0 2px 10px rgba(124,77,255,0.08);
+  }
+  .group-insight.external { border-left-color: #7c4dff; }
+  .group-insight.policy { border-left-color: #4a90e2; }
+  .group-insight.industry { border-left-color: #ff7e5f; }
+  .group-insight.macro { border-left-color: #6a6a8a; }
+  .group-insight .gi-label {
+    display: inline-block;
+    padding: 4px 11px;
+    border-radius: 11px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+  }
+  .group-insight.external .gi-label { background: #f0e4ff; color: #7c4dff; }
+  .group-insight.policy .gi-label { background: #e0eaf8; color: #4a90e2; }
+  .group-insight.industry .gi-label { background: #ffe5dd; color: #c44a1e; }
+  .group-insight.macro .gi-label { background: #e8e8ee; color: #6a6a8a; }
+  .group-insight h5 {
+    font-size: 16px;
+    font-weight: 800;
+    color: #2a2244;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    letter-spacing: -0.3px;
+  }
+  .group-insight p {
+    font-size: 13.5px;
+    color: #4a4a6a;
+    line-height: 1.75;
+    margin-bottom: 8px;
+  }
+  .group-insight p:last-child { margin-bottom: 0; }
+  .group-insight strong {
+    color: #2a2244;
+    font-weight: 700;
+  }
+  .group-insight .gi-stats {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: #faf8ff;
+    border-radius: 10px;
+    font-size: 12.5px;
+    color: #555;
+    line-height: 1.7;
+  }
+  .group-insight .gi-stats strong { color: #7c4dff; }
+
+  /* 🟣🔴 비교 카드 (Vs 형식) */
+  .vs-compare {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .vs-compare .vs-row {
+    display: grid;
+    grid-template-columns: 80px 1fr auto 1fr;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 12px;
+    background: #faf8ff;
+    border-radius: 8px;
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+  .vs-compare .vs-event {
+    color: #888;
+    font-weight: 600;
+    font-size: 11.5px;
+  }
+  .vs-compare .vs-good {
+    color: #7c4dff;
+    font-weight: 700;
+  }
+  .vs-compare .vs-good::before {
+    content: "🟣 ";
+  }
+  .vs-compare .vs-bad {
+    color: #c44a1e;
+    font-weight: 700;
+    text-align: right;
+  }
+  .vs-compare .vs-bad::before {
+    content: "🔴 ";
+  }
+  .vs-compare .vs-divider {
+    color: #b88dff;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 0 4px;
+  }
+  @media (max-width: 480px) {
+    .vs-compare .vs-row {
+      grid-template-columns: 1fr;
+      gap: 4px;
+      text-align: left;
+    }
+    .vs-compare .vs-event {
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+    .vs-compare .vs-bad {
+      text-align: left;
+    }
+    .vs-compare .vs-divider {
+      display: none;
+    }
+  }
+
+  /* ========== 간략 사건 박스 ========== */
+  .brief-card {
+    background: white;
+    border-left: 4px solid #b88dff;
+    padding: 18px 20px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(124,77,255,0.04);
+  }
+  .brief-card .brief-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    background: #f5f0fa;
+    color: #888;
+    border-radius: 10px;
+    font-size: 10.5px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+  }
+  .brief-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2a2244;
+    margin-bottom: 4px;
+  }
+  .brief-card .brief-date {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 10px;
+  }
+  .brief-card p {
+    font-size: 13.5px;
+    color: #4a4a6a;
+    line-height: 1.7;
+  }
+  .brief-card p strong { color: #7c4dff; }
+
+  /* ========== 한눈 요약표 ========== */
+  .summary-table-wrap {
+    background: white;
+    padding: 22px 18px;
+    border-radius: 18px;
+    margin-bottom: 24px;
+    box-shadow: 0 3px 14px rgba(124,77,255,0.08);
+    border: 2px solid #f0e4ff;
+  }
+  .summary-table-wrap h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: #2a2244;
+    margin-bottom: 6px;
+    text-align: center;
+    letter-spacing: -0.3px;
+  }
+  .summary-table-wrap .summary-desc {
+    font-size: 12.5px;
+    color: #888;
+    text-align: center;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .summary-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 12px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .summary-table thead th {
+    padding: 10px 6px;
+    background: #f8f3ff;
+    color: #7c4dff;
+    font-weight: 700;
+    font-size: 11.5px;
+    text-align: center;
+    border-bottom: 2px solid #f0e4ff;
+  }
+  .summary-table tbody td {
+    padding: 14px 8px;
+    text-align: center;
+    border-bottom: 1px solid #f5f0fa;
+    color: #2a2244;
+    line-height: 1.5;
+    vertical-align: middle;
+  }
+  .summary-table tbody tr:last-child td { border-bottom: none; }
+  .summary-table .group-cell {
+    font-weight: 700;
+    text-align: left;
+    padding-left: 10px;
+  }
+  .summary-table .group-cell.external { color: #7c4dff; background: #faf5ff; }
+  .summary-table .group-cell.policy { color: #4a90e2; background: #f0f7ff; }
+  .summary-table .group-cell.industry { color: #c44a1e; background: #fff5f0; }
+  .summary-table .group-cell.macro { color: #6a6a8a; background: #f5f5f8; }
+  .summary-table .recovery-cell {
+    color: #555;
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+  .summary-table .action-cell {
+    color: #2a2244;
+    font-weight: 700;
+    font-size: 11.5px;
+    line-height: 1.5;
+  }
+  .summary-table .case-cell {
+    color: #555;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .summary-table .case-cell strong {
+    color: #7c4dff;
+    font-weight: 700;
+  }
+  .summary-table .case-cell .case-stock {
+    color: #2a2244;
+    font-weight: 600;
+  }
+
+  /* ========== 패턴 인사이트 (PART 3) ========== */
+  .pattern-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .pattern-item {
+    background: white;
+    padding: 20px 18px;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(124,77,255,0.05);
+  }
+  .pattern-item .pattern-num {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    background: #7c4dff;
+    color: white;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 10px;
+  }
+  .pattern-item h4 {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #2a2244;
+  }
+  .pattern-item p {
+    margin-top: 10px;
+    font-size: 13.5px;
+    color: #555;
+    line-height: 1.7;
+  }
+  .pattern-item p strong { color: #7c4dff; }
+
+  /* ========== 체크리스트 ========== */
+  .checklist-step {
+    background: white;
+    padding: 22px 20px;
+    border-radius: 16px;
+    margin-bottom: 14px;
+    border-left: 4px solid #7c4dff;
+    box-shadow: 0 2px 8px rgba(124,77,255,0.05);
+  }
+  .checklist-step h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #7c4dff;
+    margin-bottom: 12px;
+  }
+  .checklist-step .step-table {
+    width: 100%;
+    font-size: 13px;
+    border-collapse: collapse;
+  }
+  .checklist-step .step-table td {
+    padding: 8px 6px;
+    border-bottom: 1px solid #f0e4ff;
+    color: #4a4a6a;
+    line-height: 1.6;
+  }
+  .checklist-step .step-table tr:last-child td { border-bottom: none; }
+  .checklist-step .step-table td:first-child {
+    font-weight: 600;
+    color: #2a2244;
+    width: 40%;
+  }
+
+  /* ========== 분할 매수 룰 ========== */
+  .merge-table-wrap {
+    background: white;
+    padding: 22px 18px;
+    border-radius: 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(124,77,255,0.05);
+  }
+  .merge-table-wrap h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #7c4dff;
+    margin-bottom: 14px;
+  }
+  .merge-table {
+    width: 100%;
+    font-size: 12.5px;
+    border-collapse: collapse;
+    background: white;
+  }
+  .merge-table th {
+    padding: 10px 6px;
+    background: #f0e4ff;
+    color: #7c4dff;
+    font-weight: 700;
+    border: 1px solid #e0d0f5;
+    font-size: 11.5px;
+  }
+  .merge-table td {
+    padding: 10px 6px;
+    text-align: center;
+    border: 1px solid #e8d8f5;
+    color: #2a2244;
+    line-height: 1.5;
+  }
+  .merge-table td:first-child {
+    font-weight: 700;
+    color: #c44a1e;
+    background: #fff5f5;
+  }
+  .merge-table-wrap .note {
+    font-size: 12.5px;
+    color: #888;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+  .merge-table-wrap .note strong { color: #7c4dff; }
+
+  /* ========== 클로징 ========== */
+  .closing {
+    margin-top: 36px;
+    padding: 38px 24px;
+    background: linear-gradient(135deg, #7c4dff 0%, #ff7e9e 100%);
+    color: white;
+    border-radius: 24px;
+    text-align: center;
+  }
+  .closing .heart {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .closing h3 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+  .closing p {
+    font-size: 14.5px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    color: rgba(255,255,255,0.95);
+  }
+  .closing p:last-child { margin-bottom: 0; }
+  .closing strong { color: #fff0a3; }
+
+  /* ========== 데이터 기준 / 면책 ========== */
+  .data-criteria {
+    margin-top: 28px;
+    padding: 20px 22px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 14px;
+    font-size: 12.5px;
+    color: #6a6a6a;
+    line-height: 1.7;
+  }
+  .data-criteria h5 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #4a4a6a;
+    margin-bottom: 10px;
+  }
+  .data-criteria ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .data-criteria li {
+    padding-left: 12px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+  .data-criteria li::before {
+    content: "·";
+    position: absolute;
+    left: 4px;
+    color: #7c4dff;
+    font-weight: 700;
+  }
+
+  .disclaimer {
+    margin-top: 16px;
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 12px;
+    font-size: 12px;
+    color: #888;
+    line-height: 1.6;
+  }
+  .disclaimer h5 { font-size: 12px; font-weight: 700; color: #6a6a6a; margin-bottom: 6px; }
+
+
+  /* ========== 클로징 박스 ========== */
+  .closing-box {
+    margin-top: 36px;
+    padding: 36px 26px 32px;
+    background: linear-gradient(135deg, #faf3ff 0%, #fef3f8 100%);
+    border-radius: 22px;
+    text-align: center;
+    border: 1px solid #f0e0f5;
+  }
+  .closing-box .closing-emoji {
+    font-size: 38px;
+    margin-bottom: 14px;
+  }
+  .closing-box .closing-main {
+    font-size: 17px;
+    font-weight: 800;
+    color: #2a2244;
+    line-height: 1.5;
+    letter-spacing: -0.3px;
+    margin-bottom: 14px;
+  }
+  .closing-box .closing-sub {
+    font-size: 14px;
+    color: #5a5a7a;
+    line-height: 1.8;
+    margin-bottom: 22px;
+  }
+  .closing-box .closing-tip {
+    display: inline-block;
+    padding: 10px 18px;
+    background: white;
+    border-radius: 12px;
+    font-size: 12.5px;
+    color: #7c4dff;
+    font-weight: 600;
+    line-height: 1.6;
+    box-shadow: 0 2px 8px rgba(124,77,255,0.06);
+  }
+
+  /* ========== 채희 홍보 - 프로필 박스 (라이트 라벤더) ========== */
+  .profile-box {
+    margin-top: 28px;
+    padding: 36px 24px 32px;
+    background: linear-gradient(135deg, #a890ff 0%, #c4afff 100%);
+    border-radius: 22px;
+    text-align: center;
+    color: white;
+  }
+  .profile-box .profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 18px;
+    display: block;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    border: 3px solid rgba(255,255,255,0.3);
+  }
+  .profile-box .profile-name {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    letter-spacing: -0.3px;
+  }
+  .profile-box .profile-desc {
+    font-size: 14px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.95);
+    margin-bottom: 24px;
+  }
+  .profile-box .profile-link {
+    display: inline-block;
+    color: white;
+    text-decoration: underline;
+    font-size: 14.5px;
+    font-weight: 600;
+    padding: 4px 0;
+  }
+  .profile-box .profile-link:hover {
+    color: #fff5d6;
+  }
+
+  /* ========== 인생템 모음 (흰 박스) ========== */
+  .essentials-box {
+    margin-top: 28px;
+    padding: 32px 22px;
+    background: white;
+    border-radius: 22px;
+    box-shadow: 0 2px 12px rgba(124,77,255,0.06);
+  }
+  .essentials-box .essentials-title {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 800;
+    color: #2a2244;
+    margin-bottom: 20px;
+    letter-spacing: -0.3px;
+  }
+  .essentials-box .essential-main {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 22px;
+    background: #faf8ff;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    text-decoration: none;
+    color: #2a2244;
+    transition: transform 0.2s, background 0.2s;
+    position: relative;
+  }
+  .essentials-box .essential-main:hover {
+    transform: translateY(-1px);
+    background: #f5f0fa;
+  }
+  .essential-main .em-icon {
+    width: 56px;
+    height: 56px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 4px rgba(124,77,255,0.08);
+  }
+  .essential-main .em-text { flex: 1; text-align: center; }
+  .essential-main .em-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    background: #7c4dff;
+    color: white;
+    border-radius: 8px;
+    font-size: 10.5px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: 0.2px;
+  }
+  .essential-main .em-name {
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+    color: #2a2244;
+  }
+  .essential-main .em-desc {
+    font-size: 12.5px;
+    color: #888;
+    line-height: 1.5;
+  }
+  .essential-main .em-arrow {
+    color: #b88dff;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .essentials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .essential-item {
+    background: #faf8ff;
+    padding: 22px 14px 18px;
+    border-radius: 14px;
+    text-align: center;
+    text-decoration: none;
+    color: #2a2244;
+    transition: transform 0.2s;
+  }
+  .essential-item:hover {
+    transform: translateY(-1px);
+    background: #f5f0fa;
+  }
+  .essential-item .ei-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  .essential-item .ei-name {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #2a2244;
+    margin-bottom: 4px;
+  }
+  .essential-item .ei-desc {
+    font-size: 11.5px;
+    color: #888;
+    line-height: 1.4;
+  }
+  .essentials-box .essentials-cta {
+    display: block;
+    text-align: center;
+    color: #7c4dff;
+    text-decoration: underline;
+    font-size: 13.5px;
+    font-weight: 700;
+    padding: 8px 0;
+  }
+  .essentials-box .essentials-cta:hover {
+    color: #5e30e6;
+  }
+
+  /* ========== 모바일 반응형 ========== */
+  @media (max-width: 480px) {
+    .container { padding: 20px 16px 50px; }
+    .header { padding: 32px 18px 28px; }
+    .header h1 { font-size: 22px; }
+    .header .subtitle { font-size: 13.5px; }
+    .intro { padding: 24px 20px; }
+    .intro p { font-size: 14.5px; }
+    .part-header h2 { font-size: 19px; }
+    .event-card { padding: 20px 16px; }
+    .event-card h3 { font-size: 17px; }
+    .data-table { font-size: 11.5px; }
+    .data-table th, .data-table td { padding: 7px 5px; }
+    .closing { padding: 32px 20px; }
+    .closing h3 { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ========== 메인 헤더 ========== -->
+  <div class="header">
+    <h1>미국 주식 <strong>급락-회복</strong><br>15년 패턴 자료집 📊</h1>
+    <p class="subtitle">시장 공포 속에서 '잘못 빠진 종목'을 찾는 법</p>
+  </div>
+
+  <!-- ========== 인트로 ========== -->
+  <div class="intro">
+    <p>코로나 같은 큰 위기는 <strong>몇 년에 한 번</strong> 와요.<br>
+    하지만 단기 급락 기회는 <strong>1년에도 한두 번씩 반복</strong>돼요.<br>
+    조금만 관심 가지면, 좋은 우량주를 저렴하게 살 수 있는 기회가 매년 옵니다.</p>
+    <p>그런데 우리는 늘 그 순간이 지나고 나서야<br>
+    <span class="highlight">"아 그때 샀어야 했는데"</span> 합니다.</p>
+    <p>이 자료집은 다음 위기를 기회로 잡기 위한,<br>
+    지난 15년의 미국 시장 급락-회복 패턴을 정리한 자료입니다.</p>
+    <div class="key-message">
+      <div class="label">🔑 핵심 메시지</div>
+      <div class="text">많이 빠진 종목이 아니라,<br>잘못 빠진 우량주를 찾아요.</div>
+    </div>
+  </div>
+
+  <!-- ========== PART 1. 사건별 데이터 ========== -->
+  <div class="part-header">
+    <span class="part-num">PART 1</span>
+    <h2>사건 성격별로 보는<br>11개 위기 사례</h2>
+    <p class="desc">위기는 4가지 성격으로 나뉘어요. 성격에 따라 우량주 대응법이 달라져요.</p>
+  </div>
+
+  <!-- ========== 그룹 1: 외부 충격형 ========== -->
+  <div class="group-header external">
+    <div class="group-icon">🌪️</div>
+    <div class="group-title">외부 충격형</div>
+    <div class="group-desc">시장 구조·유동성·지정학으로 발생한 단기 공포. 회사 자체엔 변화가 없는 가장 명확한 기회.</div>
+    <span class="group-meta">사건 3개 + 진행 중 1개</span>
+  </div>
+
+  <!-- ========== 사건 2: 변동성 쇼크(Volmageddon) 2018 ========== -->
+  <div class="event-card">
+    <span class="event-num">사건 #1</span>
+    <h3>변동성 쇼크 (Volmageddon) <span class="event-tag">시장 구조 (변동성 ETN 청산)</span></h3>
+    <p class="event-date">📅 2018년 2월 · VIX(공포지수) 급등 + ETN 청산</p>
+    <div class="event-desc">
+      변동성 상품 청산과 VIX(공포지수) 급등으로 시장이 급락했어요. 기업 실적 문제가 아니라 금융시장 구조에서 발생한 단기 충격이었죠. <strong>유가 민감주(슐럼버거)와 항공주(아메리칸항공)는 변동성 폭발의 직격탄</strong>을 맞은 반면, <strong>빅테크 우량주는 1주 만에 빠르게 회복</strong>했어요. 시장 구조 충격이 실물 비용에 민감한 산업으로 전이된 사례예요.
+      <div style="margin-top:10px;padding:10px 12px;background:white;border-radius:8px;font-size:12px;color:#666;line-height:1.6;">
+        💡 <strong style="color:#7c4dff;">ETN</strong>은 "VIX가 떨어지면 돈 버는" 상품이에요. VIX가 갑자기 폭등하자 한꺼번에 강제 청산되면서 시장이 무너졌어요.
+      </div>
+    </div>
+    
+
+    <div class="table-section">
+      <div class="table-title index">📈 시장 지수</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>지수</th><th>고점가</th><th>저점가</th><th>하락폭</th><th>회복기간</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">S&P500</td><td class="price">2,872.87</td><td class="price">2,581.00</td><td class="fall">-10.2%</td><td>6개월</td><td class="gain">+4.9%</td></tr>
+          <tr><td class="stock-name">나스닥</td><td class="price">7,505.77</td><td class="price">6,777.16</td><td class="fall">-9.7%</td><td>1개월</td><td class="gain">+7.7%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title danger">⚠️ 직격탄 종목</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">슐럼버거 <span class="ticker">SLB</span></td><td class="fall">-17.7%</td><td class="no-recovery">전고점 미회복</td><td class="fall">-31.2%</td></tr>
+          <tr><td class="stock-name">아메리칸항공 <span class="ticker">AAL</span></td><td class="fall">-16.9%</td><td class="no-recovery">전고점 미회복</td><td class="fall">-23.5%</td></tr>
+          <tr><td class="stock-name">웰스파고 <span class="ticker">WFC</span></td><td class="fall">-15.5%</td><td>48개월</td><td class="fall">-11.2%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title opportunity">💎 공포에 하락한 우량주</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복기간</th><th>1개월 후</th><th>6개월 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">램리서치 <span class="ticker">LRCX</span></td><td class="fall">-24.6%</td><td>1개월</td><td class="huge-gain">+31.5%</td><td class="gain">+18.1%</td></tr>
+          <tr><td class="stock-name">AMD <span class="ticker">AMD</span></td><td class="fall">-18.3%</td><td>3개월</td><td class="gain">+6.7%</td><td class="huge-gain">+74.5%</td></tr>
+          <tr><td class="stock-name">페이팔 <span class="ticker">PYPL</span></td><td class="fall">-15.4%</td><td>4개월</td><td class="gain">+10.4%</td><td class="gain">+19.9%</td></tr>
+          <tr><td class="stock-name">애플 <span class="ticker">AAPL</span></td><td class="fall">-12.4%</td><td>1개월 이내</td><td class="gain">+14.5%</td><td class="huge-gain">+34.6%</td></tr>
+          <tr><td class="stock-name">넷플릭스 <span class="ticker">NFLX</span></td><td class="fall">-12.3%</td><td>1개월 이내</td><td class="huge-gain">+32.9%</td><td class="huge-gain">+40.0%</td></tr>
+          <tr><td class="stock-name">마이크로소프트 <span class="ticker">MSFT</span></td><td class="fall">-10.5%</td><td>1개월 이내</td><td class="gain">+11.6%</td><td class="huge-gain">+30.0%</td></tr>
+                            </tbody>
+      </table>
+    </div>
+</div>
+
+  <!-- ========== 사건 9: 이란 미사일 2024 ========== -->
+  <div class="event-card">
+    <span class="event-num">사건 #2</span>
+    <h3>이란 1차 미사일 공격 <span class="event-tag">지정학 (전쟁 우려)</span></h3>
+    <p class="event-date">📅 2024년 4월 · 이란→이스라엘 직접 공격</p>
+    <div class="event-desc">
+      이란이 이스라엘을 직접 공격하면서 중동 분쟁 우려가 폭발했어요. <strong>유가가 급등하면서 항공주(AAL)와 에너지주(슐럼버거)가 직격탄</strong>을 맞았고, 시장 전체도 단기 패닉에 빠졌어요. 다만 <strong>빅테크 우량주는 회사 본업과 무관한 사건</strong>이라 1개월 안에 빠르게 회복했어요. 지정학 충격은 빠른 매수 기회의 대표 패턴이에요.
+    </div>
+    
+
+    <div class="table-section">
+      <div class="table-title index">📈 시장 지수</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>지수</th><th>고점가</th><th>저점가</th><th>하락폭</th><th>회복기간</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">나스닥</td><td class="price">16,442.20</td><td class="price">15,282.01</td><td class="fall">-7.1%</td><td>1개월</td><td class="gain">+3.9%</td></tr>
+          <tr><td class="stock-name">S&P500</td><td class="price">5,243.77</td><td class="price">4,967.23</td><td class="fall">-5.3%</td><td>1개월</td><td class="gain">+3.8%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title danger">⚠️ 직격탄 종목</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">아메리칸항공 <span class="ticker">AAL</span></td><td class="fall">-16.0%</td><td>8개월</td><td class="fall">-23.9%</td></tr>
+          <tr><td class="stock-name">슐럼버거 <span class="ticker">SLB</span></td><td class="fall">-14.0%</td><td>23개월</td><td class="fall">-28.1%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title opportunity">💎 공포에 하락한 우량주</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복기간</th><th>1개월 후</th><th>6개월 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">테슬라 <span class="ticker">TSLA</span></td><td class="fall">-19.7%</td><td>1개월 이내</td><td class="huge-gain">+26.8%</td><td class="huge-gain">+53.4%</td></tr>
+          <tr><td class="stock-name">메타 <span class="ticker">META</span></td><td class="fall">-18.4%</td><td>3개월</td><td class="gain">+8.6%</td><td class="huge-gain">+37.8%</td></tr>
+          <tr><td class="stock-name">엔비디아 <span class="ticker">NVDA</span></td><td class="fall">-15.9%</td><td>1개월</td><td class="huge-gain">+24.4%</td><td class="huge-gain">+88.6%</td></tr>
+                            </tbody>
+      </table>
+    </div>
+</div>
+
+  <!-- ========== 사건 10: 엔 캐리 2024 ========== -->
+  <div class="event-card">
+    <span class="event-num">사건 #3</span>
+    <h3>엔 캐리 청산 우려 <span class="event-tag">거시 + 환율 (글로벌 자금 흐름)</span></h3>
+    <p class="event-date">📅 2024년 8월 5일 · 일본 금리 인상 + 엔화 급등</p>
+    <div class="event-desc">
+      일본은행이 갑자기 금리를 올리며 "엔화로 빌려서 미국 자산 사기"(엔 캐리 트레이드)가 한꺼번에 청산됐어요. 닛케이 단일일 -12% 폭락, 미국 빅테크도 동반 하락. <strong>일본 자금 비중이 높은 반도체주(인텔, ASML, 퀄컴)가 직격탄</strong>을 맞았지만, <strong>빅테크 우량주는 강제 매도가 끝나자 빠르게 회복</strong>했어요. 매출이 흔들린 게 아니라 자금 흐름이 일시적으로 막힌 사건이었어요.
+      <div style="margin-top:10px;padding:10px 12px;background:white;border-radius:8px;font-size:12px;color:#666;line-height:1.6;">
+        💡 <strong style="color:#7c4dff;">엔 캐리 트레이드</strong>: 금리가 거의 0%인 일본에서 엔화를 빌려 금리 높은 미국 주식·채권을 사는 투자 방식이에요. 일본이 금리를 올리니 빌린 돈을 갚아야 해서 미국 자산을 한꺼번에 팔게 된 거예요.
+      </div>
+    </div>
+    
+
+    <div class="table-section">
+      <div class="table-title index">📈 시장 지수</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>지수</th><th>고점가</th><th>저점가</th><th>하락폭</th><th>회복기간</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">나스닥</td><td class="price">18,647.45</td><td class="price">16,195.81</td><td class="fall">-13.1%</td><td>2개월</td><td class="huge-gain">+31.2%</td></tr>
+          <tr><td class="stock-name">S&P500</td><td class="price">5,667.20</td><td class="price">5,186.33</td><td class="fall">-8.5%</td><td>1개월</td><td class="huge-gain">+21.5%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title danger">⚠️ 직격탄 종목</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">인텔 <span class="ticker">INTC</span></td><td class="fall">-45.2%</td><td>13개월</td><td class="gain">+4.1%</td></tr>
+          <tr><td class="stock-name">ASML <span class="ticker">ASML</span></td><td class="fall">-26.2%</td><td>16개월</td><td class="fall">-12.7%</td></tr>
+          <tr><td class="stock-name">퀄컴 <span class="ticker">QCOM</span></td><td class="fall">-25.5%</td><td class="no-recovery">전고점 미회복</td><td class="fall">-4.5%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title opportunity">💎 공포에 하락한 우량주</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복기간</th><th>1개월 후</th><th>6개월 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">테슬라 <span class="ticker">TSLA</span></td><td class="fall">-27.2%</td><td>2개월</td><td class="gain">+12.8%</td><td class="huge-gain">+88.6%</td></tr>
+          <tr><td class="stock-name">엔비디아 <span class="ticker">NVDA</span></td><td class="fall">-26.7%</td><td>2개월</td><td class="gain">+7.6%</td><td class="huge-gain">+31.3%</td></tr>
+          <tr><td class="stock-name">아마존 <span class="ticker">AMZN</span></td><td class="fall">-19.4%</td><td>3개월</td><td class="gain">+10.5%</td><td class="huge-gain">+46.7%</td></tr>
+          <tr><td class="stock-name">알파벳 <span class="ticker">GOOGL</span></td><td class="fall">-17.2%</td><td>4개월</td><td class="fall">-4.7%</td><td class="huge-gain">+21.3%</td></tr>
+          <tr><td class="stock-name">메타 <span class="ticker">META</span></td><td class="fall">-15.2%</td><td>1개월</td><td class="gain">+14.9%</td><td class="huge-gain">+45.8%</td></tr>
+          <tr><td class="stock-name">마이크로소프트 <span class="ticker">MSFT</span></td><td class="fall">-15.2%</td><td>10개월</td><td class="gain">+3.5%</td><td class="gain">+5.0%</td></tr>
+          <tr><td class="stock-name">애플 <span class="ticker">AAPL</span></td><td class="fall">-11.7%</td><td>2개월</td><td class="gain">+6.7%</td><td class="gain">+12.8%</td></tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+  <!-- ========== 사건 14: 미국-이란 핵 2026 ========== -->
+  <div class="ongoing-card">
+    <span class="ongoing-tag">🔴 진행 중 · 2026.05.01 기준</span>
+    <h3 style="font-size:18px;font-weight:800;color:#2a2244;margin-bottom:6px;">미국-이란 전쟁 (Operation Epic Fury)</h3>
+    <p style="font-size:13px;color:#888;margin-bottom:14px;">📅 2026년 2~5월 · 미국+이스라엘의 이란 본토 공습</p>
+    <div style="background:white;padding:14px 16px;border-radius:12px;font-size:14px;color:#4a4a6a;line-height:1.7;margin-bottom:14px;">
+      2026년 2월 28일 미국과 이스라엘이 이란 본토를 기습 공습(작전명 Epic Fury)하면서 시작된 전쟁이에요. 이란 최고지도자 하메네이가 사살되고, 이란이 호르무즈 해협 봉쇄로 맞대응하면서 유가가 급등했어요. <strong>시장은 3월 30일에 저점</strong>을 찍었고, <strong>4월 8일 휴전</strong> 이후 빠르게 회복해 5월 1일에는 사상 최고가를 갱신했어요. 흥미롭게도 <strong>휴전 기대로 유가가 안정되면서 에너지 대형주(엑손모빌·셰브론)가 직격탄</strong>을 맞은 반면, <strong>유가·지정학 리스크에도 AI·빅테크 우량주는 강하게 반등</strong>(브로드컴 +44%, 알파벳 +41%)했어요. 단, 트럼프가 공습 재개를 검토하고 있어 사건은 <strong>여전히 진행 중</strong>이에요.
+      <div style="margin-top:10px;padding:10px 12px;background:#faf8ff;border-radius:8px;font-size:12px;color:#666;line-height:1.6;">
+        💡 <strong style="color:#7c4dff;">호르무즈 해협</strong>은 전 세계 원유 수송의 약 20%가 지나가는 좁은 바닷길이에요. 이란이 이곳을 막으면 유가가 급등해서 항공·운송업계가 직격탄을 맞아요.
+      </div>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title index">📈 시장 지수 (3/30 저점 → 5/1 회복)</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>지수</th><th>3/30 저점</th><th>5/1 종가</th><th>회복률</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">S&P500</td><td class="price">6,343.72</td><td class="price">7,230.12</td><td class="huge-gain">+13.97%</td></tr>
+          <tr><td class="stock-name">나스닥</td><td class="price">20,794.64</td><td class="price">25,114.44</td><td class="huge-gain">+20.77%</td></tr>
+          <tr><td class="stock-name">다우존스</td><td class="price">45,216.14</td><td class="price">49,499.27</td><td class="gain">+9.47%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title danger">⚠️ 직격탄 종목 (3/30 → 5/1)</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>분류</th><th>회복률</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">엑손모빌 <span class="ticker">XOM</span></td><td>에너지</td><td class="fall">-10.92%</td></tr>
+          <tr><td class="stock-name">셰브론 <span class="ticker">CVX</span></td><td>에너지</td><td class="fall">-9.53%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title opportunity">💎 공포에 하락한 우량주 (3/30 → 5/1)</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>분류</th><th>회복률</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">브로드컴 <span class="ticker">AVGO</span></td><td>반도체 우량주</td><td class="huge-gain">+43.58%</td></tr>
+          <tr><td class="stock-name">알파벳 <span class="ticker">GOOGL</span></td><td>우량주/AI</td><td class="huge-gain">+41.02%</td></tr>
+          <tr><td class="stock-name">아마존 <span class="ticker">AMZN</span></td><td>우량주</td><td class="huge-gain">+33.50%</td></tr>
+          <tr><td class="stock-name">엔비디아 <span class="ticker">NVDA</span></td><td>AI/반도체</td><td class="huge-gain">+20.15%</td></tr>
+          <tr><td class="stock-name">마이크로소프트 <span class="ticker">MSFT</span></td><td>우량주</td><td class="gain">+15.46%</td></tr>
+          <tr><td class="stock-name">애플 <span class="ticker">AAPL</span></td><td>우량주</td><td class="gain">+13.59%</td></tr>
+          <tr><td class="stock-name">메타 <span class="ticker">META</span></td><td>우량주</td><td class="gain">+13.49%</td></tr>
+          <tr><td class="stock-name">테슬라 <span class="ticker">TSLA</span></td><td>성장주</td><td class="gain">+10.00%</td></tr>
+          <tr><td class="stock-name">델타항공 <span class="ticker">DAL</span></td><td>항공</td><td class="gain">+9.16%</td></tr>
+          <tr><td class="stock-name">유나이티드항공 <span class="ticker">UAL</span></td><td>항공</td><td class="gain">+8.58%</td></tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+  <div class="group-insight external">
+    <span class="gi-label">🌪️ 외부 충격형 인사이트</span>
+    <h5>회사가 잘못한 게 없어서<br>빠르게 돌아오는 패턴</h5>
+    <p style="font-size:11.5px;color:#888;margin-bottom:10px;">🏷️ 변동성 쇼크 · 이란 미사일 · 엔 캐리 · 미국-이란 핵</p>
+    <p>회사 실적이 아니라 외부 요인이 만든 매도예요. 헤지펀드가 강제로 팔아야 하거나, 지정학 긴장으로 시장이 한꺼번에 패닉할 때 이런 일이 벌어져요. <strong>회사 가치가 변한 게 아니니, 시장이 진정되면 주가가 자연스럽게 제자리로 돌아오는 구조</strong>예요.</p>
+    <div class="gi-stats">
+      📊 모든 사건에서 빅테크가 <strong>1주~2개월 안에 회복</strong>했어요. <strong>미국-이란 전쟁(2026.02)</strong> 때도 시장이 3월 30일 저점을 찍은 후 한 달 만에 빅테크가 강하게 반등했어요(브로드컴 +44%, 알파벳 +41%, 아마존 +34%, 엔비디아 +20%).
+    </div>
+  </div>
+
+  <!-- ========== 그룹 2: 정책·거시형 ========== -->
+  <div class="group-header policy">
+    <div class="group-icon">📰</div>
+    <div class="group-title">정책·거시형</div>
+    <div class="group-desc">관세·금리·환율 등 정책 변화로 시작된 위기. 정책 한 줄에 시장이 좌우돼요.</div>
+    <span class="group-meta">사건 3개</span>
+  </div>
+
+  <!-- ========== 사건 1: 차이나 쇼크 2015 ========== -->
+  <div class="event-card">
+    <span class="event-num">사건 #1</span>
+    <h3>차이나 쇼크 <span class="event-tag">거시 + 환율 (중국발)</span></h3>
+    <p class="event-date">📅 2015년 8월 · 위안화 평가절하</p>
+    <div class="event-desc">
+      중국 경제 둔화 우려로 위안화 절하, 글로벌 증시 동반 하락. 미국 자체 경제는 큰 문제가 없었지만 <strong>중국 매출 의존도가 높은 종목과 빅테크가 모두 흔들렸어요</strong>. 다만 본업 펀더멘털이 강한 우량주는 6개월 안에 회복했어요. 외부 거시 충격이 미국 시장으로 전이된 첫 번째 큰 사례예요.
+    </div>
+    
+
+    <div class="table-section">
+      <div class="table-title index">📈 시장 지수</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>지수</th><th>고점가</th><th>저점가</th><th>하락폭</th><th>회복기간</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">나스닥</td><td class="price">5,218.86</td><td class="price">4,506.49</td><td class="fall">-13.6%</td><td>12개월</td><td class="gain">+15.7%</td></tr>
+          <tr><td class="stock-name">S&P500</td><td class="price">2,128.28</td><td class="price">1,867.61</td><td class="fall">-12.2%</td><td>11개월</td><td class="gain">+16.3%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title opportunity">💎 공포에 하락한 우량주</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복기간</th><th>1개월 후</th><th>6개월 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">AMD <span class="ticker">AMD</span></td><td class="fall">-34.4%</td><td>4개월</td><td class="gain">+3.0%</td><td class="gain">+22.3%</td></tr>
+          <tr><td class="stock-name">어플라이드머티 <span class="ticker">AMAT</span></td><td class="fall">-26.3%</td><td>6개월</td><td class="gain">+15.1%</td><td class="gain">+42.1%</td></tr>
+          <tr><td class="stock-name">애플 <span class="ticker">AAPL</span></td><td class="fall">-21.6%</td><td>18개월</td><td class="gain">+11.5%</td><td class="fall">-5.9%</td></tr>
+          <tr><td class="stock-name">브로드컴 <span class="ticker">AVGO</span></td><td class="fall">-21.2%</td><td>4개월</td><td class="gain">+17.2%</td><td class="gain">+22.8%</td></tr>
+          <tr><td class="stock-name">메타 <span class="ticker">META</span></td><td class="fall">-16.6%</td><td>2개월</td><td class="gain">+15.0%</td><td class="gain">+30.2%</td></tr>
+          <tr><td class="stock-name">엔비디아 <span class="ticker">NVDA</span></td><td class="fall">-14.4%</td><td>1개월</td><td class="gain">+16.4%</td><td class="huge-gain">+57.8%</td></tr>
+          <tr><td class="stock-name">마이크로소프트 <span class="ticker">MSFT</span></td><td class="fall">-14.4%</td><td>2개월</td><td class="gain">+8.6%</td><td class="gain">+30.5%</td></tr>
+          <tr><td class="stock-name">아마존 <span class="ticker">AMZN</span></td><td class="fall">-13.7%</td><td>1개월</td><td class="gain">+15.2%</td><td class="gain">+19.6%</td></tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+  <!-- ========== 사건 3: 미중 무역분쟁 2018 ========== -->
+  <div class="event-card">
+    <span class="event-num">사건 #2</span>
+    <h3>미중 무역분쟁 격화 <span class="event-tag">정책 + 거시 (긴축 + 무역분쟁)</span></h3>
+    <p class="event-date">📅 2018년 10~12월 · 관세 + 긴축 + 파월 매파 발언</p>
+    <div class="event-desc">
+      트럼프 1기 관세 부과로 미중 무역분쟁이 본격화. 1년 내내 시장이 흔들리면서 4분기에 -19% 큰 조정이 왔어요. <strong>중국 매출 의존이 큰 반도체주가 가장 크게 흔들렸지만</strong>, 미중 협상 재개 시점부터 우량주는 빠르게 회복했어요. 정책 충격은 정책 변화로 풀리는 패턴의 대표 사례예요.
+    </div>
+    
+
+    <div class="table-section">
+      <div class="table-title index">📈 시장 지수</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>지수</th><th>고점가</th><th>저점가</th><th>하락폭</th><th>회복기간</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">나스닥</td><td class="price">8,091.25</td><td class="price">6,192.92</td><td class="fall">-23.5%</td><td>4개월</td><td class="huge-gain">+44.6%</td></tr>
+          <tr><td class="stock-name">S&P500</td><td class="price">2,930.75</td><td class="price">2,351.10</td><td class="fall">-19.8%</td><td>4개월</td><td class="huge-gain">+37.1%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title opportunity">💎 공포에 하락한 우량주</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복기간</th><th>1개월 후</th><th>6개월 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">엔비디아 <span class="ticker">NVDA</span></td><td class="fall">-56.0%</td><td>14개월</td><td class="huge-gain">+24.2%</td><td class="gain">+20.4%</td></tr>
+          <tr><td class="stock-name">AMD <span class="ticker">AMD</span></td><td class="fall">-49.1%</td><td>6개월</td><td class="huge-gain">+25.2%</td><td class="huge-gain">+75.7%</td></tr>
+          <tr><td class="stock-name">마이크론 <span class="ticker">MU</span></td><td class="fall">-44.1%</td><td>12개월</td><td class="huge-gain">+26.1%</td><td class="gain">+14.4%</td></tr>
+          <tr><td class="stock-name">넷플릭스 <span class="ticker">NFLX</span></td><td class="fall">-38.7%</td><td>4개월</td><td class="huge-gain">+39.7%</td><td class="huge-gain">+58.6%</td></tr>
+          <tr><td class="stock-name">애플 <span class="ticker">AAPL</span></td><td class="fall">-36.5%</td><td>10개월</td><td class="gain">+4.0%</td><td class="huge-gain">+36.3%</td></tr>
+          <tr><td class="stock-name">아마존 <span class="ticker">AMZN</span></td><td class="fall">-34.1%</td><td>14개월</td><td class="huge-gain">+23.1%</td><td class="huge-gain">+42.4%</td></tr>
+          <tr><td class="stock-name">마스터카드 <span class="ticker">MA</span></td><td class="fall">-21.9%</td><td>2개월</td><td class="gain">+14.6%</td><td class="huge-gain">+52.4%</td></tr>
+          <tr><td class="stock-name">비자 <span class="ticker">V</span></td><td class="fall">-19.1%</td><td>3개월</td><td class="gain">+13.1%</td><td class="huge-gain">+43.3%</td></tr>
+          <tr><td class="stock-name">마이크로소프트 <span class="ticker">MSFT</span></td><td class="fall">-18.2%</td><td>3개월</td><td class="gain">+12.8%</td><td class="huge-gain">+47.5%</td></tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+  <!-- ========== 사건 12: 해방의 날(Liberation Day) 2025 ========== -->
+  <div class="event-card">
+    <span class="event-num">사건 #3</span>
+    <h3>해방의 날 관세 쇼크 (Liberation Day) <span class="event-tag">정책 (관세·무역전쟁)</span></h3>
+    <p class="event-date">📅 2025년 4월 · 트럼프 상호관세 발표</p>
+    <div class="event-desc">
+      트럼프 2기 상호관세 발표로 2025년 4월 시장이 폭락. 4월 9일 트럼프의 "90일 유예" 한 마디로 단 하루 만에 +9.5% 폭등하며 회복 시작. <strong>관세를 직접 맞은 항공·나이키·베스트바이는 1년이 지나도 미회복</strong>이지만, <strong>빅테크 우량주는 1~3개월 안에 회복</strong>해서 마이크론은 +195%, 브로드컴은 +130% 반등했어요.
+    </div>
+    
+
+    <div class="table-section">
+      <div class="table-title index">📈 시장 지수</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>지수</th><th>고점가</th><th>저점가</th><th>하락폭</th><th>회복기간</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">나스닥</td><td class="price">20,056.25</td><td class="price">15,267.91</td><td class="fall">-23.9%</td><td>2개월</td><td class="huge-gain">+48.3%</td></tr>
+          <tr><td class="stock-name">S&P500</td><td class="price">6,144.15</td><td class="price">4,982.77</td><td class="fall">-18.9%</td><td>2개월</td><td class="huge-gain">+36.1%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title danger">⚠️ 직격탄 종목</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">유나이티드항공 <span class="ticker">UAL</span></td><td class="fall">-47.3%</td><td>5개월</td><td class="huge-gain">+71.5%</td></tr>
+          <tr><td class="stock-name">델타항공 <span class="ticker">DAL</span></td><td class="fall">-44.7%</td><td>7개월</td><td class="huge-gain">+92.1%</td></tr>
+          <tr><td class="stock-name">아메리칸항공 <span class="ticker">AAL</span></td><td class="fall">-43.6%</td><td>8개월</td><td class="huge-gain">+25.8%</td></tr>
+          <tr><td class="stock-name">베스트바이 <span class="ticker">BBY</span></td><td class="fall">-37.6%</td><td class="no-recovery">전고점 미회복</td><td class="gain">+21.3%</td></tr>
+          <tr><td class="stock-name">나이키 <span class="ticker">NKE</span></td><td class="fall">-34.5%</td><td class="no-recovery">전고점 미회복</td><td class="fall">-17.0%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title opportunity">💎 공포에 하락한 우량주</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복기간</th><th>1개월 후</th><th>6개월 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">델 <span class="ticker">DELL</span></td><td class="fall">-40.8%</td><td>2개월</td><td class="huge-gain">+32.6%</td><td class="huge-gain">+105.6%</td></tr>
+          <tr><td class="stock-name">마이크론 <span class="ticker">MU</span></td><td class="fall">-39.3%</td><td>2개월</td><td class="huge-gain">+24.3%</td><td class="huge-gain">+195.5%</td></tr>
+          <tr><td class="stock-name">테슬라 <span class="ticker">TSLA</span></td><td class="fall">-38.5%</td><td>1개월</td><td class="huge-gain">+28.4%</td><td class="huge-gain">+97.7%</td></tr>
+          <tr><td class="stock-name">브로드컴 <span class="ticker">AVGO</span></td><td class="fall">-35.8%</td><td>1개월</td><td class="huge-gain">+37.2%</td><td class="huge-gain">+130.3%</td></tr>
+          <tr><td class="stock-name">애플 <span class="ticker">AAPL</span></td><td class="fall">-30.2%</td><td>5개월</td><td class="gain">+14.5%</td><td class="huge-gain">+50.0%</td></tr>
+          <tr><td class="stock-name">아마존 <span class="ticker">AMZN</span></td><td class="fall">-26.2%</td><td>3개월</td><td class="huge-gain">+20.2%</td><td class="huge-gain">+32.7%</td></tr>
+          <tr><td class="stock-name">알파벳 <span class="ticker">GOOGL</span></td><td class="fall">-21.8%</td><td>3개월</td><td class="gain">+6.6%</td><td class="huge-gain">+69.4%</td></tr>
+          <tr><td class="stock-name">마이크로소프트 <span class="ticker">MSFT</span></td><td class="fall">-14.8%</td><td>1개월</td><td class="huge-gain">+23.6%</td><td class="huge-gain">+48.5%</td></tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+  <div class="group-insight policy">
+    <span class="gi-label">📰 정책·거시형 인사이트</span>
+    <h5>정부 결정으로 빠진 건<br>정부 결정으로 풀리는 패턴</h5>
+    <p style="font-size:11.5px;color:#888;margin-bottom:10px;">🏷️ 차이나 쇼크 · 미중 무역분쟁 · 해방의 날</p>
+    <p>관세나 무역분쟁처럼 <strong>정부의 한 마디가 시장을 좌우하는 위기</strong>는, 정부의 다음 한 마디로 풀리는 경향이 있어요. 회복 트리거가 비교적 명확한 편이에요. 다만 정책 변화를 기다려야 하니 외부 충격보다 회복이 길어요(2~12개월). 그리고 <strong>정책 영향을 직접 받는 종목</strong>과 <strong>그렇지 않은 종목</strong>의 차이가 뚜렷하게 갈리는 게 특징이에요.</p>
+    <div class="gi-stats">
+      📊 해방의 날 때 "90일 유예" 발표 한 마디로 단 하루 만에 시장 +9.5% 폭등. <strong>빅테크는 1~3개월 안에 회복</strong>해서 마이크론은 6개월 후 +195%, 브로드컴 +130% 반등. 반면 관세 직격탄을 맞은 나이키·베스트바이는 1년이 지난 지금도 미회복.
+    </div>
+  </div>
+
+  <!-- ========== 그룹 3: 산업 구조형 ========== -->
+  <div class="group-header industry">
+    <div class="group-icon">🏭</div>
+    <div class="group-title">산업 구조형</div>
+    <div class="group-desc">특정 산업의 비즈니스 모델이 흔들린 위기. 직격탄과 그렇지 않은 종목이 극단적으로 갈려요.</div>
+    <span class="group-meta">사건 4개</span>
+  </div>
+
+  <!-- ========== 사건 4: 코로나 2020 ========== -->
+  <div class="event-card">
+    <span class="event-num">사건 #1</span>
+    <h3>코로나 팬데믹 <span class="event-tag">외부 충격 (전염병)</span></h3>
+    <p class="event-date">📅 2020년 2~3월 · 전 세계 봉쇄</p>
+    <div class="event-desc">
+      한 달 만에 -34% 폭락한 역사상 가장 빠른 베어마켓. 동시에 5개월 만에 회복한 가장 빠른 회복이기도 했어요. <strong>여행·항공·크루즈는 매출이 거의 0이 되어 5년이 지난 지금도 미회복</strong>이지만, <strong>빅테크 우량주는 재택근무·온라인 수혜로 +120% 폭등</strong>했어요. 같은 위기에서도 산업 충격을 흡수할 수 있는 회사와 그렇지 못한 회사의 결과가 극단적으로 갈린 대표 사례예요.
+    </div>
+    
+
+    <div class="table-section">
+      <div class="table-title index">📈 시장 지수</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>지수</th><th>고점가</th><th>저점가</th><th>하락폭</th><th>회복기간</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">S&P500</td><td class="price">3,386.15</td><td class="price">2,237.40</td><td class="fall">-33.9%</td><td>5개월</td><td class="huge-gain">+74.8%</td></tr>
+          <tr><td class="stock-name">나스닥</td><td class="price">9,817.18</td><td class="price">6,860.67</td><td class="fall">-30.1%</td><td>3개월</td><td class="huge-gain">+92.8%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title danger">⚠️ 직격탄 종목</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">로열캐리비안 <span class="ticker">RCL</span></td><td class="fall">-80.9%</td><td>45개월</td><td class="huge-gain">+295.9%</td></tr>
+          <tr><td class="stock-name">카니발 <span class="ticker">CCL</span></td><td class="fall">-78.7%</td><td class="no-recovery">전고점 미회복</td><td class="huge-gain">+204.0%</td></tr>
+          <tr><td class="stock-name">보잉 <span class="ticker">BA</span></td><td class="fall">-72.5%</td><td class="no-recovery">전고점 미회복</td><td class="huge-gain">+164.4%</td></tr>
+          <tr><td class="stock-name">아메리칸항공 <span class="ticker">AAL</span></td><td class="fall">-66.4%</td><td class="no-recovery">전고점 미회복</td><td class="huge-gain">+117.3%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title opportunity">💎 공포에 하락한 우량주</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복기간</th><th>1개월 후</th><th>6개월 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">테슬라 <span class="ticker">TSLA</span></td><td class="fall">-60.6%</td><td>3개월</td><td class="huge-gain">+106.6%</td><td class="huge-gain">+512.0%</td></tr>
+          <tr><td class="stock-name">로우스 <span class="ticker">LOW</span></td><td class="fall">-48.6%</td><td>2개월</td><td class="huge-gain">+46.3%</td><td class="huge-gain">+148.6%</td></tr>
+          <tr><td class="stock-name">브로드컴 <span class="ticker">AVGO</span></td><td class="fall">-48.3%</td><td>4개월</td><td class="huge-gain">+56.5%</td><td class="huge-gain">+120.2%</td></tr>
+          <tr><td class="stock-name">엔비디아 <span class="ticker">NVDA</span></td><td class="fall">-37.6%</td><td>2개월</td><td class="huge-gain">+50.1%</td><td class="huge-gain">+155.1%</td></tr>
+          <tr><td class="stock-name">메타 <span class="ticker">META</span></td><td class="fall">-33.0%</td><td>2개월</td><td class="huge-gain">+20.7%</td><td class="huge-gain">+80.5%</td></tr>
+          <tr><td class="stock-name">애플 <span class="ticker">AAPL</span></td><td class="fall">-31.4%</td><td>3개월</td><td class="huge-gain">+22.6%</td><td class="huge-gain">+91.8%</td></tr>
+          <tr><td class="stock-name">마이크로소프트 <span class="ticker">MSFT</span></td><td class="fall">-28.0%</td><td>3개월</td><td class="huge-gain">+30.7%</td><td class="huge-gain">+52.2%</td></tr>
+          <tr><td class="stock-name">아마존 <span class="ticker">AMZN</span></td><td class="fall">-22.7%</td><td>1개월</td><td class="huge-gain">+29.4%</td><td class="huge-gain">+85.1%</td></tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+  <!-- ========== 사건 #2: 2020.09 기술주 조정 (간략) ========== -->
+  <div class="brief-card">
+    <span class="brief-tag">사건 #2 · 간략</span>
+    <h4>2020년 9월 기술주 조정</h4>
+    <p class="brief-date">📅 2020년 9월 · 차익실현 + 밸류에이션 부담</p>
+    <p>코로나 이후 폭등한 기술주가 4개월 만에 조정. 나스닥 -11.8%, 테슬라 -33.7%, 애플 -20.4%까지 빠졌지만 1~2개월 만에 회복. 회사 문제가 아닌 <strong>"많이 올라서 빠진" 단기 차익실현</strong>이라 우량 기술주에는 좋은 재진입 기회였어요.</p>
+  </div>
+
+  <!-- ========== 사건 8: SVB 2023 ========== -->
+  <div class="event-card">
+    <span class="event-num">사건 #3</span>
+    <h3>실리콘밸리은행 파산 사태 (SVB) <span class="event-tag">금융 시스템 (지역은행 한정)</span></h3>
+    <p class="event-date">📅 2023년 3월 · 실리콘밸리은행 파산</p>
+    <div class="event-desc">
+      미국 16위 은행 SVB가 단 이틀 만에 파산하면서 은행 신뢰가 흔들렸어요. <strong>지역은행은 직격탄을 맞고 시그니처·퍼스트리퍼블릭은 결국 파산</strong>했지만, <strong>대형은행(JP모건·BOA)은 "안전한 곳으로 돈이 몰려" 오히려 수혜</strong>를 봤어요. 빅테크에는 영향이 미미해서(-3~5%), 같은 직격탄도 회사 체력에 따라 결과가 갈리는 사례예요.
+    </div>
+    
+
+    <div class="table-section">
+      <div class="table-title index">📈 시장 지수</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>지수</th><th>고점가</th><th>저점가</th><th>하락폭</th><th>회복기간</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">S&P500</td><td class="price">4,048.42</td><td class="price">3,855.76</td><td class="fall">-4.8%</td><td>1개월 이내</td><td class="huge-gain">+34.0%</td></tr>
+          <tr><td class="stock-name">나스닥</td><td class="price">11,689.01</td><td class="price">11,138.89</td><td class="fall">-4.7%</td><td>1개월 이내</td><td class="huge-gain">+43.8%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title danger">⚠️ 직격탄 종목</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복기간</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">찰스슈왑 <span class="ticker">SCHW</span></td><td class="fall">-32.9%</td><td>14개월</td><td class="huge-gain">+31.6%</td></tr>
+          <tr><td class="stock-name">웰스파고 <span class="ticker">WFC</span></td><td class="fall">-22.7%</td><td>4개월</td><td class="huge-gain">+61.6%</td></tr>
+          <tr><td class="stock-name">뱅크오브아메리카 <span class="ticker">BAC</span></td><td class="fall">-21.0%</td><td>9개월</td><td class="huge-gain">+41.0%</td></tr>
+          <tr><td class="stock-name">씨티그룹 <span class="ticker">C</span></td><td class="fall">-17.7%</td><td>9개월</td><td class="huge-gain">+47.9%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title opportunity">💎 공포에 하락한 우량주</div>
+      <div style="background:#faf8ff;padding:14px 16px;border-radius:10px;font-size:13px;color:#555;line-height:1.7;">
+        SVB 사태는 <strong style="color:#7c4dff;">은행 시스템에 한정된 충격</strong>이라 빅테크에는 영향이 거의 없었어요(-3~5%). 동반 하락이 미미해서 의미 있는 매수 기회는 직격탄을 받지 않은 대형은행(JP모건·BOA)이었어요.
+      </div>
+    </div>
+</div>
+
+  <!-- ========== 사건 11: 딥시크(DeepSeek) 2025 ========== -->
+  <div class="event-card">
+    <span class="event-num">사건 #4</span>
+    <h3>딥시크 AI 쇼크 (DeepSeek) <span class="event-tag">섹터 한정 (AI/반도체)</span></h3>
+    <p class="event-date">📅 2025년 1월 27일 · 중국 AI 모델 등장</p>
+    <div class="event-desc">
+      중국 AI 스타트업 딥시크가 600만 달러로 만든 모델이 OpenAI에 필적한다는 소식에 AI 관련주가 일제히 폭락. 엔비디아는 단일일 -17%(시가총액 6,000억 달러 증발). <strong>AI 밸류체인 가치 의문으로 ARM·페이팔·서비스나우 같은 고밸류 SaaS가 직격탄</strong>이었지만, <strong>애플 등 본업이 강한 우량주는 +21% 회복</strong>했어요. 단기 패닉으로 우량주가 함께 빠질 때가 진짜 기회였어요.
+    </div>
+    
+
+    <div class="table-section">
+      <div class="table-title index">📈 시장 지수 — 거의 영향 없음</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>지수</th><th>고점가</th><th>저점가</th><th>하락폭</th><th>회복기간</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">나스닥</td><td class="price">20,053.68</td><td class="price">19,341.83</td><td class="fall">-3.5%</td><td>1개월</td><td class="huge-gain">+23.1%</td></tr>
+          <tr><td class="stock-name">S&P500</td><td class="price">6,118.71</td><td class="price">5,994.57</td><td class="fall">-2.0%</td><td>1개월 이내</td><td class="huge-gain">+15.4%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title danger">⚠️ 직격탄 종목</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">ARM <span class="ticker">ARM</span></td><td class="fall">-18.9%</td><td>15개월</td><td class="fall">-21.3%</td></tr>
+          <tr><td class="stock-name">페이팔 <span class="ticker">PYPL</span></td><td class="fall">-17.0%</td><td class="no-recovery">전고점 미회복</td><td class="fall">-46.8%</td></tr>
+          <tr><td class="stock-name">서비스나우 <span class="ticker">NOW</span></td><td class="fall">-13.4%</td><td class="no-recovery">전고점 미회복</td><td class="fall">-47.4%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title opportunity">💎 AI 관련 주요 종목</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복기간</th><th>1개월 후</th><th>6개월 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">엔비디아 <span class="ticker">NVDA</span></td><td class="fall">-20.8%</td><td>4개월</td><td class="fall">-2.2%</td><td class="huge-gain">+54.3%</td></tr>
+          <tr><td class="stock-name">마이크론 <span class="ticker">MU</span></td><td class="fall">-19.3%</td><td>5개월</td><td class="gain">+6.1%</td><td class="huge-gain">+26.3%</td></tr>
+          <tr><td class="stock-name">브로드컴 <span class="ticker">AVGO</span></td><td class="fall">-17.4%</td><td>5개월</td><td class="fall">-2.1%</td><td class="huge-gain">+46.4%</td></tr>
+          <tr><td class="stock-name">오라클 <span class="ticker">ORCL</span></td><td class="fall">-15.1%</td><td>5개월</td><td class="gain">+4.1%</td><td class="huge-gain">+57.4%</td></tr>
+          <tr><td class="stock-name">AMD <span class="ticker">AMD</span></td><td class="fall">-13.1%</td><td>4개월</td><td class="fall">-6.7%</td><td class="huge-gain">+60.3%</td></tr>
+                            </tbody>
+      </table>
+    </div>
+</div>
+
+  <div class="group-insight industry">
+    <span class="gi-label">🏭 산업 구조형 인사이트</span>
+    <h5>위기가 산업의 근간을 흔들면<br>회복이 갈리는 패턴</h5>
+    <p style="font-size:11.5px;color:#888;margin-bottom:10px;">🏷️ 코로나 · 2020.09 기술주 · SVB · 딥시크</p>
+    <p>위기가 특정 산업의 <strong>돈을 버는 방식 자체를 멈추거나 위협</strong>할 때 일어나요. 코로나는 사람들이 비행기를 못 타게 만들어 항공사 매출을 거의 0으로 만들었고, SVB는 "은행에 돈을 맡겨도 안전할까?"라는 신뢰를 흔들었고, 딥시크는 "AI 반도체가 정말 그만큼 비쌀 가치가 있나?"라는 의문을 만들었어요.</p>
+    <p>이런 위기는 <strong>같은 업종 안에서도 살아남는 회사와 못 살아남는 회사가 갈려요</strong>. 충격을 견딜 체력이 있는 회사만 회복하고, 그렇지 않은 회사는 영영 못 돌아올 수도 있어요.</p>
+    <div class="gi-stats">
+      📊 같은 사건, 같은 업종에서도 결과가 극단적으로 갈렸어요:
+      <div class="vs-compare">
+        <div class="vs-row">
+          <span class="vs-event">코로나</span>
+          <span class="vs-good">빅테크 +120%</span>
+          <span class="vs-divider">VS</span>
+          <span class="vs-bad">항공·크루즈 미회복</span>
+        </div>
+        <div class="vs-row">
+          <span class="vs-event">SVB</span>
+          <span class="vs-good">JP모건 +35%</span>
+          <span class="vs-divider">VS</span>
+          <span class="vs-bad">지역은행 파산</span>
+        </div>
+        <div class="vs-row">
+          <span class="vs-event">딥시크</span>
+          <span class="vs-good">애플 +21%</span>
+          <span class="vs-divider">VS</span>
+          <span class="vs-bad">페이팔 -47%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 그룹 4: 거시 베어마켓 ========== -->
+  <div class="group-header macro">
+    <div class="group-icon">📉</div>
+    <div class="group-title">거시 베어마켓</div>
+    <div class="group-desc">금리·인플레이션 등 거시 환경 변화로 발생한 장기 하락장. 회복할 성장주와 무너진 성장주가 갈려요.</div>
+    <span class="group-meta">사건 1개 (단독)</span>
+  </div>
+
+  <!-- ========== 사건 7: 인플레 베어마켓 2022 ========== -->
+  <div class="event-card">
+    <span class="event-num">사건 #1</span>
+    <h3>인플레이션·긴축 베어마켓 <span class="event-tag">거시 (인플레 + 긴축)</span></h3>
+    <p class="event-date">📅 2022년 · 40년 만의 인플레 + 공격적 금리 인상</p>
+    <div class="event-desc">
+      40년 만의 최악 인플레이션과 연준 급격한 금리 인상이 겹쳤어요. <strong>고밸류·소비재·성장주가 직격탄</strong>이라 페이팔·어도비·나이키는 -60% 이상 폭락 후 지금도 미회복. 반면 <strong>본업이 강한 메타·엔비디아는 +254%, +310% 강하게 회복</strong>했어요. 같은 만큼 빠진 우량주라도 회복 체력이 있는 회사와 없는 회사의 차이가 극단적이었던 사례예요.
+    </div>
+    
+
+    <div class="table-section">
+      <div class="table-title index">📈 시장 지수</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>지수</th><th>고점가</th><th>저점가</th><th>하락폭</th><th>회복기간</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">나스닥</td><td class="price">16,057.44</td><td class="price">10,213.29</td><td class="fall">-36.4%</td><td>14개월</td><td class="huge-gain">+47.8%</td></tr>
+          <tr><td class="stock-name">S&P500</td><td class="price">4,796.56</td><td class="price">3,577.03</td><td class="fall">-25.4%</td><td>15개월</td><td class="huge-gain">+21.6%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title danger">⚠️ 직격탄 종목</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복</th><th>1년 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">페이팔 <span class="ticker">PYPL</span></td><td class="fall">-70.8%</td><td class="no-recovery">전고점 미회복</td><td class="fall">-6.6%</td></tr>
+          <tr><td class="stock-name">어도비 <span class="ticker">ADBE</span></td><td class="fall">-60.0%</td><td class="no-recovery">전고점 미회복</td><td class="huge-gain">+89.4%</td></tr>
+          <tr><td class="stock-name">나이키 <span class="ticker">NKE</span></td><td class="fall">-52.7%</td><td class="no-recovery">전고점 미회복</td><td class="gain">+15.2%</td></tr>
+          <tr><td class="stock-name">디즈니 <span class="ticker">DIS</span></td><td class="fall">-52.4%</td><td class="no-recovery">전고점 미회복</td><td class="gain">+7.8%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <div class="table-title opportunity">💎 회복력 있는 우량주</div>
+      <table class="data-table">
+        <thead>
+          <tr><th>종목</th><th>하락폭</th><th>회복기간</th><th>1개월 후</th><th>6개월 후</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="stock-name">메타 <span class="ticker">META</span></td><td class="fall">-74.4%</td><td>13개월</td><td class="huge-gain">+37.7%</td><td class="huge-gain">+166.6%</td></tr>
+          <tr><td class="stock-name">테슬라 <span class="ticker">TSLA</span></td><td class="fall">-73.4%</td><td>24개월</td><td class="huge-gain">+63.1%</td><td class="huge-gain">+129.3%</td></tr>
+          <tr><td class="stock-name">엔비디아 <span class="ticker">NVDA</span></td><td class="fall">-66.3%</td><td>7개월</td><td class="huge-gain">+45.1%</td><td class="huge-gain">+138.4%</td></tr>
+          <tr><td class="stock-name">아마존 <span class="ticker">AMZN</span></td><td class="fall">-55.7%</td><td>16개월</td><td class="huge-gain">+22.9%</td><td class="huge-gain">+57.7%</td></tr>
+          <tr><td class="stock-name">알파벳 <span class="ticker">GOOGL</span></td><td class="fall">-44.3%</td><td>14개월</td><td class="huge-gain">+19.2%</td><td class="huge-gain">+26.3%</td></tr>
+          <tr><td class="stock-name">마이크로소프트 <span class="ticker">MSFT</span></td><td class="fall">-37.1%</td><td>7개월</td><td class="huge-gain">+17.1%</td><td class="huge-gain">+42.8%</td></tr>
+          <tr><td class="stock-name">브로드컴 <span class="ticker">AVGO</span></td><td class="fall">-35.2%</td><td>7개월</td><td class="huge-gain">+20.2%</td><td class="huge-gain">+47.3%</td></tr>
+          <tr><td class="stock-name">애플 <span class="ticker">AAPL</span></td><td class="fall">-30.3%</td><td>6개월</td><td class="gain">+13.5%</td><td class="huge-gain">+50.6%</td></tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+  <div class="group-insight macro">
+    <span class="gi-label">📉 거시 베어마켓 인사이트</span>
+    <h5>긴 하락장에서는<br>가격보다 체력이 살아남는 패턴</h5>
+    <p style="font-size:11.5px;color:#888;margin-bottom:10px;">🏷️ 2022 인플레이션·긴축</p>
+    <p>경제 환경 자체가 바뀌면서 거의 모든 종목이 동시에, 천천히, 오래 빠지는 위기예요. 이런 장에서는 <strong>가격이 싸 보인다는 이유만으로 매수하면 위험</strong>할 수 있어요.</p>
+    <p><strong>살아남는 종목의 공통점은 세 가지</strong>예요. 첫째, <strong>본업에서 꾸준히 돈이 들어오는 회사</strong> (광고 매출이 회복한 메타, AI 수요로 매출이 폭발한 엔비디아). 둘째, <strong>빚이 적고 현금이 많은 회사</strong> (애플, 마이크로소프트, 알파벳 — 모두 현금성 자산 1,000억 달러 이상 보유). 셋째, <strong>시장에서 1등인 회사</strong> (검색 1위 알파벳, 클라우드 1위 아마존, 결제 1위 비자).</p>
+    <div class="gi-stats">
+      📊 같은 -70%대 하락이지만 결과는 정반대:
+      <div class="vs-compare">
+        <div class="vs-row">
+          <span class="vs-event">메타 vs 페이팔</span>
+          <span class="vs-good">메타 +254%</span>
+          <span class="vs-divider">VS</span>
+          <span class="vs-bad">페이팔 미회복</span>
+        </div>
+        <div class="vs-row">
+          <span class="vs-event">엔비디아 vs 어도비</span>
+          <span class="vs-good">엔비디아 +310%</span>
+          <span class="vs-divider">VS</span>
+          <span class="vs-bad">어도비 미회복</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== PART 1 → 2 연결 ========== -->
+  <div style="margin: 36px 0 8px; padding: 22px 24px; background: linear-gradient(135deg, #faf8ff 0%, #f5f0fa 100%); border-radius: 16px; text-align: center;">
+    <p style="font-size: 14.5px; color: #5a5a7a; line-height: 1.7;">
+      이렇게 4가지 성격으로 위기를 분류해봤어요.<br>
+      이제 11개 사건을 <strong style="color:#7c4dff;">하나로 관통하는 패턴</strong>을 정리해볼게요.
+    </p>
+  </div>
+
+  <!-- ========== PART 2. 4가지 위기를 관통하는 패턴 ========== -->
+  <div class="part-header">
+    <span class="part-num">PART 2</span>
+    <h2>4가지 위기를 관통하는<br>핵심 패턴 5가지</h2>
+    <p class="desc">위기 성격이 달라도 변하지 않는 행동 원칙이에요</p>
+  </div>
+
+  <!-- ========== 한눈 요약표 ========== -->
+  <div class="summary-table-wrap">
+    <h3>📋 11개 사건 한눈 요약표</h3>
+    <p class="summary-desc">이 표 하나만 봐도 4가지 위기와 대응법이 정리돼요</p>
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>위기 종류</th>
+          <th>회복 기간</th>
+          <th>핵심 대응</th>
+          <th>대표 사례</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="group-cell external">🌪️<br>외부 충격</td>
+          <td class="recovery-cell">1주~<br>2개월</td>
+          <td class="action-cell">빅테크<br>폭넓게 매수</td>
+          <td class="case-cell">엔 캐리 NVDA<br><span class="case-stock">-27% → <strong>+83%</strong></span></td>
+        </tr>
+        <tr>
+          <td class="group-cell policy">📰<br>정책 충격</td>
+          <td class="recovery-cell">2~<br>12개월</td>
+          <td class="action-cell">직격탄 빼고<br>우량주만</td>
+          <td class="case-cell">해방의 날 MU<br><span class="case-stock">-39% → <strong>+485%</strong></span></td>
+        </tr>
+        <tr>
+          <td class="group-cell industry">🏭<br>산업 충격</td>
+          <td class="recovery-cell">3개월~<br>5년 이상</td>
+          <td class="action-cell">직격탄 빼고<br>우량주만</td>
+          <td class="case-cell">코로나 TSLA<br><span class="case-stock">-60% → <strong>+804%</strong></span></td>
+        </tr>
+        <tr>
+          <td class="group-cell macro">📉<br>거시<br>베어마켓</td>
+          <td class="recovery-cell">13~<br>24개월</td>
+          <td class="action-cell">회복력 있는<br>우량주만</td>
+          <td class="case-cell">2022 META<br><span class="case-stock">-74% → <strong>+254%</strong></span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:11.5px;color:#888;text-align:center;margin-top:12px;line-height:1.6;">⚠️ 직격탄(항공·크루즈·지역은행·수입의존)은 회복이 느리거나 불가능할 수 있어요</p>
+  </div>
+
+  <div class="pattern-grid">
+    <div class="pattern-item">
+      <span class="pattern-num">1</span>
+      <h4>위기마다 다른 종목이<br>기회가 돼요</h4>
+      <p>같은 -20% 하락이라도 위기 성격에 따라 의미가 완전히 달라요. <strong>외부 충격</strong>(엔 캐리, 이란 미사일)에서는 빅테크가 거의 다 회복하니 폭넓게 매수 후보예요. <strong>정책 충격</strong>(미중 분쟁, 관세)에서는 직격탄(중국 의존, 수입 의존)을 빼고 우량주만 골라야 해요. <strong>산업 충격</strong>(코로나, SVB, 딥시크)에서는 직격탄을 빼고 우량주만 봐야 하고, <strong>거시 베어마켓</strong>(2022)에서는 회복력 있는 우량주만 살아남아요.</p>
+      <p style="margin-top:10px;">즉 <strong>"이번 위기가 어떤 성격인지" 분류부터 하는 게 종목 선택의 출발점</strong>이에요. 이 자료집 PART 1의 4가지 분류를 기억해두세요.</p>
+    </div>
+
+    <div class="pattern-item">
+      <span class="pattern-num">2</span>
+      <h4>1년에 한두 번,<br>빅테크가 -15% 빠지는 날이 와요</h4>
+      <p>11개 사건 중 빅테크가 -15% 이상 빠진 게 7번. <strong>거의 매년 한두 번은 기회</strong>가 옵니다. 그때 잡으려면 <strong>평소 빅테크 매수 리스트, 지수가 아닌 개별주 알람</strong>이 필요해요. 딥시크(DeepSeek) 때 지수는 -2%였지만 엔비디아는 -21%였어요.</p>
+    </div>
+
+    <div class="pattern-item">
+      <span class="pattern-num">3</span>
+      <h4>"왜 빠졌나"를<br>제일 먼저 물어요</h4>
+      <p>빅테크 -30%와 항공주 -30%는 완전히 다른 의미예요. 회사 자체 문제 없이 빠진 우량주는 회복하고, <strong>산업 자체가 멈춘 종목은 회복 못 할 수도</strong> 있어요. 카니발·보잉은 코로나 5년 후인 지금도 미회복. 하락 원인을 먼저 묻는 습관이 진짜 안전장치예요.</p>
+    </div>
+
+    <div class="pattern-item">
+      <span class="pattern-num">4</span>
+      <h4>회복 속도는 사건 성격이<br>거의 결정해요</h4>
+      <p>외부 충격은 1주~2개월, 정책 충격은 2~12개월, <strong>산업 충격은 3개월~5년 이상(경우에 따라 미회복)</strong>, 거시 베어마켓은 13~24개월. <strong>위기 종류만 분류해도 언제 회복될지 짐작</strong> 가능해요. 회복 시점이 보이면 분할 매수 호흡이 잡혀요.</p>
+    </div>
+
+    <div class="pattern-item">
+      <span class="pattern-num">5</span>
+      <h4>빠진 직후 1~2주가<br>진짜 기회예요</h4>
+      <p>외부 충격 사건은 대부분 1개월 안에 회복돼요. 이란 미사일 1개월, 엔 캐리 2개월, SVB 1개월 이내. 망설이는 사이 기회가 사라져요. <strong>현금 비중·매수 종목 리스트·분할 매수 룰</strong> 이 세 가지가 평소에 준비돼 있어야 그 순간 행동할 수 있어요.</p>
+    </div>
+  </div>
+
+  <!-- ========== PART 3. 실전 행동 가이드 ========== -->
+  <div class="part-header">
+    <span class="part-num">PART 3</span>
+    <h2>다음 위기 때<br>체크리스트</h2>
+    <p class="desc">위기 파악 → 직격탄 제외 → 우량주 찾기 → 분할 매수, 4단계로 진행해요</p>
+  </div>
+
+  <div class="checklist-step">
+    <h4>1단계 · 어떤 위기인지부터 파악해요</h4>
+    <p style="font-size:13.5px;color:#4a4a6a;line-height:1.7;margin-bottom:12px;">뉴스 보고 "이번엔 왜 빠졌지?"부터 물어요. 위기의 성격을 알면, 누가 직격탄이고 누가 같이 빠진 우량주인지 한 번에 보여요.</p>
+    <table class="step-table">
+      <tr><td>🛢️ 유가·지정학</td><td>항공·여행·운송 직격탄</td></tr>
+      <tr><td>🏦 금융 시스템</td><td>은행·핀테크·고부채 기업 조심</td></tr>
+      <tr><td>📰 정책 충격</td><td>수입 의존·관세 직접 영향 종목 주의</td></tr>
+      <tr><td>💻 기술 경쟁</td><td>해당 기술 밸류체인 실제 수요 훼손 여부</td></tr>
+      <tr><td>💧 유동성 쇼크</td><td>빅테크 폭넓게 강제 매도 → 기회</td></tr>
+    </table>
+    <div style="margin-top:12px;padding:10px 14px;background:#faf8ff;border-radius:8px;font-size:12.5px;color:#5a5a7a;line-height:1.6;">
+      ➡️ 자세한 4가지 위기 성격은 <strong style="color:#7c4dff;">PART 1</strong>에서 정리했어요.
+    </div>
+  </div>
+
+  <div class="checklist-step">
+    <h4>2단계 · 직격탄 산업을 골라내요</h4>
+    <p style="font-size:13.5px;color:#4a4a6a;line-height:1.7;margin-bottom:12px;">1단계에서 어떤 산업이 직격탄인지 보였다면, 그 산업 종목은 <strong>매수 후보에서 빼요</strong>. 직격탄은 회복이 느리거나 영영 못 돌아올 수도 있어요.</p>
+    <div style="background:#fff5f5;border-radius:10px;padding:12px 14px;">
+      <div style="font-size:12px;color:#c44a1e;font-weight:700;margin-bottom:8px;">⚠️ 직격탄 종목의 평균 회복 기간 (실제 데이터)</div>
+      <table class="step-table" style="margin:0;">
+        <tr><td>지정학 (항공)</td><td>1~8개월 회복</td></tr>
+        <tr><td>금융 시스템 (대형은행)</td><td>4~14개월 회복</td></tr>
+        <tr><td>금융 시스템 (지역은행)</td><td>파산 가능성 있음</td></tr>
+        <tr><td>관세·무역분쟁 (수입 의존)</td><td>전고점 미회복 다수</td></tr>
+        <tr><td>팬데믹 (항공·크루즈)</td><td>45개월~미회복</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="checklist-step">
+    <h4>3단계 · 같이 빠진 우량주를 찾아요</h4>
+    <p style="font-size:13.5px;color:#4a4a6a;line-height:1.7;margin-bottom:14px;">직격탄을 빼고 남은 종목 중에서, <strong>다음 3가지를 모두 만족</strong>하는 우량주를 매수 후보로 가져가요.</p>
+    
+    <div style="background:#faf8ff;border-radius:12px;padding:16px;margin-bottom:10px;">
+      <div style="font-size:13.5px;font-weight:800;color:#7c4dff;margin-bottom:6px;">✅ 1) 이 사건이 회사 매출을 흔드는가?</div>
+      <p style="font-size:12.5px;color:#5a5a7a;line-height:1.7;margin:0;">흔들지 <strong>않으면</strong> 후보예요. 엔 캐리 청산 때 엔비디아 매출은 변화 없었지만, 코로나 때 항공사 매출은 0이었어요.</p>
+    </div>
+    
+    <div style="background:#faf8ff;border-radius:12px;padding:16px;margin-bottom:10px;">
+      <div style="font-size:13.5px;font-weight:800;color:#7c4dff;margin-bottom:6px;">✅ 2) 회사가 위기에서 살아남을 체력이 있는가?</div>
+      <p style="font-size:12.5px;color:#5a5a7a;line-height:1.7;margin:0;">빚 적고 현금 많고, 본업에서 꾸준히 돈이 들어오는 회사가 후보예요. 애플·MS·알파벳은 현금성 자산만 1,000억 달러 이상이에요.</p>
+    </div>
+    
+    <div style="background:#faf8ff;border-radius:12px;padding:16px;">
+      <div style="font-size:13.5px;font-weight:800;color:#7c4dff;margin-bottom:6px;">✅ 3) 과거 위기 때도 빠르게 회복했는가?</div>
+      <p style="font-size:12.5px;color:#5a5a7a;line-height:1.7;margin:0;">직전 위기에서 잘 회복한 종목이 이번에도 그럴 가능성이 높아요. 반대로 한 번 빠진 후 못 돌아온 종목은 신중하게 봐야 해요(예: 페이팔은 2022 베어마켓 후 지금까지 미회복).</p>
+    </div>
+
+    <div style="margin-top:14px;padding:12px 14px;background:#f0e4ff;border-radius:10px;font-size:12.5px;color:#7c4dff;line-height:1.6;font-weight:600;">
+      💡 3가지 모두 만족하는 종목만 다음 단계(분할 매수)로 가져가요.
+    </div>
+  </div>
+
+  <div class="checklist-step">
+    <h4>4단계 · 분할 매수로 실행해요</h4>
+    <p style="font-size:13.5px;color:#4a4a6a;line-height:1.7;margin-bottom:14px;">저점은 지나봐야 알아요. 한 번에 사지 말고 단계별로 진입하세요.</p>
+    <table class="merge-table">
+      <thead>
+        <tr><th>구분</th><th>1차 진입</th><th>2차 추가</th><th>3차 추가</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>시장 지수<br>(S&P500/나스닥)</td>
+          <td>-5~7%<br>(30%)</td>
+          <td>-10~12%<br>(30%)</td>
+          <td>-15~20%<br>(40%)</td>
+        </tr>
+        <tr>
+          <td>개별 우량주</td>
+          <td>-10%<br>(30%)</td>
+          <td>-20%<br>(30%)</td>
+          <td>-30%<br>(40%)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:12.5px;color:#888;margin-top:10px;line-height:1.6;">⚠️ 개별주는 평소에도 -5%는 흔하니 <strong style="color:#7c4dff;">-10% 이상부터</strong> 의미 있는 시그널이에요. 본인 투자 성향과 종목 특성에 맞게 조정 권장.</p>
+    <div style="margin-top:14px;padding:14px 16px;background:#faf8ff;border-radius:10px;font-size:12.5px;color:#555;line-height:1.7;">
+      💡 <strong style="color:#7c4dff;">예시</strong>: 100만원으로 우량주 분할 매수 한다면<br>
+      → -10% 빠지면 30만원 매수 (1차)<br>
+      → -20%까지 빠지면 30만원 추가 (2차)<br>
+      → -30%까지 빠지면 40만원 마지막 매수 (3차)
+    </div>
+  </div>
+
+
+
+
+
+  <!-- ========== 클로징 ========== -->
+  <div class="closing-box">
+    <div class="closing-emoji">🌷</div>
+    <p class="closing-main">이번에 놓쳤다고 자책하지 마세요.</p>
+    <p class="closing-sub">시장은 매년 한두 번씩 우리에게<br>다시 기회를 줘요. 다음엔 준비된 우리로 만나요.</p>
+    <p class="closing-tip">💜 이 자료를 저장해두세요.<br>다음 위기가 왔을 때 다시 펼쳐 보세요.</p>
+  </div>
+
+  <!-- ========== 프로필 박스 (보라) ========== -->
+  <div class="profile-box">
+    <img src="data:image/png;base64,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" alt="구채희" class="profile-img">
+    <div class="profile-name">만든이 · 구채희</div>
+    <div class="profile-desc">
+      신혼부부 재테크 멘토이자 47만 경제 인플루언서.<br>
+      재테크 · 자기관리 · 교육에 진심인 육각형 엄마.<br>
+      돈 관리 노하우와 기준 있는 소비를 공유해요.
+    </div>
+    <a href="https://www.instagram.com/chaeheekoo/" class="profile-link" target="_blank">
+      📷 @chaeheekoo 팔로우하기
+    </a>
+    <br>
+    <a href="https://koowwook.github.io/jusic_ch/" class="profile-link" target="_blank" style="margin-top:12px;">
+      📚 배당주 1부 · 개념편
+    </a>
+    <br>
+    <a href="https://chaeheeinsta.vercel.app/260411" class="profile-link" target="_blank" style="margin-top:8px;">
+      📚 배당주 2부 · 실전편
+    </a>
+  </div>
+  <!-- ========== 인생템 모음 (흰 박스) ========== -->
+  <div class="essentials-box">
+    <h3 class="essentials-title">📌 순자산 10배 늘려주는 재테크 인생템</h3>
+
+    <a href="https://smartstore.naver.com/prettywife" class="essential-main" target="_blank">
+      <div class="em-icon">📊</div>
+      <div class="em-text">
+        <span class="em-badge">4만개 판매!</span>
+        <div class="em-name">디지털 채움 가계부</div>
+        <div class="em-desc">엑셀/구글시트 · 원화/달러</div>
+      </div>
+      <span class="em-arrow">→</span>
+    </a>
+
+    <div class="essentials-grid">
+      <a href="https://smartstore.naver.com/prettywife" class="essential-item" target="_blank">
+        <div class="ei-icon">🎓</div>
+        <div class="ei-name">원데이 특강</div>
+        <div class="ei-desc">가계부 원데이 클래스</div>
+      </a>
+      <a href="https://smartstore.naver.com/prettywife" class="essential-item" target="_blank">
+        <div class="ei-icon">📒</div>
+        <div class="ei-name">채우다 수기 가계부</div>
+        <div class="ei-desc">손글씨로 채우는 가계부</div>
+      </a>
+      <a href="https://smartstore.naver.com/prettywife" class="essential-item" target="_blank">
+        <div class="ei-icon">📔</div>
+        <div class="ei-name">미미 다이어리</div>
+        <div class="ei-desc">엄마들을 위한 다이어리</div>
+      </a>
+      <a href="https://smartstore.naver.com/prettywife" class="essential-item" target="_blank">
+        <div class="ei-icon">🍽️</div>
+        <div class="ei-name">냉장고 식단표</div>
+        <div class="ei-desc">일주일 식단 한눈에</div>
+      </a>
+    </div>
+
+    <a href="https://smartstore.naver.com/prettywife" class="essentials-cta" target="_blank">
+      🛒 스마트스토어에서 전체 상품 보기 →
+    </a>
+  </div>
+  <!-- ========== 데이터 계산 기준 ========== -->
+  <div class="data-criteria">
+    <h5>📊 데이터 계산 기준</h5>
+    <ul>
+      <li>모든 가격과 수익률은 <strong>조정종가</strong> 기준 (주식분할·배당 영향 반영)</li>
+      <li>하락률 = 저점가 ÷ 고점가 - 1</li>
+      <li>회복기간 = 저점일 이후 조정종가가 고점가 이상으로 회복한 첫 거래일까지</li>
+      <li>1주·1개월·6개월 후 수익률 = 저점가 대비 해당 시점 수익률</li>
+      <li>휴장일은 가장 가까운 다음 거래일 기준</li>
+      <li>"전고점 미회복"은 2026년 5월 기준</li>
+      <li>데이터 출처: Yahoo Finance Historical Data (yfinance), 사건 확인: CNBC·Reuters·Fitch Ratings 등</li>
+    </ul>
+  </div>
+  <!-- ========== 면책 (가장 하단) ========== -->
+  <div class="disclaimer">
+    <h5>⚠️ 면책</h5>
+    이 자료는 과거 미국 주식시장의 급락과 회복 사례를 학습하기 위한 참고 자료예요.<br>
+    수익률과 하락폭은 조정종가 기준 과거 데이터를 바탕으로 계산했으며, 데이터 제공처에 따라 소폭 차이가 있을 수 있어요.<br>
+    <strong>독자 가독성을 위해 시장 영향이 적었던 일부 사건(2021년 헝다, 2025년 이란-이스라엘 등)은 본 자료집에서 제외</strong>했어요.<br>
+    모든 사례는 과거 데이터이며, 미래 수익을 보장하지 않아요. 자료에 포함된 종목은 매수 추천이 아니며, 투자 판단과 책임은 본인에게 있어요.
+  </div>
+
+</div>
+</body>
+</html>
