@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>가계부 앱 네이밍 후보 검토</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+        "Noto Sans KR", "Malgun Gothic", sans-serif;
+      background: #faf7f4;
+      color: #2f2f2f;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 22px 80px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #fff7f2, #f6efff);
+      border: 1px solid #eadfd8;
+      border-radius: 24px;
+      padding: 36px 34px;
+      margin-bottom: 34px;
+      box-shadow: 0 10px 30px rgba(90, 70, 60, 0.08);
+    }
+
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: 30px;
+      letter-spacing: -0.04em;
+      color: #3b2f2f;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #5f5551;
+      font-size: 16px;
+    }
+
+    h2 {
+      margin-top: 48px;
+      margin-bottom: 18px;
+      font-size: 24px;
+      letter-spacing: -0.04em;
+      color: #3c3431;
+    }
+
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #4a3a37;
+      letter-spacing: -0.03em;
+    }
+
+    p {
+      margin: 8px 0 14px;
+      font-size: 15.5px;
+    }
+
+    ul {
+      margin: 10px 0 20px;
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #eee5df;
+      border-radius: 20px;
+      padding: 26px 28px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 22px rgba(80, 60, 50, 0.05);
+    }
+
+    .name-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      background: #fff0e8;
+      color: #7b4a38;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .intro-box {
+      background: #fff;
+      border: 1px solid #eee5df;
+      border-radius: 20px;
+      padding: 26px 28px;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 22px rgba(80, 60, 50, 0.04);
+    }
+
+    .criteria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .criteria-item {
+      background: #fff8f4;
+      border: 1px solid #f0e3dc;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 14.5px;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid #eee5df;
+      box-shadow: 0 8px 22px rgba(80, 60, 50, 0.04);
+      margin-bottom: 34px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 880px;
+      font-size: 14.5px;
+    }
+
+    th {
+      background: #f4ebe5;
+      color: #4b3b36;
+      padding: 14px 12px;
+      text-align: left;
+      border-bottom: 1px solid #e5d7cf;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #f0e8e3;
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    td:first-child {
+      font-weight: 700;
+      color: #6d4032;
+      white-space: nowrap;
+    }
+
+    .tag-section {
+      background: #ffffff;
+      border: 1px solid #eee5df;
+      border-radius: 20px;
+      padding: 26px 28px;
+      margin-bottom: 22px;
+      box-shadow: 0 8px 22px rgba(80, 60, 50, 0.04);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: #f8f1ec;
+      color: #5a4640;
+      font-size: 14px;
+      border: 1px solid #eaded6;
+    }
+
+    .note {
+      background: #fff9d9;
+      border: 1px solid #f0df92;
+      border-radius: 18px;
+      padding: 20px 22px;
+      color: #5d5129;
+      margin-top: 28px;
+    }
+
+    .question-box {
+      background: #f7f2ff;
+      border: 1px solid #e4d8f5;
+      border-radius: 20px;
+      padding: 26px 28px;
+      margin-top: 34px;
+    }
+
+    .question-box ol {
+      padding-left: 22px;
+      margin: 10px 0 0;
+    }
+
+    .question-box li {
+      margin: 8px 0;
+    }
+
+    strong {
+      color: #3d302c;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 28px 16px 60px;
+      }
+
+      .hero {
+        padding: 28px 22px;
+      }
+
+      .hero h1 {
+        font-size: 25px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      .card,
+      .intro-box,
+      .tag-section,
+      .question-box {
+        padding: 22px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <h1>가계부 앱 네이밍 후보 검토</h1>
+      <p>
+        이번 정리는 특정 후보를 1순위로 정하기보다는, 각 이름이 사람들에게 어떻게 읽힐지,
+        가계부 앱과 얼마나 연결되는지, 캐릭터나 브랜드 확장성이 어떤지를 보기 위한 자료입니다.
+      </p>
+    </section>
+
+    <section class="intro-box">
+      <h2>우리가 원하는 네이밍 방향</h2>
+      <p>
+        전체적으로 원하는 방향은 너무 딱딱한 금융앱 느낌보다는,
+        <strong>돈이 모이고, 소비 습관이 좋아지고, AI가 옆에서 도와주는 따뜻한 가계부 앱</strong>에 가깝습니다.
+      </p>
+
+      <div class="criteria">
+        <div class="criteria-item">너무 딱딱한 금융앱 느낌은 피하기</div>
+        <div class="criteria-item">돈이 모이고 소비 습관이 좋아지는 느낌</div>
+        <div class="criteria-item">여성 타깃에게 부드럽고 친근한 인상</div>
+        <div class="criteria-item">AI가 옆에서 도와주는 다정한 돈관리 친구 느낌</div>
+        <div class="criteria-item">캐릭터나 마스코트로 확장 가능한 이름</div>
+        <div class="criteria-item">상표 등록 가능성을 고려한 조어형 네이밍</div>
+      </div>
+
+      <p>
+        나중에 <strong>○○ 가계부</strong>, <strong>○○ 머니</strong>,
+        <strong>○○ 루틴</strong>, <strong>○○ 리포트</strong>,
+        <strong>○○ 코치</strong>, <strong>○○ 커뮤니티</strong>처럼
+        확장 가능한지도 함께 보면 좋겠습니다.
+      </p>
+    </section>
+
+    <h2>후보별 요약표</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>이름</th>
+            <th>첫인상 / 읽히는 느낌</th>
+            <th>가계부 앱과의 연결성</th>
+            <th>캐릭터 확장성</th>
+            <th>확장성</th>
+            <th>아쉬운 점</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>모이미</td>
+            <td>귀엽고 부드러움. 모이니, money, me 느낌이 은근히 있음</td>
+            <td>돈이 모이는 느낌이 살짝 있고, 나의 돈관리 앱처럼 읽힘</td>
+            <td>좋음. “모이미가 알려줘요”처럼 캐릭터화 가능</td>
+            <td>모이미 가계부, 모이미 루틴, 모이미 코치</td>
+            <td>의미가 아주 직관적이진 않아서 슬로건 보완 필요</td>
+          </tr>
+          <tr>
+            <td>모아미</td>
+            <td>가장 부드럽고 안정적인 느낌. 모아 + me/ami처럼 읽힘</td>
+            <td>돈을 모은다는 느낌이 비교적 잘 전달됨</td>
+            <td>좋음. 친근한 캐릭터 이름처럼 쓸 수 있음</td>
+            <td>모아미 가계부, 모아미 머니, 모아미 리포트</td>
+            <td>무난한 만큼 강한 개성은 조금 약할 수 있음</td>
+          </tr>
+          <tr>
+            <td>모니미</td>
+            <td>money + me 느낌이 강함. 귀엽고 돈관리 앱처럼 들림</td>
+            <td>돈과의 연결성은 좋은 편</td>
+            <td>좋음. 캐릭터명으로도 가능</td>
+            <td>모니미 가계부, 모니미 코치</td>
+            <td>모니 계열이라 기존 상표들과 유사하게 보일 수 있어 신중 검토 필요</td>
+          </tr>
+          <tr>
+            <td>모미니</td>
+            <td>작고 귀여운 캐릭터 같은 느낌. mini 이미지가 있음</td>
+            <td>돈관리보다는 귀여운 앱/캐릭터 느낌이 먼저 옴</td>
+            <td>매우 좋음. 캐릭터성은 강함</td>
+            <td>모미니 가계부, 모미니 루틴</td>
+            <td>가계부 앱이라는 직관성은 약한 편</td>
+          </tr>
+          <tr>
+            <td>모잉</td>
+            <td>짧고 기억에 잘 남음. 모이는 중, ing 느낌</td>
+            <td>돈이 모이는 진행형 느낌이 있음</td>
+            <td>좋음. 귀엽고 말맛이 있음</td>
+            <td>모잉 가계부, 모잉 루틴, 모잉 커뮤니티</td>
+            <td>동일 상표 이슈가 있어서 실제 사용은 신중해야 함</td>
+          </tr>
+          <tr>
+            <td>모이터</td>
+            <td>모이다 + 터. 사람들이 모이는 공간처럼 읽힘</td>
+            <td>돈 이야기가 모이는 공간, 소셜 가계부 느낌과 연결됨</td>
+            <td>중간. 캐릭터보다는 공간/플랫폼 느낌</td>
+            <td>모이터 커뮤니티, 모이터 머니톡</td>
+            <td>귀여운 앱 이름보다는 플랫폼명에 가까움</td>
+          </tr>
+          <tr>
+            <td>모이다움</td>
+            <td>모이다 + 다움. 돈관리의 태도나 철학처럼 느껴짐</td>
+            <td>좋은 소비습관, 나다운 돈관리라는 메시지 가능</td>
+            <td>낮음~중간. 캐릭터명보다는 브랜드 철학 느낌</td>
+            <td>캠페인명이나 콘텐츠명으로는 좋음</td>
+            <td>앱 이름으로는 조금 길고 설명적인 느낌</td>
+          </tr>
+          <tr>
+            <td>모이딧</td>
+            <td>모이다 + do it/did it 느낌. 실천적인 인상</td>
+            <td>돈관리 행동, 루틴, 실천과 잘 연결됨</td>
+            <td>중간. 개성은 있지만 캐릭터성은 덜함</td>
+            <td>모이딧 루틴, 모이딧 챌린지</td>
+            <td>발음이 살짝 낯설고 호불호가 있을 수 있음</td>
+          </tr>
+          <tr>
+            <td>모이닝</td>
+            <td>모이다 + morning/ing 느낌. 매일 하는 습관 같음</td>
+            <td>매일 확인하는 가계부 루틴 이미지 가능</td>
+            <td>좋음. 부드럽고 친근함</td>
+            <td>모이닝 루틴, 모이닝 리포트</td>
+            <td>가계부보다는 라이프스타일/습관 앱처럼 느껴질 수 있음</td>
+          </tr>
+          <tr>
+            <td>모이링</td>
+            <td>모이다 + ring. 연결, 순환, 커뮤니티 느낌</td>
+            <td>소셜 가계부, 비교, 연결 기능과 잘 맞음</td>
+            <td>중간~좋음. 말맛은 귀여움</td>
+            <td>모이링 커뮤니티, 모이링 루틴</td>
+            <td>돈관리 앱이라는 직관성은 약간 보완 필요</td>
+          </tr>
+          <tr>
+            <td>모이뷰</td>
+            <td>모이다 + view. 소비를 보여주는 느낌</td>
+            <td>소비 분석, 리포트, AI 조언 기능과 잘 맞음</td>
+            <td>중간. 캐릭터성보다는 기능성이 강함</td>
+            <td>모이뷰 리포트, 모이뷰 소비분석</td>
+            <td>귀여움보다는 분석/기능형 이미지가 강함</td>
+          </tr>
+          <tr>
+            <td>모이브</td>
+            <td>모이다 + vibe/move 느낌. 세련된 조어 느낌</td>
+            <td>돈관리와 직접 연결되기보다는 브랜드 감성이 먼저 옴</td>
+            <td>중간. 캐릭터보다는 브랜드명 느낌</td>
+            <td>모이브 가계부, 모이브 루틴</td>
+            <td>의미가 바로 읽히지 않아 설명이 필요함</td>
+          </tr>
+          <tr>
+            <td>모이온</td>
+            <td>모이다 + on. 돈관리 습관이 켜지는 느낌</td>
+            <td>가계부 앱, 루틴 시작, 돈관리 활성화와 연결 가능</td>
+            <td>좋음. 짧고 앱다운 느낌</td>
+            <td>모이온 가계부, 모이온 코치, 모이온 루틴</td>
+            <td>돈관리 의미가 직접적이진 않아 슬로건 필요</td>
+          </tr>
+          <tr>
+            <td>모이담</td>
+            <td>모이다 + 담다. 모아서 담는 느낌</td>
+            <td>기록하고 담는 가계부와 연결성이 좋음</td>
+            <td>좋음. 따뜻하고 친근함</td>
+            <td>모이담 가계부, 모이담 소비, 모이담 노트</td>
+            <td>다소 일반적인 단어처럼 느껴질 수 있어 상표 확인 필요</td>
+          </tr>
+          <tr>
+            <td>루온</td>
+            <td>luna + on 느낌. 달, 켜짐, 시작의 이미지</td>
+            <td>돈관리보다는 감성적 브랜드 이미지가 먼저 옴</td>
+            <td>좋음. 캐릭터명으로도 가능</td>
+            <td>루온 가계부, 루온 머니, 루온 루틴</td>
+            <td>모으다/돈관리 느낌은 약해서 브랜딩으로 연결해야 함</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>이름별 상세 분석</h2>
+
+    <section class="card">
+      <div class="name-title">모이미</div>
+      <p>
+        <strong>모이미</strong>는 귀엽고 부드러운 이름입니다.
+        모이니, 모이다, money, me 같은 느낌이 은근히 섞여 있어서
+        가계부 앱과 완전히 동떨어져 보이지는 않습니다.
+      </p>
+      <p>
+        사람들이 처음 들었을 때 “정확히 무슨 뜻이지?” 할 수는 있지만,
+        앱 이름으로는 귀엽고 기억에 잘 남는 편입니다.
+        <strong>“모이미가 알려줘요”</strong>,
+        <strong>“모이미와 오늘 소비 확인하기”</strong> 같은 표현도 자연스럽습니다.
+      </p>
+      <p>
+        다만 이름만 봤을 때 바로 가계부 앱이라는 인상이 강하지는 않아서,
+        슬로건이나 앱 설명에서 돈관리 앱이라는 점을 보완하면 좋습니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">모아미</div>
+      <p>
+        <strong>모아미</strong>는 후보들 중에서 가장 부드럽고 안정적인 느낌이 있습니다.
+        “모아”라는 단어가 들어가서 돈을 모은다는 느낌이 자연스럽고,
+        끝의 “미” 때문에 여성스럽고 귀여운 인상도 있습니다.
+      </p>
+      <p>
+        <strong>모아미 가계부</strong>, <strong>모아미 머니</strong>,
+        <strong>모아미 루틴</strong>, <strong>모아미 코치</strong>처럼
+        붙였을 때도 어색하지 않습니다.
+      </p>
+      <p>
+        가계부 앱으로서 직관성과 친근함의 균형이 좋은 편입니다.
+        다만 아주 강한 개성보다는 안정적이고 무난한 느낌에 가깝습니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">모니미</div>
+      <p>
+        <strong>모니미</strong>는 money + me 느낌이 잘 살아서
+        돈관리 앱이라는 인상은 꽤 잘 남습니다.
+        발음도 귀엽고, 캐릭터 이름처럼 쓰기도 좋습니다.
+      </p>
+      <p>
+        다만 “모니” 계열은 이미 여러 상표나 서비스에서 많이 쓰이는 느낌이 있어서,
+        상표 측면에서는 조심해서 봐야 할 것 같습니다.
+      </p>
+      <p>
+        이름 자체는 괜찮지만, 최종 후보로 남긴다면 유사 상표 검토를
+        꼼꼼하게 해야 하는 이름입니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">모미니</div>
+      <p>
+        <strong>모미니</strong>는 가장 캐릭터성이 강한 이름입니다.
+        작고 귀여운 돈관리 친구 같은 느낌이 있고, mini 이미지도 있어서
+        여성 타깃에게 부담 없이 다가갈 수 있습니다.
+      </p>
+      <p>
+        <strong>“모미니가 오늘 소비를 알려줘요”</strong>처럼 캐릭터화하면 자연스럽습니다.
+        다만 이름만 들었을 때 돈관리나 가계부가 바로 떠오르지는 않습니다.
+      </p>
+      <p>
+        캐릭터 중심의 귀여운 앱으로 브랜딩할 거면 좋지만,
+        가계부 기능의 직관성을 중요하게 보면 조금 약할 수 있습니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">모잉</div>
+      <p>
+        <strong>모잉</strong>은 짧고 말맛이 좋아서 기억에는 잘 남습니다.
+        “모이는 중”, “ing” 느낌이 있어서 돈이 계속 모이고 있다는
+        진행형 이미지도 있습니다.
+      </p>
+      <p>
+        앱 이름으로는 귀엽고 세련된 편이며,
+        <strong>모잉 가계부</strong>, <strong>모잉 루틴</strong>,
+        <strong>모잉 커뮤니티</strong>처럼 확장도 가능합니다.
+      </p>
+      <p>
+        다만 기존에 동일 상표가 확인된 부분이 있어서 실제 사용은 신중해야 합니다.
+        이름 자체는 매력적이지만, 상표 리스크 때문에 최종 후보로 두기엔 부담이 있을 수 있습니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">모이터</div>
+      <p>
+        <strong>모이터</strong>는 “모이다 + 터”처럼 읽혀서,
+        돈 이야기가 모이는 공간이라는 느낌이 있습니다.
+        소셜 가계부, 커뮤니티, 비교 기능을 강조한다면 잘 맞는 이름입니다.
+      </p>
+      <p>
+        다만 귀여운 캐릭터형 이름이라기보다는 플랫폼이나 커뮤니티 공간 이름에 가깝습니다.
+        메인 브랜드로 쓸 경우 서비스의 본질이 돈관리보다 공간/커뮤니티 쪽으로 보일 수 있습니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">모이다움</div>
+      <p>
+        <strong>모이다움</strong>은 이름에 의미가 깊게 들어가 있습니다.
+        단순히 돈을 모으는 것을 넘어서
+        “나다운 돈관리”, “좋은 소비습관”, “돈을 대하는 태도” 같은 메시지를 담을 수 있습니다.
+      </p>
+      <p>
+        브랜드 철학이나 캠페인명으로는 좋지만,
+        앱 이름으로는 조금 길고 설명적인 느낌이 있습니다.
+        캐릭터 이름으로 쓰기도 다소 애매한 편입니다.
+      </p>
+      <p>
+        메인 앱 이름보다는 <strong>모이다움 리포트</strong>,
+        <strong>모이다움 클래스</strong>, <strong>모이다움 챌린지</strong> 같은
+        하위 콘텐츠명으로 더 잘 어울릴 수 있습니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">모이딧</div>
+      <p>
+        <strong>모이딧</strong>은 do it 느낌이 있어서 행동과 실천 이미지가 있습니다.
+        돈관리를 미루지 않고 바로 시작하게 만드는 앱,
+        루틴을 만들어주는 앱 같은 느낌이 가능합니다.
+      </p>
+      <p>
+        <strong>모이딧 루틴</strong>, <strong>모이딧 챌린지</strong>,
+        <strong>모이딧 코치</strong> 같은 확장은 괜찮습니다.
+        다만 발음이 조금 낯설고, 처음 들었을 때 뜻을 바로 이해하기는 어려울 수 있습니다.
+      </p>
+      <p>
+        조금 더 젊고 트렌디한 앱 느낌을 원하면 괜찮지만,
+        부드럽고 여성적인 느낌은 상대적으로 약할 수 있습니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">모이닝</div>
+      <p>
+        <strong>모이닝</strong>은 부드럽고 귀여운 이름입니다.
+        morning 느낌이 있어서 매일 아침 확인하는 돈관리 루틴,
+        매일 조금씩 모이는 습관 같은 이미지가 가능합니다.
+      </p>
+      <p>
+        <strong>모이닝 루틴</strong>, <strong>모이닝 리포트</strong>,
+        <strong>모이닝 가계부</strong>처럼 확장도 자연스럽습니다.
+        다만 가계부 앱보다는 생활습관 앱이나 라이프스타일 앱처럼 보일 수도 있습니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">모이링</div>
+      <p>
+        <strong>모이링</strong>은 연결감이 있는 이름입니다.
+        ring 때문에 사람과 사람, 소비습관, 돈관리 루틴이 이어지는 느낌을 줄 수 있습니다.
+      </p>
+      <p>
+        소셜 기능이나 비슷한 사람들과 비교하는 기능, 커뮤니티 기능을 강조한다면 잘 맞습니다.
+        다만 이름만 봤을 때 가계부 앱이라는 느낌은 강하지 않습니다.
+      </p>
+      <p>
+        <strong>“함께 연결되는 돈관리”</strong>,
+        <strong>“돈 습관이 이어지는 가계부”</strong> 같은 메시지와 같이 쓰면 좋습니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">모이뷰</div>
+      <p>
+        <strong>모이뷰</strong>는 기능적인 강점이 잘 보이는 이름입니다.
+        view가 들어가서 내 소비를 들여다보고,
+        리포트로 확인하고, AI가 분석해주는 앱이라는 인상이 있습니다.
+      </p>
+      <p>
+        가계부 앱의 핵심이 기록, 분석, 비교, 리포트라면 잘 맞습니다.
+        특히 데이터 기반 거울, 소비 리포트, AI 조언 같은 기능을 강조하기 좋습니다.
+      </p>
+      <p>
+        다만 귀엽고 캐릭터적인 느낌은 약한 편이고,
+        조금 더 기능형 앱처럼 느껴질 수 있습니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">모이브</div>
+      <p>
+        <strong>모이브</strong>는 세련된 조어 느낌이 있습니다.
+        move, vibe 같은 느낌도 있어서 브랜드명으로는 깔끔하고 흔하지 않아 보입니다.
+      </p>
+      <p>
+        하지만 의미가 바로 읽히지는 않아서,
+        처음 듣는 사람은 “무슨 앱이지?” 할 수 있습니다.
+        가계부 앱이라는 직관성은 약하고, 브랜딩을 통해 의미를 만들어가야 하는 이름입니다.
+      </p>
+      <p>
+        깔끔하고 감각적인 브랜드를 원하면 괜찮지만,
+        설명 없이도 돈관리 앱처럼 느껴지길 원한다면 조금 약할 수 있습니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">모이온</div>
+      <p>
+        <strong>모이온</strong>은 앱 이름으로 꽤 자연스러운 후보입니다.
+        “모이다 + on”처럼 읽혀서 돈관리 습관이 켜지는 느낌,
+        돈이 모이는 루틴이 시작되는 느낌을 줄 수 있습니다.
+      </p>
+      <p>
+        <strong>모이온 가계부</strong>, <strong>모이온 루틴</strong>,
+        <strong>모이온 코치</strong>, <strong>모이온 리포트</strong>처럼
+        확장이 깔끔합니다.
+      </p>
+      <p>
+        짧고 발음도 어렵지 않아서 브랜드명으로 쓰기 좋습니다.
+        다만 돈관리 의미가 아주 직접적으로 읽히는 이름은 아니기 때문에,
+        슬로건이나 앱 설명에서 의미를 잡아주면 좋습니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">모이담</div>
+      <p>
+        <strong>모이담</strong>은 가계부와 연결성이 좋은 이름입니다.
+        “모이다 + 담다”가 같이 읽혀서 돈을 모아 담고,
+        소비 기록을 담는 앱이라는 느낌이 있습니다.
+      </p>
+      <p>
+        따뜻하고 부드러운 인상도 있어서 여성 타깃에게도 괜찮아 보입니다.
+        <strong>모이담 가계부</strong>, <strong>모이담 소비</strong>,
+        <strong>모이담 리포트</strong>, <strong>모이담 노트</strong>처럼
+        확장도 자연스럽습니다.
+      </p>
+      <p>
+        다만 “담다”라는 의미가 비교적 일반적이라 상표 등록 가능성은 따로 확인해야 합니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">루온</div>
+      <p>
+        <strong>루온</strong>은 다른 후보들과 달리 “모이” 계열에서 살짝 벗어난 이름입니다.
+        luna + on처럼 읽히면 달, 루틴, 켜짐, 시작의 이미지가 있습니다.
+        감성적이고 세련된 느낌은 좋은 편입니다.
+      </p>
+      <p>
+        <strong>루온 가계부</strong>, <strong>루온 머니</strong>,
+        <strong>루온 루틴</strong>, <strong>루온 코치</strong>처럼
+        붙였을 때도 깔끔합니다.
+      </p>
+      <p>
+        다만 이름만 봤을 때 돈관리나 가계부가 바로 떠오르지는 않습니다.
+        그래서 달, 차오름, 습관이 켜지는 돈관리 같은 스토리텔링이 필요합니다.
+      </p>
+    </section>
+
+    <h2>기준별로 보면</h2>
+
+    <section class="tag-section">
+      <h3>가계부/돈관리 느낌이 비교적 잘 나는 이름</h3>
+      <div class="tag-list">
+        <span class="tag">모아미</span>
+        <span class="tag">모이담</span>
+        <span class="tag">모이뷰</span>
+        <span class="tag">모니미</span>
+      </div>
+      <p>
+        이름만 봤을 때 돈을 모으거나, 기록하거나, 소비를 보는 느낌이 비교적 잘 살아있는 후보들입니다.
+      </p>
+    </section>
+
+    <section class="tag-section">
+      <h3>귀엽고 캐릭터화하기 좋은 이름</h3>
+      <div class="tag-list">
+        <span class="tag">모이미</span>
+        <span class="tag">모아미</span>
+        <span class="tag">모미니</span>
+        <span class="tag">모이닝</span>
+        <span class="tag">모이온</span>
+        <span class="tag">루온</span>
+      </div>
+      <p>
+        “○○가 알려줘요”, “○○와 함께 돈관리해요” 같은 표현이 자연스러운 편입니다.
+      </p>
+    </section>
+
+    <section class="tag-section">
+      <h3>앱/브랜드명으로 깔끔한 이름</h3>
+      <div class="tag-list">
+        <span class="tag">모이온</span>
+        <span class="tag">모이뷰</span>
+        <span class="tag">모이브</span>
+        <span class="tag">루온</span>
+        <span class="tag">모잉</span>
+      </div>
+      <p>
+        짧고 앱 이름처럼 보이는 장점이 있습니다.
+        다만 일부는 의미 설명이 필요하거나 상표 리스크가 있습니다.
+      </p>
+    </section>
+
+    <section class="tag-section">
+      <h3>소셜/커뮤니티 느낌이 있는 이름</h3>
+      <div class="tag-list">
+        <span class="tag">모이터</span>
+        <span class="tag">모이링</span>
+        <span class="tag">모이온</span>
+        <span class="tag">모이담</span>
+      </div>
+      <p>
+        사람들이 모이고, 돈 이야기를 나누고, 비슷한 사람들과 비교하는 기능과 연결하기 좋은 후보들입니다.
+      </p>
+    </section>
+
+    <section class="tag-section">
+      <h3>루틴/습관 느낌이 있는 이름</h3>
+      <div class="tag-list">
+        <span class="tag">모이닝</span>
+        <span class="tag">모이딧</span>
+        <span class="tag">모이온</span>
+        <span class="tag">루온</span>
+      </div>
+      <p>
+        매일 확인하고, 습관을 켜고, 돈관리 행동을 이어가는 느낌과 잘 맞습니다.
+      </p>
+    </section>
+
+    <section class="question-box">
+      <h2>함께 봐줬으면 하는 포인트</h2>
+      <ol>
+        <li>처음 들었을 때 호감이 가는지</li>
+        <li>가계부 앱이나 돈관리 앱처럼 느껴지는지</li>
+        <li>너무 유치하지 않고 여성 타깃에게 맞는지</li>
+        <li>캐릭터 이름으로 써도 괜찮은지</li>
+        <li>나중에 서비스가 커져도 어색하지 않은지</li>
+        <li>
+          <strong>○○ 가계부</strong>, <strong>○○ 루틴</strong>,
+          <strong>○○ 리포트</strong>, <strong>○○ 코치</strong>처럼
+          붙였을 때 자연스러운지
+        </li>
+      </ol>
+    </section>
+
+    <section class="note">
+      <h3>상표 관련 참고</h3>
+      <p>
+        상표 등록은 최종 후보를 정한 뒤에 다시 꼼꼼히 확인해야 합니다.
+        특히 등록하려는 상품류가 많고 35류까지 포함하면,
+        짧고 단순한 이름은 기존 상표와 겹칠 가능성이 높다고 합니다.
+      </p>
+      <p>
+        그래서 이름을 볼 때는 단순히 예쁜지뿐만 아니라,
+        너무 흔한 단어인지, 비슷한 이름이 많을 것 같은지도 함께 보면 좋겠습니다.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
