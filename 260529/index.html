@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>가계부 앱 네이밍 후보 2차 검토</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+        "Noto Sans KR", "Malgun Gothic", sans-serif;
+      background: #faf7f4;
+      color: #2f2f2f;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 22px 80px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #fff7f2, #f6efff);
+      border: 1px solid #eadfd8;
+      border-radius: 24px;
+      padding: 36px 34px;
+      margin-bottom: 34px;
+      box-shadow: 0 10px 30px rgba(90, 70, 60, 0.08);
+    }
+
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: 30px;
+      letter-spacing: -0.04em;
+      color: #3b2f2f;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #5f5551;
+      font-size: 16px;
+    }
+
+    h2 {
+      margin-top: 48px;
+      margin-bottom: 18px;
+      font-size: 24px;
+      letter-spacing: -0.04em;
+      color: #3c3431;
+    }
+
+    h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #4a3a37;
+      letter-spacing: -0.03em;
+    }
+
+    p {
+      margin: 8px 0 14px;
+      font-size: 15.5px;
+    }
+
+    strong {
+      color: #3a2d2a;
+    }
+
+    .intro-box,
+    .card,
+    .tag-section {
+      background: #ffffff;
+      border: 1px solid #eee5df;
+      border-radius: 20px;
+      box-shadow: 0 8px 22px rgba(80, 60, 50, 0.05);
+    }
+
+    .intro-box {
+      padding: 26px 28px;
+      margin-bottom: 28px;
+    }
+
+    .criteria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .criteria-item {
+      background: #fff8f4;
+      border: 1px solid #f0e3dc;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 14.5px;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .tag-section {
+      padding: 22px 22px 20px;
+    }
+
+    .tag-section h3 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .status-chip,
+    .hold-badge,
+    .ok-badge,
+    .check-badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      font-weight: 700;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .status-chip {
+      padding: 7px 10px;
+      font-size: 12px;
+      margin-right: 6px;
+    }
+
+    .status-hold-high .status-chip {
+      background: #fff0dd;
+      color: #996118;
+    }
+
+    .status-hold-low .status-chip {
+      background: #f2f2f2;
+      color: #777;
+    }
+
+    .status-ok .status-chip {
+      background: #e9f8ee;
+      color: #327b47;
+    }
+
+    .hold-badge {
+      padding: 4px 8px;
+      background: #fff0dd;
+      color: #996118;
+      font-size: 11px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .ok-badge {
+      padding: 4px 8px;
+      background: #e9f8ee;
+      color: #327b47;
+      font-size: 11px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .check-badge {
+      padding: 4px 8px;
+      background: #eef0ff;
+      color: #5659a6;
+      font-size: 11px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 16px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #fff7f1;
+      border: 1px solid #f0e0d7;
+      font-size: 14px;
+      font-weight: 700;
+      color: #5d4841;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 18px;
+      border: 1px solid #eee5df;
+      background: #ffffff;
+      box-shadow: 0 8px 22px rgba(80, 60, 50, 0.04);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 860px;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #f0e8e3;
+      text-align: left;
+      vertical-align: top;
+      font-size: 14.5px;
+    }
+
+    th {
+      background: #fff7f1;
+      color: #5f4a43;
+      font-weight: 800;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .card {
+      padding: 26px 28px;
+      margin-bottom: 22px;
+    }
+
+    .name-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: #fff0e8;
+      color: #7b4a38;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .note {
+      background: #f8f5ff;
+      border: 1px solid #e8def8;
+      color: #594e67;
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-top: 16px;
+      font-size: 14.5px;
+    }
+
+    .recommend {
+      background: linear-gradient(135deg, #fff7f2, #f7fbff);
+      border: 1px solid #eadfd8;
+      border-radius: 22px;
+      padding: 28px;
+      margin-top: 34px;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 28px 16px 64px;
+      }
+
+      .hero,
+      .intro-box,
+      .card,
+      .recommend {
+        padding: 24px 20px;
+      }
+
+      .hero h1 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <h1>가계부 앱 네이밍 후보 2차 검토</h1>
+      <p>
+        이번 후보는 “혼자 쓰는 가계부”보다 <strong>사람과 AI가 옆에서 같이 봐주는 돈 습관</strong>이라는
+        방향을 중심으로 정리했습니다.
+      </p>
+    </section>
+
+    <section class="intro-box">
+      <h2>이번 검토의 기준</h2>
+      <p>
+        앱의 핵심 감정은 단순히 지출을 기록하는 것이 아니라, 비슷한 사람들의 흐름을 보며
+        내 기준을 찾고 AI가 옆에서 해석을 도와주는 경험에 있습니다.
+      </p>
+      <div class="criteria">
+        <div class="criteria-item">혼자 쓰는 느낌보다 함께 관리하는 느낌</div>
+        <div class="criteria-item">다른 사람과 AI가 옆에서 도와주는 느낌</div>
+        <div class="criteria-item">돈, 소비, 가계부를 직접 말하지 않아도 연결되는 이름</div>
+        <div class="criteria-item">무니카드, 커뮤니티, 리포트로 확장 가능한 이름</div>
+      </div>
+      <div class="note">
+        아래 구분은 1차 상표 검색 결과와 내부 선호도를 합쳐 정리한 것입니다.
+        최종 확정 전에는 상품류와 유사 상표를 다시 확인하는 것이 좋습니다.
+      </div>
+    </section>
+
+    <h2>상표 검토 상태별 정리</h2>
+
+    <div class="status-grid">
+      <section class="tag-section status-section status-hold-high">
+        <h3><span class="status-chip">애매</span> 가능성 높은 후보</h3>
+        <div class="tag-list">
+          <span class="tag">우리가치</span>
+          <span class="tag">채온</span>
+          <span class="tag">차온</span>
+          <span class="tag">달온</span>
+          <span class="tag">가치온</span>
+        </div>
+        <p>
+          이름감과 앱 방향성은 좋지만, 최종 사용 전에는 유사 상표와 실제 서비스명 혼동 가능성을 한 번 더 확인할 후보입니다.
+        </p>
+      </section>
+
+      <section class="tag-section status-section status-hold-low">
+        <h3><span class="status-chip">애매</span> 가능성 낮은 후보</h3>
+        <div class="tag-list">
+          <span class="tag">현재 없음</span>
+        </div>
+        <p>
+          이번 2차 후보군에서는 가능성이 낮아 보이는 후보는 따로 두지 않았습니다.
+        </p>
+      </section>
+
+      <section class="tag-section status-section status-ok">
+        <h3><span class="status-chip">가능</span> 현재 남길 수 있는 후보</h3>
+        <div class="tag-list">
+          <span class="tag">오르달</span>
+          <span class="tag">가치봄</span>
+          <span class="tag">가치잇</span>
+          <span class="tag">가치온</span>
+          <span class="tag">곁온</span>
+        </div>
+        <p>
+          현재 기준으로는 계속 검토 가능한 후보입니다.
+          다만 <strong>가치온</strong>은 애매 후보에도 함께 올라와 있어, 최종 확정 전 재확인이 필요합니다.
+        </p>
+      </section>
+    </div>
+
+    <h2>후보별 요약표</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>이름</th>
+            <th>상태</th>
+            <th>첫인상 / 읽히는 느낌</th>
+            <th>앱 방향성과의 연결</th>
+            <th>좋은 점</th>
+            <th>아쉬운 점</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>우리가치 <span class="hold-badge">애매</span></td>
+            <td>가능성 높음</td>
+            <td>함께 관리한다는 느낌이 가장 직접적으로 전달됨</td>
+            <td>커뮤니티, 비교, 함께 성장하는 돈 습관과 잘 맞음</td>
+            <td>“같이”와 “가치”가 동시에 읽혀 메시지가 좋음</td>
+            <td>브랜드명보다는 캠페인명처럼 보일 수 있음</td>
+          </tr>
+          <tr>
+            <td>채온 <span class="hold-badge">애매</span></td>
+            <td>가능성 높음</td>
+            <td>채우다 + 온기. 부드럽고 따뜻함</td>
+            <td>기록, 저축, 목표가 조금씩 채워지는 이미지와 연결됨</td>
+            <td>짧고 예쁘며 여성 타깃에도 부담이 적음</td>
+            <td>이름만 봐서는 가계부/커뮤니티 의미가 약해 슬로건 보완 필요</td>
+          </tr>
+          <tr>
+            <td>차온 <span class="hold-badge">애매</span></td>
+            <td>가능성 높음</td>
+            <td>차오르다 + 온. 달과 돈이 차오르는 느낌</td>
+            <td>월간 기록, 무니카드, 목표 달성과 잘 어울림</td>
+            <td>직접적이지 않으면서 성장감이 살아 있음</td>
+            <td>서비스의 “함께 보는” 성격은 별도 카피로 보완해야 함</td>
+          </tr>
+          <tr>
+            <td>달온 <span class="hold-badge">애매</span></td>
+            <td>가능성 높음</td>
+            <td>달 + on. 한 달, 달이 차오르는 이미지가 있음</td>
+            <td>월간 가계부, 카드 컬렉션, 목표 달성 이미지와 연결됨</td>
+            <td>무니카드의 달/코인 세계관과 가장 잘 붙음</td>
+            <td>커뮤니티/AI의 느낌은 이름 자체보다 브랜드 설명으로 보완 필요</td>
+          </tr>
+          <tr>
+            <td>가치온 <span class="hold-badge">애매</span><span class="check-badge">재확인</span></td>
+            <td>가능성 높음 / 가능 목록 중복</td>
+            <td>같이 + 가치 + on. 의미가 풍부함</td>
+            <td>사람과 AI가 함께 돈 습관을 만들어준다는 방향과 잘 맞음</td>
+            <td>앱 철학을 가장 넓게 담을 수 있음</td>
+            <td>의미가 좋은 만큼 약간 설명적으로 느껴질 수 있고 상표 재확인 필요</td>
+          </tr>
+          <tr>
+            <td>오르달 <span class="ok-badge">가능</span></td>
+            <td>가능</td>
+            <td>달이 오르다, 돈이 오르다. 시적인 이미지</td>
+            <td>자산 증가, 저축 성공, 월간 성취와 연결 가능</td>
+            <td>달 계열 중 독특하고 성장감이 있음</td>
+            <td>발음이 살짝 낯설고 앱 이름으로는 호불호가 있을 수 있음</td>
+          </tr>
+          <tr>
+            <td>가치봄 <span class="ok-badge">가능</span></td>
+            <td>가능</td>
+            <td>같이 봄, 가치를 봄. 따뜻하고 다정함</td>
+            <td>다른 사람과 AI가 옆에서 봐주는 느낌과 잘 맞음</td>
+            <td>서비스의 핵심 경험을 부드럽게 담음</td>
+            <td>봄 계열이 감성적이라 금융앱의 단단함은 조금 약할 수 있음</td>
+          </tr>
+          <tr>
+            <td>가치잇 <span class="ok-badge">가능</span></td>
+            <td>가능</td>
+            <td>가치 있다 + 잇다. 앱 이름다운 경쾌함</td>
+            <td>사람, 기록, AI 해석을 잇는 서비스라는 의미 가능</td>
+            <td>짧고 스타트업 서비스명처럼 보임</td>
+            <td>말맛이 약간 기능 앱스럽고 호불호가 있을 수 있음</td>
+          </tr>
+          <tr>
+            <td>곁온 <span class="ok-badge">가능</span></td>
+            <td>가능</td>
+            <td>곁에 켜져 있는 느낌. 조용하고 따뜻함</td>
+            <td>AI도 사람도 옆에서 함께 도와주는 경험과 가장 잘 맞음</td>
+            <td>직접적이지 않으면서 브랜드 감성이 좋음</td>
+            <td>돈관리 앱이라는 설명력은 약해 메인 카피가 중요함</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>이름별 상세 검토</h2>
+
+    <section class="card">
+      <div class="name-title">우리가치 <span class="hold-badge">애매 후보</span></div>
+      <p>
+        “우리 같이”와 “우리 가치”가 동시에 읽히는 후보입니다.
+        커뮤니티형 가계부라는 방향은 가장 쉽게 전달되지만, 이름 자체가 조금 캠페인 문구처럼 느껴질 수 있습니다.
+      </p>
+      <p>
+        추천 카피: <strong>혼자 보던 가계부를 함께 보는 습관으로.</strong>
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">채온 <span class="hold-badge">애매 후보</span></div>
+      <p>
+        기록이 채워지고, 목표가 채워지고, 돈 습관이 따뜻하게 쌓이는 느낌입니다.
+        여성 타깃에게 부드럽게 다가갈 수 있고 캐릭터화도 무난합니다.
+      </p>
+      <p>
+        추천 카피: <strong>내 돈 습관이 차곡차곡 채워지는 곳.</strong>
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">차온 <span class="hold-badge">애매 후보</span></div>
+      <p>
+        “차오르다”가 먼저 떠올라 월간 기록, 저축, 달성 카드와 잘 맞습니다.
+        돈을 직접 말하지 않아도 성장감이 살아 있는 점이 장점입니다.
+      </p>
+      <p>
+        추천 카피: <strong>한 달의 기록이 차오르면, 내 기준도 보입니다.</strong>
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">달온 <span class="hold-badge">애매 후보</span></div>
+      <p>
+        한 달, 달, 보름달, 동전 이미지가 자연스럽게 연결됩니다.
+        무니카드처럼 성취를 모으는 기능과 특히 잘 맞는 후보입니다.
+      </p>
+      <p>
+        추천 카피: <strong>한 달의 돈 습관을 켜다.</strong>
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">가치온 <span class="hold-badge">애매 후보</span><span class="check-badge">재확인</span></div>
+      <p>
+        같이, 가치, on이 모두 읽혀 앱의 철학을 넓게 담을 수 있습니다.
+        사람과 AI가 함께 내 돈의 기준을 찾아준다는 방향에는 가장 잘 맞는 편입니다.
+      </p>
+      <p>
+        추천 카피: <strong>돈 관리, 이제 같이 켜요.</strong>
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">오르달 <span class="ok-badge">가능 후보</span></div>
+      <p>
+        달이 오르고, 내 돈 습관도 오른다는 이미지입니다.
+        독특한 이름이라 기억성은 있지만, 처음 들었을 때 의미 해석이 조금 필요합니다.
+      </p>
+      <p>
+        추천 카피: <strong>기록할수록 차오르는 한 달.</strong>
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">가치봄 <span class="ok-badge">가능 후보</span></div>
+      <p>
+        함께 본다는 뜻과 가치를 본다는 뜻이 겹칩니다.
+        커뮤니티와 AI 분석이 모두 “봐준다”는 행동으로 묶여 자연스럽습니다.
+      </p>
+      <p>
+        추천 카피: <strong>비슷한 사람들과 함께 내 기준을 봅니다.</strong>
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">가치잇 <span class="ok-badge">가능 후보</span></div>
+      <p>
+        “가치 있다”와 “잇다”가 동시에 읽히는 후보입니다.
+        사람과 사람, 기록과 해석, AI와 사용자를 연결하는 느낌을 줄 수 있습니다.
+      </p>
+      <p>
+        추천 카피: <strong>내 돈의 기준을 잇다.</strong>
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="name-title">곁온 <span class="ok-badge">가능 후보</span></div>
+      <p>
+        AI도 사람도 내 곁에서 조용히 도와주는 느낌입니다.
+        가장 덜 직접적이지만, 브랜드로 만들었을 때 감정의 여백이 좋습니다.
+      </p>
+      <p>
+        추천 카피: <strong>혼자 적던 돈 습관에 곁을 켜다.</strong>
+      </p>
+    </section>
+
+    <section class="recommend">
+      <h2>1차 추천</h2>
+      <p>
+        현재 후보만 놓고 보면 <strong>가치온</strong>, <strong>곁온</strong>, <strong>차온</strong>을 먼저 비교해보는 것이 좋습니다.
+      </p>
+      <p>
+        <strong>가치온</strong>은 앱의 철학을 가장 잘 담고,
+        <strong>곁온</strong>은 사람과 AI가 옆에서 도와주는 감정이 가장 좋고,
+        <strong>차온</strong>은 달/월간 기록/카드 세계관까지 자연스럽게 이어집니다.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
