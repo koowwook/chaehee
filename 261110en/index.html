@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stock Beginners, Market Drop Guide (English Version)</title>
+<meta name="description" content="Stocks are crashing. Rules over emotions: a checklist for every situation, how to buy ETFs in a sell-off, and a calculator.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;700;800&display=swap">
+<style>
+:root{
+  --ink:#2a2244; --sub:#6a5a8a; --body:#4a4a6a; --line:#eee8fa;
+  --pp:#7c4dff; --pps:#f0e4ff; --pp-bg:#faf8ff;
+  --red:#c44a1e; --reds:#ffe1d3;
+  --grn:#2a8a5f; --grns:#d3f5e1;
+  --yel:#b07a00; --yels:#fff3cc; --hl:#fff0a3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter','Pretendard','Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:linear-gradient(135deg,#faf5ff 0%,#fff5f5 100%);background-attachment:fixed;
+  color:var(--ink);line-height:1.7;word-break:normal;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
+.container{max-width:720px;margin:0 auto;padding:28px 18px 60px}
+.hl{background:linear-gradient(180deg,transparent 60%,var(--hl) 60%);font-weight:700;color:var(--ink)}
+b,strong{color:var(--ink)}
+
+/* 헤더 */
+.header{text-align:center;padding:38px 20px 30px;background:linear-gradient(135deg,#fef3f8 0%,#f8f3ff 100%);border-radius:24px;margin-bottom:22px}
+.header .date{display:inline-block;font-size:12px;font-weight:700;color:var(--pp);background:#fff;border-radius:12px;padding:4px 12px;margin-bottom:14px}
+.header h1{font-size:27px;font-weight:800;line-height:1.4;letter-spacing:-.5px;margin-bottom:10px}
+.header h1 strong{color:var(--pp)}
+.header .subtitle{font-size:14.5px;color:var(--sub);font-weight:500}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:22px}
+.stat{background:#fff;border-radius:16px;padding:14px 8px}
+.stat .k{font-size:12.5px;color:var(--sub);font-weight:600}
+.stat .v{font-size:27px;font-weight:800;letter-spacing:-.5px;line-height:1.25;color:var(--red)}
+.stat.us .v{color:var(--pp)}
+.header .note{font-size:12px;color:var(--sub);margin-top:10px}
+
+/* 공통 카드 */
+.card{background:#fff;padding:26px 22px;border-radius:20px;margin-bottom:16px;box-shadow:0 2px 12px rgba(124,77,255,.06)}
+.card p{font-size:15px;color:var(--body);line-height:1.8}
+.card p + p{margin-top:12px}
+.card h3{font-size:18px;font-weight:800;margin-bottom:12px;letter-spacing:-.3px}
+.key{margin-top:20px;padding:20px;background:linear-gradient(135deg,#f8f3ff 0%,#fef3f8 100%);border-radius:14px;border-left:4px solid var(--pp)}
+.key .label{font-size:12px;color:var(--pp);font-weight:700;margin-bottom:6px;letter-spacing:.5px}
+.key .text{font-size:16.5px;font-weight:800;line-height:1.5}
+.toc{list-style:none;display:grid;gap:6px;margin-top:18px}
+.toc a{display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--ink);font-size:14.5px;font-weight:600;background:var(--pp-bg);border-radius:12px;padding:10px 14px}
+.toc a span{font-size:11px;font-weight:800;color:#fff;background:var(--pp);border-radius:8px;padding:2px 8px}
+
+/* PART 헤더 */
+.part-header{margin:46px 0 20px;text-align:center}
+.part-num{display:inline-block;padding:5px 14px;background:var(--pp);color:#fff;border-radius:14px;font-size:12px;font-weight:700;margin-bottom:12px;letter-spacing:.5px}
+.part-header h2{font-size:23px;font-weight:800;line-height:1.4;letter-spacing:-.5px}
+.part-header .desc{margin-top:8px;font-size:14.5px;color:var(--sub)}
+
+/* 이유 */
+.why{list-style:none;display:grid;gap:14px}
+.why li{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start}
+.why .ic{width:40px;height:40px;border-radius:12px;background:var(--pp-bg);display:grid;place-items:center;font-size:20px}
+.why b{display:block;font-size:16px;margin-bottom:2px}
+.why span{font-size:14.5px;color:var(--body);line-height:1.65;display:block}
+
+/* 막대 */
+.bars{display:grid;gap:10px}
+.bar{display:grid;grid-template-columns:84px 1fr 52px;gap:10px;align-items:center;font-size:14.5px;font-weight:600}
+.bar .t{height:14px;background:#f4f0fb;border-radius:7px;overflow:hidden}
+.bar .t i{display:block;height:100%;border-radius:7px;background:#e8826a}
+.bar.idx .t i{background:var(--pp)}
+.bar .p{text-align:right;font-weight:800}
+.small{font-size:13px!important;color:var(--sub)!important;margin-top:12px}
+
+/* 표 */
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{font-size:12px;color:var(--sub);font-weight:700;text-align:right;padding:0 0 8px;border-bottom:2px solid var(--line)}
+.tbl th:first-child{text-align:left}
+.tbl td{padding:10px 0;border-bottom:1px solid var(--line);text-align:right;font-weight:700}
+.tbl td:first-child{text-align:left;font-weight:600}
+.tbl td:first-child small{display:block;font-size:11.5px;color:var(--sub);font-weight:500}
+.tbl tr:last-child td{border-bottom:0}
+.tbl .dn{color:var(--red)}
+.tbl .up{color:var(--grn)}
+.insight{margin-top:16px;background:var(--pp-bg);border-radius:14px;padding:16px 18px}
+.insight .t{font-size:15.5px;font-weight:800;margin-bottom:6px}
+.insight p{font-size:14.5px!important}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin-top:12px;text-align:center}
+.vs div{background:#fff;border-radius:12px;padding:10px 6px;font-size:13.5px;font-weight:700}
+.vs div em{display:block;font-style:normal;font-size:18px;font-weight:800}
+.vs .g em{color:var(--grn)} .vs .r em{color:var(--red)}
+.vs span{font-size:12px;font-weight:800;color:var(--sub)}
+
+/* 지침 */
+.rules{display:grid;gap:10px}
+.rule{background:#fff;border-radius:16px;padding:16px 18px;display:grid;grid-template-columns:34px 1fr;gap:12px;box-shadow:0 2px 10px rgba(124,77,255,.05)}
+.rule .n{width:34px;height:34px;border-radius:11px;background:var(--pps);color:var(--pp);font-weight:800;display:grid;place-items:center}
+.rule b{display:block;font-size:16.5px;letter-spacing:-.3px}
+.rule p{margin:3px 0 8px;color:var(--body);font-size:14.5px;line-height:1.65}
+.tag{display:inline-block;font-size:11px;font-weight:800;color:var(--pp);background:var(--pps);border-radius:6px;padding:1px 7px;margin-right:4px}
+
+/* 케이스 */
+.case{border-radius:18px;padding:22px 20px;margin-bottom:14px;background:#fff;box-shadow:0 2px 10px rgba(124,77,255,.05);border-top:5px solid}
+.case.cut{border-color:var(--red)} .case.wait{border-color:var(--yel)} .case.add{border-color:var(--grn)}
+.case h3{display:flex;align-items:center;gap:8px;font-size:18.5px;margin-bottom:4px}
+.case.cut h3{color:var(--red)} .case.wait h3{color:var(--yel)} .case.add h3{color:var(--grn)}
+.case .one{font-size:14.5px;color:var(--sub);margin-bottom:12px}
+.case .lab{font-size:12px;font-weight:800;color:var(--sub);margin:12px 0 6px;letter-spacing:.3px}
+.case ul{list-style:none;display:grid;gap:4px}
+.case li{font-size:14.5px;color:var(--body);padding-left:18px;position:relative;line-height:1.6}
+.case li::before{content:"✓";position:absolute;left:0;font-weight:800;color:var(--sub)}
+.case .do li::before{content:"→";color:var(--ink)}
+.case .mine{margin-top:12px;font-size:13.5px;background:var(--pp-bg);border-radius:10px;padding:10px 12px;color:var(--body)}
+
+.diff{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.diff div{border-radius:14px;padding:14px}
+.diff .x{background:var(--reds)} .diff .o{background:var(--grns)}
+.diff b{display:block;font-size:15px;margin-bottom:4px}
+.diff span{font-size:13.5px;color:var(--body);line-height:1.6;display:block}
+
+/* 체크리스트 */
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:#f4effc;padding:5px;border-radius:16px;margin-bottom:14px}
+.tabs button{font:inherit;font-size:15px;font-weight:800;border:0;background:transparent;color:var(--sub);padding:10px 4px;border-radius:12px;cursor:pointer;line-height:1.35}
+.tabs button small{display:block;font-size:11.5px;font-weight:600}
+.tabs button[aria-selected="true"]{background:#fff;color:var(--pp);box-shadow:0 1px 4px rgba(124,77,255,.15)}
+.pane{display:none} .pane.on{display:block}
+.who{font-size:14px;color:var(--sub);margin-bottom:10px}
+.checks{list-style:none;display:grid;gap:6px;margin-bottom:12px}
+.checks label{display:flex;gap:10px;align-items:flex-start;background:var(--pp-bg);border-radius:12px;padding:12px 14px;cursor:pointer;font-size:15px;line-height:1.55}
+.checks input{width:20px;height:20px;margin-top:2px;accent-color:var(--pp);flex:none}
+.result{border-radius:14px;padding:16px 18px;font-size:14.5px;line-height:1.65}
+.result .tt{font-size:16.5px;font-weight:800;margin-bottom:4px}
+.result ul{margin:6px 0 0 18px}
+.result.cut{background:var(--reds)} .result.cut .tt{color:var(--red)}
+.result.wait{background:var(--yels)} .result.wait .tt{color:var(--yel)}
+.result.add{background:var(--grns)} .result.add .tt{color:var(--grn)}
+.result.idle{background:#f4f0fb}
+
+/* 신규 */
+.ways{display:grid;gap:12px}
+.way{background:#fff;border-radius:18px;padding:20px;box-shadow:0 2px 10px rgba(124,77,255,.05)}
+.way .top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.way .no{width:30px;height:30px;border-radius:10px;background:var(--pp);color:#fff;font-weight:800;display:grid;place-items:center;flex:none}
+.way h4{font-size:17px;font-weight:800;letter-spacing:-.3px}
+.way h4 small{font-size:12px;font-weight:700;color:var(--pp);background:var(--pps);border-radius:6px;padding:1px 7px;margin-left:4px;vertical-align:2px}
+.way p{font-size:14.5px;color:var(--body);line-height:1.7}
+.way .ex{margin-top:10px;background:var(--pp-bg);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--body);line-height:1.7}
+.way .ex b{color:var(--pp)}
+.pick{width:100%;border-collapse:collapse;font-size:14px}
+.pick td{padding:10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.pick tr:last-child td{border-bottom:0}
+.pick td:last-child{text-align:right;font-weight:800;color:var(--pp);white-space:nowrap;padding-left:10px}
+.data{margin-top:12px;background:var(--yels);border-radius:14px;padding:14px 16px;font-size:14px;color:var(--body);line-height:1.7}
+
+.step{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:#14a39a;border-radius:8px;padding:2px 8px;margin-right:6px;vertical-align:3px}
+.after{list-style:none;display:grid;gap:8px}
+.after li{background:var(--pp-bg);border-radius:12px;padding:12px 14px;font-size:14.5px;line-height:1.6}
+.after b{display:block;color:var(--pp);font-size:14px}
+.after span{color:var(--body)}
+.tbl.plan td{font-weight:700}
+.tbl.plan td:last-child{color:var(--pp)}
+/* EXTRA START */
+.stat .d{font-size:11.5px;color:var(--sub);margin-top:2px}
+.grp{font-size:12.5px;font-weight:800;color:var(--sub);margin:12px 0 8px}
+.cty{font-size:16px;font-weight:800;margin:18px 0 2px;padding-top:14px;border-top:1px dashed var(--line)}
+.bar span small{display:block;font-size:11px;color:var(--sub);font-weight:600}
+.note2{font-size:13.5px;color:var(--body);background:var(--pp-bg);border-radius:10px;padding:10px 12px;margin-top:10px;line-height:1.6}
+.big{margin-top:16px;background:linear-gradient(135deg,#7c4dff 0%,#9d6bff 100%);color:#fff;border-radius:16px;padding:18px 20px}
+.big .t{font-size:17px;font-weight:800;line-height:1.5}
+.big p{color:#fff!important;font-size:14.5px!important;margin-top:8px;opacity:.95}
+.big.ok{background:linear-gradient(135deg,#2a8a5f 0%,#3fae7b 100%)}
+.tbl .na{color:var(--sub);font-weight:600;font-size:12.5px}
+.tbl tr.cur td{background:#fff7f3}
+.warn{margin-top:12px;background:#fff6f2;border-radius:14px;padding:16px 18px}
+.warn .t{font-size:15.5px;font-weight:800;margin-bottom:4px}
+.warn p{font-size:14.5px!important;margin-top:10px}
+.vs div small{display:block;font-size:11px;color:var(--sub);font-weight:600;margin-top:2px}
+.app{margin:16px auto 0;max-width:340px;border:8px solid #2a2244;border-radius:26px;background:#fff;padding:14px 14px 16px;box-shadow:0 8px 24px rgba(42,34,68,.18)}
+.app-top{font-size:11.5px;font-weight:700;color:var(--sub);text-align:center;margin-bottom:10px}
+.app-tab{font-size:12px;font-weight:800;color:var(--pp);border-bottom:2px solid var(--pp);display:inline-block;margin:12px 0 6px;padding-bottom:2px}
+.app-row{display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line);font-size:13.5px}
+.app-row span{color:var(--sub);font-weight:600;white-space:nowrap}
+.app-row b{text-align:right;font-size:14px}
+.app-row em{display:block;font-style:normal;font-size:12px;font-weight:700;color:var(--sub)}
+.app-row em.up{color:var(--grn)}
+.app-row b.dn{color:var(--red)}
+.app-row.hd{border-bottom:0;background:#fff6f2;border-radius:10px;padding:10px}
+.app-cap{margin-top:10px;font-size:13px;font-weight:700;text-align:center;color:var(--ink);background:var(--grns);border-radius:10px;padding:9px 10px;line-height:1.5}
+.checks3{list-style:none;counter-reset:c;display:grid;gap:6px;margin-top:16px}
+.checks3 li{counter-increment:c;position:relative;background:var(--pp-bg);border-radius:12px;padding:11px 14px 11px 44px;font-size:14.5px;color:var(--body)}
+.checks3 li::before{content:counter(c);position:absolute;left:12px;top:11px;width:22px;height:22px;border-radius:50%;background:var(--pp);color:#fff;font-weight:800;font-size:12px;display:grid;place-items:center}
+.checks3 li b{color:var(--pp);margin-right:8px}
+.scam{margin-top:10px;font-size:13.5px;line-height:1.6;color:var(--ink);background:var(--reds);border-radius:10px;padding:10px 12px}
+.scam b{color:var(--red)}
+.moidit{margin-top:16px;background:linear-gradient(135deg,#fef3f8 0%,#f8f3ff 100%);border-radius:20px;padding:22px 20px;border:1.5px solid var(--pps)}
+.moidit .mt{font-size:17px;font-weight:800;margin-bottom:8px}
+.moidit p{font-size:14.5px;color:var(--body);line-height:1.75}
+.moidit p + p{margin-top:8px}
+.mbtn{display:block;text-align:center;margin-top:14px;background:var(--pp);color:#fff;text-decoration:none;font-weight:800;font-size:15px;border-radius:12px;padding:12px}
+.moidit .msmall{font-size:12px;color:var(--sub);margin-top:8px;text-align:center}
+.judge-wrap{margin-top:16px;border:1.5px solid var(--pps);border-radius:16px;padding:16px}
+.judge-t{font-size:16px;font-weight:800;margin-bottom:4px}
+.judge{width:100%;border-collapse:separate;border-spacing:4px;table-layout:fixed;margin:0 -4px}
+.judge th,.judge td{font-size:12.5px;line-height:1.45;padding:8px 6px;border-radius:8px;text-align:center;vertical-align:middle;word-break:keep-all}
+.judge thead th{font-weight:800;font-size:12.5px}
+.judge thead th:first-child{width:22%}
+.judge thead .g{background:var(--grns);color:var(--grn)} .judge thead .y{background:var(--yels);color:var(--yel)} .judge thead .r{background:var(--reds);color:var(--red)}
+.judge tbody th{background:#f4f0fb;font-weight:800;color:var(--ink)}
+.judge tbody th small{display:block;font-size:10.5px;font-weight:600;color:var(--sub)}
+.judge tbody td{background:#fff;border:1px solid var(--line);color:var(--body)}
+.judge tr.act th{background:var(--pp);color:#fff}
+.judge tr.act td{font-weight:800;color:var(--ink)}
+.judge tr.act td:nth-child(2){background:var(--grns)} .judge tr.act td:nth-child(3){background:var(--yels)} .judge tr.act td:nth-child(4){background:var(--reds)}
+.rule .src{font-size:13px;color:var(--sub);line-height:1.6;margin-top:4px}
+.rule .src .tag{margin-right:6px}
+.rule.warn-rule{border:1.5px solid #ffd2bf}
+.rule.warn-rule .n{background:var(--reds);color:var(--red)}
+.rule p + p{margin-top:6px}
+.howread p{font-size:14px!important}
+.pill{display:inline-block;font-size:12px;font-weight:800;border-radius:6px;padding:1px 8px;background:#f4f0fb;color:var(--sub)}
+.pill.do{background:var(--pps);color:var(--pp)}
+.pair{display:grid;grid-template-columns:1fr 1.25fr;gap:8px;margin-top:10px}
+.pair .sit{background:#f7f5fb;border-radius:12px;padding:12px 13px;font-size:14px;font-weight:700;line-height:1.5;position:relative}
+.pair .sit small{display:block;font-size:12px;font-weight:500;color:var(--sub);margin-top:2px}
+.pair .act{background:#fff;border:1.5px solid var(--pps);border-radius:12px;padding:12px 13px;font-size:14px;color:var(--body);line-height:1.6}
+.case.cut .pair .act{border-color:#ffd2bf} .case.wait .pair .act{border-color:#f3e0a6}
+.pair .ex,.ex{margin-top:8px;font-size:13px;background:var(--pp-bg);border-radius:8px;padding:8px 10px;color:var(--ink);line-height:1.6}
+@media (max-width:480px){.pair{grid-template-columns:1fr}.pair .sit::after{content:"↓";position:absolute;left:50%;bottom:-15px;font-size:13px;color:var(--sub)}.pair{gap:14px}}
+.common{margin-top:12px;font-size:13.5px;font-weight:700;color:var(--ink);background:#f4f0fb;border-radius:10px;padding:10px 12px}
+.weight .wg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0 4px}
+.weight .wg>div{background:var(--pp-bg);border-radius:14px;padding:14px;text-align:center}
+.weight .k{font-size:13px;font-weight:700;color:var(--sub)}
+.weight .v{font-size:32px;font-weight:800;color:var(--pp);line-height:1.2}
+.weight .d{font-size:12.5px;color:var(--body);line-height:1.5;margin-top:4px}
+.cond{list-style:none;display:grid;gap:4px;margin:4px 0 12px}
+.cond li{font-size:14.5px;background:var(--grns);border-radius:10px;padding:9px 12px 9px 34px;position:relative}
+.cond li::before{content:"✔";position:absolute;left:12px;color:var(--grn);font-weight:800}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.steps>div{background:#fff;border:1.5px solid #c8ecd8;border-radius:12px;padding:12px;font-size:13.5px;color:var(--body);line-height:1.55}
+.steps span{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--grn);color:#fff;font-size:11px;font-weight:800;margin-right:6px}
+.steps b{color:var(--ink);font-size:14px;display:inline}
+.steps b::after{content:"";display:block}
+.big-ex{margin-top:12px;padding:14px}
+.big-ex>b{display:block;margin-bottom:4px}
+/* EXTRA END */
+/* 계산기 */
+.calc{display:grid;gap:10px}
+.field{display:grid;grid-template-columns:1fr 150px;gap:10px;align-items:center}
+.field label{font-size:15px;font-weight:700}
+.field label small{display:block;font-weight:500;color:var(--sub);font-size:12px}
+.field .in{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:12px;background:#fff;padding:0 10px}
+.field .in:focus-within{border-color:var(--pp)}
+.field input,.field select{width:100%;border:0;background:transparent;font:inherit;font-size:16px;font-weight:700;padding:10px 0;text-align:right;color:var(--ink);outline:none}
+.field select{text-align:left}
+.field .u{font-size:12.5px;color:var(--sub);margin-left:4px;white-space:nowrap}
+.how{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.how label{display:flex;gap:8px;align-items:flex-start;background:var(--pp-bg);border-radius:12px;padding:10px 12px;font-size:13.5px;font-weight:700;cursor:pointer;line-height:1.45}
+.how input{accent-color:var(--pp);margin-top:3px}
+.toggle{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--body)}
+.toggle input{width:18px;height:18px;margin-top:3px;accent-color:var(--pp);flex:none}
+.out{margin-top:8px;border-radius:18px;background:linear-gradient(135deg,#7c4dff 0%,#9d6bff 100%);color:#fff;padding:20px}
+.out .k{font-size:14px;opacity:.85}
+.out .v{font-size:34px;font-weight:800;letter-spacing:-.5px;line-height:1.25;margin:2px 0 12px}
+.out .rows{display:grid;gap:5px;font-size:14px;border-top:1px solid rgba(255,255,255,.25);padding-top:12px}
+.out .rows div{display:flex;justify-content:space-between;gap:10px}
+.out .rows span:last-child{font-weight:800;text-align:right}
+.out.bad{background:linear-gradient(135deg,#c44a1e 0%,#e0704a 100%)}
+.out .tip{font-size:13.5px;margin-top:12px;background:rgba(255,255,255,.15);border-radius:10px;padding:10px 12px;line-height:1.6}
+@media (max-width:440px){.field{grid-template-columns:1fr 128px}.how{grid-template-columns:1fr}}
+
+/* 내 기준 */
+.mine-box{background:linear-gradient(135deg,#f8f3ff 0%,#fef3f8 100%);border-radius:20px;padding:24px 20px}
+.mine-box .q{font-size:15px;color:var(--sub);text-align:center;margin-bottom:16px;line-height:1.6}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.two div{background:#fff;border-radius:14px;padding:16px 12px;text-align:center}
+.two .k{font-size:12.5px;color:var(--sub);font-weight:700}
+.two .v{font-size:24px;font-weight:800;color:var(--pp);letter-spacing:-.5px;line-height:1.3}
+.two .d{font-size:13.5px;margin-top:2px;color:var(--body)}
+.ticks{list-style:none;margin:16px 0 0;display:grid;gap:6px}
+.ticks li{font-size:14.5px;background:#fff;border-radius:12px;padding:10px 14px}
+.ticks li::before{content:"✔ ";color:var(--grn);font-weight:800}
+.now{margin-top:12px;background:#fff;border-radius:14px;padding:14px 16px;font-size:14.5px;line-height:1.7;color:var(--body)}
+.closing{text-align:center;padding:30px 20px;margin-top:30px;background:#fff;border-radius:20px;box-shadow:0 2px 12px rgba(124,77,255,.06)}
+.closing .e{font-size:28px}
+.closing p{font-size:16px;font-weight:700;line-height:1.7;margin-top:8px}
+.save{margin-top:14px;font-size:13.5px;color:var(--pp);font-weight:700}
+
+/* 바닥 */
+.maker{margin-top:26px;background:#fff;border-radius:20px;padding:22px}
+.maker .t{font-size:12px;font-weight:800;color:var(--pp);margin-bottom:4px}
+.maker p{font-size:14px;color:var(--body);line-height:1.7}
+.links{display:grid;gap:6px;margin-top:14px}
+.links a{display:block;text-decoration:none;background:var(--pp-bg);border-radius:12px;padding:11px 14px;font-size:14px;font-weight:700;color:var(--ink)}
+.foot{margin-top:22px;font-size:12px;color:var(--sub);line-height:1.75}
+.foot b{color:var(--sub)}
+.foot a{color:var(--pp)}
+.foot p + p{margin-top:8px}
+.print{display:block;margin:16px auto 0;font:inherit;font-size:13px;font-weight:700;border:1.5px solid var(--line);background:#fff;color:var(--pp);border-radius:999px;padding:8px 16px;cursor:pointer}
+@media print{
+  body{background:#fff}
+  .tabs,.print,.calc-wrap{display:none}
+  .pane{display:block!important;margin-bottom:12px}
+  .card,.case,.way,.rule{box-shadow:none;border:1px solid var(--line);break-inside:avoid}
+}
+
+/* MOBILE FIX */
+.toc a span{white-space:nowrap;flex:none}
+.judge-m{display:none;gap:8px}
+.jm{border-radius:14px;padding:14px}
+.jm.g{background:var(--grns)} .jm.y{background:var(--yels)} .jm.r{background:var(--reds)}
+.jm .h{font-size:15px;font-weight:800;margin-bottom:6px}
+.jm ul{list-style:none;display:grid;gap:4px}
+.jm li{font-size:14px;color:var(--body);display:grid;grid-template-columns:64px 1fr;gap:6px}
+.jm li b{color:var(--ink)}
+.jm .go{margin-top:10px;font-size:14px;font-weight:800;color:var(--ink);background:rgba(255,255,255,.7);border-radius:10px;padding:9px 11px}
+@media (max-width:520px){
+  .container{padding:20px 14px 48px}
+  .card{padding:22px 18px}
+  .judge{display:none}
+  .judge-m{display:grid}
+  .key .text{font-size:15.5px}
+  .bar{grid-template-columns:98px 1fr 44px;gap:8px;font-size:13.5px}
+  .bar span small{font-size:10.5px}
+  .tbl{font-size:13px;table-layout:fixed}
+  .tbl th{font-size:11px}
+  .tbl th:nth-child(1),.tbl td:nth-child(1){width:34%}
+  .tbl th:nth-child(2),.tbl td:nth-child(2){width:20%}
+  .tbl th:nth-child(3),.tbl td:nth-child(3){width:18%}
+  .tbl td:first-child{overflow-wrap:anywhere;padding-right:6px}
+  .tbl td:not(:first-child){white-space:nowrap}
+  .tbl td.na{white-space:normal;font-size:11.5px;line-height:1.4}
+  .tbl.plan td{white-space:normal}
+  .way h4 small{display:inline-block;margin:4px 0 0}
+}
+
+.field{grid-template-columns:1fr 160px}
+.bar{grid-template-columns:110px 1fr 52px}
+@media (max-width:520px){.bar{grid-template-columns:104px 1fr 44px}.field{grid-template-columns:1fr 132px}.jm li{grid-template-columns:86px 1fr}}
+.tbl th+th,.tbl td+td{padding-left:6px}
+.big.etf{padding:20px 20px 18px}
+.big.etf .t.one-line{white-space:nowrap;font-size:clamp(14px,4.1vw,17px);padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid rgba(255,255,255,.28)}
+.big.etf p{margin-top:0!important;font-size:14px!important;line-height:1.7}
+.big.etf p + p{margin-top:10px!important}
+@media (max-width:520px){.big.etf{padding:18px 16px 16px}}
+.promo{margin-top:16px;background:#fff;border:1.5px solid var(--pps);border-radius:20px;padding:24px 20px;box-shadow:0 2px 12px rgba(124,77,255,.06)}
+.promo .badge{display:inline-block;font-size:12px;font-weight:800;color:#fff;background:var(--pp);border-radius:999px;padding:4px 12px}
+.promo .pt{font-size:20px;font-weight:800;margin:10px 0 12px;letter-spacing:-.3px}
+.promo .pq{font-size:15.5px;font-weight:700;line-height:1.6;color:var(--ink);background:var(--pp-bg);border-radius:12px;padding:12px 14px;margin:0 0 12px}
+.promo .pl{font-size:14.5px;color:var(--body);line-height:1.7;margin:0}
+.promo .pf{list-style:none;display:grid;gap:6px;margin:14px 0}
+.promo .pf li{display:flex;gap:10px;align-items:center;font-size:14.5px;color:var(--ink);background:#faf8ff;border-radius:10px;padding:10px 12px}
+.promo .pf i{font-style:normal;font-size:17px;flex:none}
+.promo .msmall{font-size:12px;color:var(--sub);margin-top:10px;text-align:center;line-height:1.6}
+.en-name{font-size:13px;font-weight:700;color:var(--sub);letter-spacing:.3px;margin:-4px 0 10px}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="header">
+    <div class="date">English Version · As of Nov 10, 2026</div>
+    <div class="en-name">Stock Beginners, Market Drop Guide</div>
+    <h1>Stocks are crashing.<br><strong>Rules over emotions</strong> 📉</h1>
+    <p class="subtitle">A checklist for every situation · How to buy ETFs in a sell-off<br>Calculator: how much you can invest now</p>
+    <div class="stats">
+      <div class="stat"><div class="k">KOSPI</div><div class="v">-28%</div><div class="d">from Oct high<br>(-45% from June)</div></div>
+      <div class="stat us"><div class="k">Nasdaq</div><div class="v">-12%</div><div class="d">from Oct high</div></div>
+      <div class="stat us"><div class="k">S&amp;P 500</div><div class="v">-6%</div><div class="d">from Oct high</div></div>
+    </div>
+    <p class="note">Close on Oct 6 (the U.S. market peak) vs. the lowest close since then.</p>
+  </header>
+
+  <section class="card">
+    <div class="key" style="margin-top:0">
+      <div class="label">🔑 THE KEY MESSAGE</div>
+      <div class="text">Don't panic-sell or average down on emotion.<br>Follow the rules you set in advance.</div>
+    </div>
+    <ul class="toc">
+      <li><a href="#p1"><span>PART 1</span>Why did stocks drop so fast?</a></li>
+      <li><a href="#p2"><span>PART 2</span>Crashes since 2020: how did they recover?</a></li>
+      <li><a href="#p3"><span>PART 3</span>So should I sell, hold, or buy more?</a></li>
+      <li><a href="#p4"><span>PART 4</span>New to stocks? Should I buy ETFs now?</a></li>
+      <li><a href="#p5"><span>PART 5</span>Calculator: how much can I invest now?</a></li>
+    </ul>
+  </section>
+
+  <!-- PART 1 -->
+  <div class="part-header" id="p1">
+    <span class="part-num">PART 1</span>
+    <h2>Why did stocks<br>drop so fast?</h2>
+    <p class="desc">It started in the U.S., and chip-heavy Korea took a bigger hit</p>
+  </div>
+
+  <section class="card">
+    <ul class="why">
+      <li><div class="ic">🗳️</div><div><b>AI regulation fears after the U.S. midterms</b><span>Democrats, some of whom had called for a pause on new data centers, won both the House and the Senate in the Nov 3 midterms. Investors worried that AI data center construction could slow down.</span></div></li>
+      <li><div class="ic">🤖</div><div><b>AI chip stocks plunged</b><span>Doubts about whether AI spending will pay off piled on, and the U.S. semiconductor index fell 12% in a single day on Nov 5.</span></div></li>
+      <li><div class="ic">🇰🇷</div><div><b>Korea fell even harder</b><span>At the June peak, Samsung Electronics and SK hynix made up more than half of the KOSPI's market value, so when chips fell, the whole index fell. On Nov 6 the KOSPI dropped more than 8% early in the session, triggering a circuit breaker (a 20-minute trading halt), and closed down 6.0%.</span></div></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h3>📊 The more spread out, the smaller the drop</h3>
+    <p class="small" style="margin:0 0 6px">Close on Oct 6 (the U.S. peak) vs. the lowest close since then</p>
+
+    <div class="grp">ETFs spread across many industries</div>
+    <div class="bars">
+      <div class="bar idx"><span>S&amp;P 500 ETF<small>VOO·SPY · 500 cos.</small></span><div class="t"><i style="width:16%"></i></div><span class="p">-6%</span></div>
+      <div class="bar idx"><span>Nasdaq-100 ETF<small>QQQ · 100 cos.</small></span><div class="t"><i style="width:39%"></i></div><span class="p">-15%</span></div>
+    </div>
+    <div class="grp">ETF focused on one industry</div>
+    <div class="bars">
+      <div class="bar"><span>Chip ETF<small>SOXX · ~30 cos.</small></span><div class="t"><i style="width:87%"></i></div><span class="p">-33%</span></div>
+    </div>
+    <div class="grp">Single stocks</div>
+    <div class="bars">
+      <div class="bar"><span>Nvidia</span><div class="t"><i style="width:66%"></i></div><span class="p">-25%</span></div>
+      <div class="bar"><span>Micron</span><div class="t"><i style="width:97%"></i></div><span class="p">-37%</span></div>
+      <div class="bar"><span>AMD</span><div class="t"><i style="width:100%"></i></div><span class="p">-38%</span></div>
+    </div>
+
+    <div class="big etf">
+      <div class="t one-line">💡 Well-diversified ETFs fell less, again</div>
+      <p>The S&amp;P 500 ETF fell 6%, far less than single stocks (-25% to -38%).</p>
+      <p>The exception is <b style="color:#fff">an ETF that holds only one industry</b>, like chips. It fell about as much as single stocks (-33%).</p>
+      <p>So when you pick an ETF, just check <b style="color:#fff">what's inside it</b>. PART 4 shows how.</p>
+    </div>
+    <p class="note2">🇰🇷 Same story in Korea. Samsung and SK hynix are so heavily weighted in the KOSPI 200 ETF that it fell 47% from its June high, about as much as the two stocks themselves (-48%, -61%).</p>
+    <p class="small">Company names are examples for comparison only. This is not a buy recommendation.</p>
+  </section>
+
+  <!-- PART 2 -->
+  <div class="part-header" id="p2">
+    <span class="part-num">PART 2</span>
+    <h2>Crashes since 2020:<br>how did they recover?</h2>
+    <p class="desc">The biggest Nasdaq shake-ups, from COVID to this year</p>
+  </div>
+
+  <section class="card">
+    <table class="tbl">
+      <thead><tr><th>Event</th><th>Max drop</th><th>Recovery</th><th>1 yr after low</th></tr></thead>
+      <tbody>
+        <tr><td>COVID<small>Feb–Mar 2020</small></td><td class="dn">-30.1%</td><td>2.5 mo</td><td class="up">+92.8%</td></tr>
+        <tr><td>Inflation &amp; rate hikes<small>2022</small></td><td class="dn">-36.4%</td><td>14 mo</td><td class="up">+47.8%</td></tr>
+        <tr><td>Yen carry unwind<small>Aug 2024</small></td><td class="dn">-13.1%</td><td>3 mo</td><td class="up">+31.2%</td></tr>
+        <tr><td>Tariff shock<small>Apr 2025</small></td><td class="dn">-24.3%</td><td>3 mo</td><td class="up">+48.3%</td></tr>
+        <tr><td>U.S.–Iran war<small>Mar 2026</small></td><td class="dn">-13.2%</td><td>2 wk</td><td class="na">+29.0% after 6 mo</td></tr>
+        <tr><td>AI &amp; chip sell-off<small>Jul 2026</small></td><td class="dn">-9.8%</td><td>2 mo</td><td class="na">+3.3% so far</td></tr>
+        <tr class="cur"><td>This crash<small>Nov 2026</small></td><td class="dn">-11.9%</td><td>Ongoing</td><td class="na">-</td></tr>
+      </tbody>
+    </table>
+
+    <div class="insight">
+      <div class="t">💡 In all 4 cases with a full year of data, the market was up one year after the low</div>
+      <p>Only 2022 took more than a year (14 months) to get back to its old high. The rest recovered within 2 weeks to 3 months. So before "it's down, so I'll buy," ask <b>"can my money wait more than a year?"</b></p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>🤖 When AI and chips were shaken before</h3>
+    <table class="tbl">
+      <thead><tr><th>Nvidia</th><th>Max drop</th><th>Recovery</th><th>6 mo after low</th></tr></thead>
+      <tbody>
+        <tr><td>Yen carry unwind<small>Aug 2024</small></td><td class="dn">-27.0%</td><td>2 mo</td><td class="up">+26.2%</td></tr>
+        <tr><td>DeepSeek AI shock<small>Jan–Feb 2025</small></td><td class="dn">-21.9%</td><td>5 mo*</td><td class="up">+54.3%</td></tr>
+        <tr><td>AI &amp; chip sell-off<small>Jul 2026</small></td><td class="dn">-19.3%</td><td>2 mo</td><td class="na">-</td></tr>
+      </tbody>
+    </table>
+    <p class="small">* The April 2025 tariff shock hit during the recovery.</p>
+    <div class="insight">
+      <div class="t">💡 Even the AI shocks recovered within months</div>
+      <p>All three dropped around 20% but got back to their old high in 2 to 5 months. Six months after the low, Nvidia was up <b>+26% and +54%</b>.</p>
+    </div>
+
+    <div class="warn">
+      <div class="t">⚠️ But not every stock came back</div>
+      <div class="vs">
+        <div class="g">Nvidia<em>+311%</em><small>2022: -66% → 1 yr after low</small></div><span>VS</span><div class="r">PayPal<em>-80%</em><small>from its 2021 high, still</small></div>
+      </div>
+      <p>PayPal's pandemic boost in online payments faded, and it lost ground to rivals like Apple Pay, so its core business stopped growing. It wasn't just the price that fell. <b>Its ability to make money weakened.</b></p>
+      <p class="small">When expectations ran far ahead of earnings, as in the 2000 dot-com bubble, the Nasdaq took 15 years to get back to its old high.</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>🔍 The stock dropped. Is the company still OK?</h3>
+    <p>When a stock falls hard, there's one question: <b>did the company get worse, or did it just fall with the market?</b> Check three things on the "Financials" tab in your brokerage app.</p>
+
+    <div class="app">
+      <div class="app-top">Example brokerage app screen · Nvidia</div>
+      <div class="app-row hd"><span>Price</span><b class="dn">-25% from recent high</b></div>
+      <div class="app-tab">Financials · latest quarter (May–Jul 2026)</div>
+      <div class="app-row"><span>① Revenue</span><b>$96.2B <em class="up">+106% vs. last year</em></b></div>
+      <div class="app-row"><span>② Operating income</span><b>$63.7B <em class="up">+124% vs. last year</em></b></div>
+      <div class="app-row"><span>③ Why it fell</span><b>AI regulation fears <em>(market-wide news)</em></b></div>
+      <div class="app-cap">The stock fell 25%, but revenue and profit more than doubled in a year</div>
+    </div>
+
+    <ol class="checks3">
+      <li><b>Revenue</b>Is it higher than the same quarter last year?</li>
+      <li><b>Operating income</b>Is it profitable, and not shrinking from last year?</li>
+      <li><b>Why it fell</b>Was it the company's own earnings, or market-wide news?</li>
+    </ol>
+
+    <div class="judge-wrap">
+      <div class="judge-t">📏 Can I keep holding this company? Earnings traffic light</div>
+      <p class="small" style="margin:0 0 10px">There's no magic percentage. Normal growth differs by industry, so look at the <b>direction (up or down)</b> and the <b>trend (is it slowing?)</b> more than the size. Always compare with the same quarter last year.</p>
+      <table class="judge">
+        <thead><tr><th></th><th class="g">🟢 OK</th><th class="y">🟡 Caution</th><th class="r">🔴 Warning</th></tr></thead>
+        <tbody>
+          <tr><th>Revenue</th><td>Up</td><td>About flat</td><td>Down</td></tr>
+          <tr><th>Operating income</th><td>Profitable and up</td><td>Profitable but down</td><td>Losing money</td></tr>
+          <tr><th>Trend<small>last 3–4 quarters</small></th><td>Growth is steady</td><td>Growth keeps slowing</td><td>Revenue and profit keep falling</td></tr>
+          <tr class="act"><th>Then?</th><td>You can buy in steps (PART 3)</td><td>Don't add. Wait for the next earnings</td><td>Stop adding. Consider trimming</td></tr>
+        </tbody>
+      </table>
+      <div class="judge-m">
+        <div class="jm g"><div class="h">🟢 OK</div><ul><li><b>Revenue</b>Up</li><li><b>Op. income</b>Profitable and up</li><li><b>Trend</b>Growth is steady</li></ul><div class="go">→ You can buy in steps (PART 3)</div></div>
+        <div class="jm y"><div class="h">🟡 Caution</div><ul><li><b>Revenue</b>About flat</li><li><b>Op. income</b>Profitable but down</li><li><b>Trend</b>Growth keeps slowing</li></ul><div class="go">→ Don't add. Wait for the next earnings</div></div>
+        <div class="jm r"><div class="h">🔴 Warning</div><ul><li><b>Revenue</b>Down</li><li><b>Op. income</b>Losing money</li><li><b>Trend</b>Revenue and profit keep falling</li></ul><div class="go">→ Stop adding. Consider trimming</div></div>
+      </div>
+      <div class="note2">⚠️ The easiest one to miss is 🟡 <b>"growth keeps slowing."</b> If growth goes from 40% to 20% to 5%, the stock can fall hard even while it's still growing. That's what happened to PayPal.</div>
+    </div>
+
+    <div class="big ok">
+      <div class="t">✅ If all three look fine,<br>it most likely fell with the market, not because of the company</div>
+      <p>If revenue and profit are falling, it may look cheap but could take years to come back, like PayPal.</p>
+    </div>
+    <p class="small">Nvidia is an example to explain the idea, not a buy recommendation. Index ETFs hold the whole market, so this check matters less for them.</p>
+  </section>
+
+  <!-- PART 3 -->
+  <div class="part-header" id="p3">
+    <span class="part-num">PART 3</span>
+    <h2>So should I<br>sell, hold, or buy more?</h2>
+    <p class="desc">Same market, different answers depending on your situation</p>
+  </div>
+
+  <section class="card howread">
+    <p><b>How to read this</b> · In each case, <span class="pill">your situation</span> is paired with <span class="pill do">what to do</span>. Just read the rows that apply to you.</p>
+  </section>
+
+  <section class="case cut">
+    <h3>🛑 Time to cut back</h3>
+    <div class="pair">
+      <div class="sit">Money you need within 5 years is in stocks<small>home deposit, a move, tuition</small></div>
+      <div class="act">Count back from the date you need it, and move it into savings in set amounts on set dates.
+        <div class="ex">e.g. $20,000 for a home deposit due in a year → move $5,000 a month for the next 4 months</div></div>
+    </div>
+    <div class="pair">
+      <div class="sit">You bought stocks with borrowed money<small>margin loans, credit lines</small></div>
+      <div class="act">Stop buying and pay down the debt first. If prices keep falling, your broker can sell your shares for you (a margin call).
+        <div class="ex">e.g. $10,000 bought on margin → put your paycheck and spare cash toward paying it off, not more stock</div></div>
+    </div>
+    <div class="pair">
+      <div class="sit">Your reason for buying is gone<small>revenue and profit are falling (see PART 2)</small></div>
+      <div class="act">Consider trimming that stock. Don't sell just because the price dropped.</div>
+    </div>
+    <div class="pair">
+      <div class="sit">You're so concentrated in one industry you can't sleep</div>
+      <div class="act">Trim only down to the limit in the "How much is too much?" guide below.
+        <div class="ex">e.g. $15,000 of $30,000 in chips (50%) → sell just $6,000 to get down to $9,000 (30%). Move that money into other industries or an index ETF</div></div>
+    </div>
+    <div class="common">For all · Don't sell everything in one day. Sell set amounts on set dates.</div>
+    <div class="scam">⚠️ The bigger your loss, the more careful you need to be with <b>chat groups that promise to win back your losses</b>. In Korea alone, investment-scam losses hit ₩181.7 billion in Q1 2026, and 3 in 4 victims were in their 50s or older.</div>
+  </section>
+
+  <section class="case wait">
+    <h3>⏸️ Time to hold and wait</h3>
+    <div class="pair">
+      <div class="sit">You have no spare cash to add</div>
+      <div class="act">Keep what you have. If you invest a set amount every month, keep going.</div>
+    </div>
+    <div class="pair">
+      <div class="sit">You have spare cash, but you already own a lot of that stock or industry</div>
+      <div class="act">Don't buy more of it. Put the spare cash into other industries or an index ETF, or keep it in cash and wait.
+        <div class="ex">e.g. $12,000 of $30,000 in chips (40%) and $5,000 of spare cash<br>→ buying more chips would push it to 49%<br>→ hold the chips even at a loss, and put the $5,000 somewhere else like an S&amp;P 500 ETF, or keep it in cash</div></div>
+    </div>
+    <div class="mine">💬 That's what I did this time. I had spare cash, but I left some stocks alone even at a loss. I already owned too much of them, so I didn't just choose not to buy. <b>I couldn't.</b></div>
+    <div class="common">For all · Turn off app alerts and check only once a month, on a set day.</div>
+  </section>
+
+  <section class="card weight">
+    <h3>⚖️ How much is too much?</h3>
+    <p>There's no single right answer. But without a limit you'll keep buying, so here are lines commonly used in the industry as a guide.</p>
+    <div class="wg">
+      <div><div class="k">One stock</div><div class="v">10%</div><div class="d">of all your stocks<br>never more than 20%</div></div>
+      <div><div class="k">One industry</div><div class="v">30%</div><div class="d">chips, batteries, etc.<br>add up everything in it</div></div>
+    </div>
+    <p class="small">Different names in the same industry count together. e.g. chip ETF + Samsung + SK hynix = really one industry. Index ETFs like the S&amp;P 500 already hold hundreds of companies, so leave them out of this count.</p>
+    <div class="big ok"><div class="t">Past this line? Stop adding, no matter how cheap it looks</div></div>
+  </section>
+
+  <section class="case add">
+    <h3>➕ OK to buy more, by your rules</h3>
+    <p class="one">Only when <b>all four</b> are true, buy more in pre-set amounts.</p>
+    <ul class="cond">
+      <li>You have spare cash you won't need for 5+ years</li>
+      <li>Your emergency fund is set aside</li>
+      <li>Your reason for buying still holds (revenue and profit are fine)</li>
+      <li>That stock or industry is within the limit above</li>
+    </ul>
+    <div class="steps">
+      <div><span>1</span><b>Set a limit</b>Use the PART 5 calculator to decide how much more you can put in.</div>
+      <div><span>2</span><b>Set your levels</b>Write down in advance at what drop you'll buy.</div>
+      <div><span>3</span><b>Buy in steps</b>Buy only when a level is hit, only the set amount.</div>
+      <div><span>4</span><b>Stop at the limit</b>Once it's used up, stop even if prices keep falling.</div>
+    </div>
+    <div class="ex big-ex">
+      <b>e.g. Extra buying limit: $6,000</b>
+      <table class="tbl plan">
+        <tbody>
+          <tr><td>Single stock · -20% from high</td><td>$2,000</td></tr>
+          <tr><td>-30%</td><td>$2,000</td></tr>
+          <tr><td>-40%</td><td>$2,000</td></tr>
+          <tr><td>If it falls further</td><td>Stop and review</td></tr>
+        </tbody>
+      </table>
+      <p class="small">Index ETFs move less, so use tighter levels. e.g. -10% · -15% · -20%</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>🤔 Is averaging down ever OK?</h3>
+    <div class="diff">
+      <div class="x"><b>❌ Averaging down on emotion</b><span>After it falls, out of fear or to "get even," even using your emergency fund or loans</span></div>
+      <div class="o"><b>⭕ Buying more by your rules</b><span>At drop levels and amounts set before it fell, only with spare cash you set aside</span></div>
+    </div>
+  </section>
+
+  <section class="card calc-wrap">
+    <h3>✅ Check your case</h3>
+    <p class="who" style="margin-bottom:12px">Tap your situation and check what applies.</p>
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-t="t1">Short-term<small>need it in 5 yrs</small></button>
+      <button role="tab" aria-selected="false" data-t="t2">Long-term<small>5+ years</small></button>
+      <button role="tab" aria-selected="false" data-t="t3">New investor<small>just starting</small></button>
+    </div>
+
+    <div class="pane on" id="t1">
+      <p class="who">You're investing money you'll need within 5 years (home deposit, a move, tuition), or you trade short-term</p>
+      <ul class="checks">
+        <li><label><input type="checkbox">It includes money I must use within a year</label></li>
+        <li><label><input type="checkbox">I bought stocks with borrowed money (margin, credit line)</label></li>
+        <li><label><input type="checkbox">I don't have a separate emergency fund</label></li>
+        <li><label><input type="checkbox">My losses are keeping me up at night</label></li>
+      </ul>
+      <div class="result" id="r1"></div>
+    </div>
+
+    <div class="pane" id="t2">
+      <p class="who">You're already invested, with money you won't need for 5+ years</p>
+      <ul class="checks">
+        <li><label><input type="checkbox" data-k="cash">I have a separate emergency fund</label></li>
+        <li><label><input type="checkbox" data-k="reason">My reason for buying still holds (index: the whole market; stock: the company's revenue and profit)</label></li>
+        <li><label><input type="checkbox" data-k="weight">That stock or industry is within the limit I set</label></li>
+        <li><label><input type="checkbox" data-k="money">I have spare cash to add (check with the PART 5 calculator)</label></li>
+      </ul>
+      <div class="result" id="r2"></div>
+    </div>
+
+    <div class="pane" id="t3">
+      <p class="who">You don't own stocks yet, or you're just getting started</p>
+      <ul class="checks">
+        <li><label><input type="checkbox">I have an emergency fund of 3–6 months of expenses</label></li>
+        <li><label><input type="checkbox">I have no high-interest debt (credit cards, personal loans)</label></li>
+        <li><label><input type="checkbox">I'm starting with money I won't need for 5+ years</label></li>
+        <li><label><input type="checkbox">I set my amount with the PART 5 calculator</label></li>
+      </ul>
+      <div class="result" id="r3"></div>
+    </div>
+  </section>
+
+  <!-- PART 4 -->
+  <div class="part-header" id="p4">
+    <span class="part-num">PART 4</span>
+    <h2>New to stocks?<br>Should I buy ETFs now?</h2>
+    <p class="desc">Four steps for getting started</p>
+  </div>
+
+  <section class="card">
+    <h3><span class="step">STEP 1</span> How much can I buy?</h3>
+    <p>In a sell-off, decide <b>"how far will I go?"</b> before "how much should I buy?" Your limit is what's left after taking out your emergency fund, money you'll need within 5 years, and debt you should pay off first.</p>
+    <p>Your limit is <span class="hl">an amount you could live with even if prices fall further</span>. Work it out with the PART 5 calculator.</p>
+  </section>
+
+  <section class="card">
+    <h3><span class="step">STEP 2</span> Which ETF should I start with?</h3>
+    <p>If you're new, start by looking at <b>index ETFs that hold many industries at once</b>, like the S&amp;P 500 or the total U.S. market. In this crash, the S&amp;P 500 fell 6% from its high, while the chip-only ETF fell 12% in a single day.</p>
+    <div class="diff" style="margin-top:14px">
+      <div class="o"><b>⭕ Start here</b><span>1–2 broad index ETFs that hold many industries</span></div>
+      <div class="x"><b>❌ Skip at first</b><span>2x or 3x leveraged, inverse, and single-theme ETFs</span></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3><span class="step">STEP 3</span> All at once, or in steps?</h3>
+    <div class="ways">
+      <div class="way">
+        <div class="top"><div class="no">①</div><h4>Monthly investing<small>Easiest</small></h4></div>
+        <p>Put in the same amount on the same day each month. No guessing when to buy, and when prices fall, the same money buys more shares.</p>
+        <div class="ex"><b>Good for</b> Starting from your paycheck without a lump sum, or if drops would keep you up at night<br><b>e.g.</b> $500 on the 25th of every month</div>
+      </div>
+      <div class="way">
+        <div class="top"><div class="no">②</div><h4>Part now + the rest monthly<small>If you have a lump sum</small></h4></div>
+        <p>Invest part of your lump sum now and spread the rest over a few months. You use some of today's lower prices and still have cash if prices fall further.</p>
+        <div class="ex"><b>Good for</b> Anyone with a lump sum they can leave for 5+ years<br><b>e.g.</b> $12,000 → $4,000 now (one third), then the other $8,000 at $1,000 a month for 8 months</div>
+      </div>
+      <div class="way">
+        <div class="top"><div class="no">③</div><h4>Buy at set price levels<small>If you check often</small></h4></div>
+        <p>Decide in advance how far below the high you'll buy, and buy once each time a level is hit.</p>
+        <div class="ex"><b>Good for</b> People who check the market often and can stick to the rules<br><b>e.g.</b> When an index ETF is down 10% · 15% · 20% from its high, invest 30% · 30% · 40% of your money</div>
+      </div>
+    </div>
+    <div class="data">📌 <b>What about investing it all at once?</b> When Vanguard compared the two using past data, investing all at once beat spreading it over a year <b>about 2 out of 3 times</b>. But when markets fell sharply, spreading it out lost less. So all-at-once wins on returns, and monthly investing wins on peace of mind. If you're starting in a sell-off, <b>option ② can be a middle ground</b>.</div>
+    <table class="pick" style="margin-top:14px">
+      <tr><td>I'm starting from my paycheck, no lump sum</td><td>① Monthly</td></tr>
+      <tr><td>I have a lump sum but drops would make me anxious</td><td>① Over 6–12 mo</td></tr>
+      <tr><td>I have a lump sum and can leave it 5+ years</td><td>② Part + monthly</td></tr>
+      <tr><td>I check the market often and can stick to rules</td><td>③ Price levels</td></tr>
+    </table>
+  </section>
+
+  <section class="card">
+    <h3><span class="step">STEP 4</span> What if it drops more after I buy?</h3>
+    <ul class="after">
+      <li><b>If it keeps falling</b><span>Buy only at your next planned step. No unplanned extra buys.</span></li>
+      <li><b>If it bounces back</b><span>Don't rush to put in the rest. Keep monthly buys on schedule, and wait for your next price level.</span></li>
+      <li><b>When you hit your limit</b><span>Stop, even if prices keep falling. After that, just keep investing from your paycheck.</span></li>
+      <li><b>Checking in</b><span>Turn off app alerts and look once a month. Review your mix once or twice a year.</span></li>
+      <li><b>When you sell</b><span>Not because it fell. When the date you need the money gets close, move it to cash in steps on set dates.</span></li>
+    </ul>
+
+    <div class="insight">
+      <div class="t">🗓️ Example: starting with $12,000 (option ②)</div>
+      <table class="tbl plan">
+        <tbody>
+          <tr><td>Buy 1 · now</td><td>$4,000</td></tr>
+          <tr><td>Buys 2–9 · 25th of each month</td><td>$1,000 each</td></tr>
+          <tr><td>If it drops in between</td><td>Stick to the schedule</td></tr>
+          <tr><td>Once all $12,000 is in</td><td>Stop, review in 6 months</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PART 5 -->
+  <div class="part-header" id="p5">
+    <span class="part-num">PART 5</span>
+    <h2>Calculator: how much<br>can I invest right now? 🧮</h2>
+    <p class="desc">Enter your numbers to see your limit and how much to put in now (in dollars)</p>
+  </div>
+
+  <section class="card calc-wrap">
+    <div class="calc">
+      <div class="field"><label for="f1">Total savings<small>savings, cash, and money waiting to invest</small></label><div class="in"><span class="u" style="margin:0 2px 0 0">$</span><input id="f1" inputmode="numeric" placeholder="0"></div></div>
+      <div class="field"><label for="f2">Monthly living costs</label><div class="in"><span class="u" style="margin:0 2px 0 0">$</span><input id="f2" inputmode="numeric" placeholder="0"></div></div>
+      <div class="field"><label for="f3">Emergency fund covers</label><div class="in"><select id="f3"><option value="3">3 months</option><option value="6" selected>6 months</option></select></div></div>
+      <div class="field"><label for="f4">Money needed within 5 yrs<small>home deposit, a move, tuition</small></label><div class="in"><span class="u" style="margin:0 2px 0 0">$</span><input id="f4" inputmode="numeric" placeholder="0"></div></div>
+      <div class="field"><label for="f5">Debt to pay off first<small>credit cards, personal loans, credit lines</small></label><div class="in"><span class="u" style="margin:0 2px 0 0">$</span><input id="f5" inputmode="numeric" placeholder="0"></div></div>
+      <div class="field"><label for="f6">Number of buys</label><div class="in"><select id="f6"><option value="3">3</option><option value="4">4</option><option value="6" selected>6</option><option value="8">8</option><option value="12">12</option></select></div></div>
+      <div class="how">
+        <label><input type="radio" name="how" value="a" checked><span>① All in steps<br>(monthly or price levels)</span></label>
+        <label><input type="radio" name="how" value="b"><span>② One third now +<br>the rest in steps</span></label>
+      </div>
+      <div class="field"><label for="f7">Cash to keep on hand<small>for further drops · my rule: 10–20%</small></label><div class="in"><select id="f7"><option value="0">None</option><option value="10" selected>10%</option><option value="15">15%</option><option value="20">20%</option></select></div></div>
+
+      <div class="out" id="out">
+        <div class="k">What you can put in right now</div>
+        <div class="v" id="oNow">Enter your numbers</div>
+        <div class="rows">
+          <div><span>Total investing limit</span><span id="oMax">-</span></div>
+          <div><span>The rest</span><span id="oRest">-</span></div>
+          <div><span>If the whole limit falls 30%</span><span id="oDrop">-</span></div>
+        </div>
+        <div class="tip" id="oTip">Could you still sleep if it fell 30%? If not, lower your limit.</div>
+      </div>
+    </div>
+    <p class="small">Formula: total savings − emergency fund (living costs × months) − money needed within 5 years − debt to pay off first, minus the cash you keep on hand. Nothing you type is saved anywhere.</p>
+  </section>
+
+  <div class="closing">
+    <div class="e">🫶</div>
+    <p>My way isn't the only right answer.<br>But I believe no investment<br>beats one you can live with calmly.</p>
+    <div class="save">💜 Save this guide and come back to it when the market shakes you</div>
+  </div>
+
+  <section class="promo">
+    <div class="badge">Launching in December</div>
+    <div class="pt">📒 Moidit, a budgeting app</div>
+    <p class="pq">"The scariest moment in investing<br>is when your cash flow gets stuck."</p>
+    <p class="pl">That's why we're building a budgeting app that shows where your money goes, month by month.</p>
+    <ul class="pf">
+      <li><i>📊</i>Tools that help you keep up a money habit</li>
+      <li><i>🗺️</i>See where your household stands against national statistics</li>
+      <li><i>🏡</i>Get ideas from other families' budgets</li>
+      <li><i>🤝</i>A community that keeps each other going</li>
+      <li><i>💻</i>On your phone and on PC</li>
+    </ul>
+    <p class="pl">More than a budget you start and forget, it's a place to manage money together, for the long run.</p>
+    <a class="mbtn" href="https://www.instagram.com/chaeheekoo/">Get launch news · Follow @chaeheekoo →</a>
+    <p class="msmall">Launch news comes first on Instagram. Moidit is a service from the company Chaehee Koo runs.</p>
+  </section>
+
+  <div class="maker">
+    <div class="t">Made by · Chaehee Koo</div>
+    <p>Money mentor for newlyweds and finance creator.<br>I share practical money habits and rule-based investing.</p>
+    <div class="links">
+      <a href="https://www.instagram.com/chaeheekoo/">📷 Follow @chaeheekoo</a>
+      <a href="https://chaeheeinsta.vercel.app/260503/">📊 Previous guide · 15 years of U.S. stock crashes and recoveries (Korean)</a>
+    </div>
+  </div>
+
+  <div class="foot">
+    <p><b>📊 About the data</b><br>
+    All stock figures were recalculated from Yahoo Finance daily closes (through Nov 10, 2026).<br>
+    Max drop = lowest close vs. the highest close up to that point. Recovery = days from the low until the close first got back above that high. 1 yr / 6 mo after = return from the low close. Indexes use closing prices; stocks and ETFs use prices adjusted for dividends and splits.<br>
+    This crash (top numbers): KOSPI 6,941.39 on Oct 6 → 5,018.85 on Nov 9 (-27.7%); -44.9% from the June 22 high of 9,114.55 · Nasdaq 27,599.79 on Oct 6 → 24,315.00 on Nov 5 · S&amp;P 500 7,818.93 on Oct 6 → 7,353.73 on Nov 5. The stock vs. ETF chart uses the Oct 6 close vs. the lowest close since (same period); Korea uses the June high.<br>
+    Single-day drops: U.S. semiconductor index -12.25% (Nov 5), KOSPI -5.28% (Nov 5) and -6.02% (Nov 6).<br>
+    Nvidia earnings: fiscal 2027 Q2 (May–Jul 2026) revenue $96.2B (+106%), operating income $63.7B (+124%), as reported by the company.<br>
+    The concentration guide (10% per stock, 30% per industry) is a common industry rule of thumb, not an official rule.</p>
+    <p><b>📚 Principles referenced</b><br>
+    <a href="https://www.sec.gov/investor/pubs/financialnavigating.htm">SEC, Financial Navigating in the Current Economy</a> ·
+    <a href="https://www.finra.org/investors/insights/tips-turbulent-market">FINRA, Investor Tips for Turbulent Markets</a> ·
+    <a href="https://www.fca.org.uk/investsmart/golden-rules-investing">FCA, The golden rules of investing</a> ·
+    <a href="https://corporate.vanguard.com/content/dam/corp/research/pdf/cost_averaging_invest_now_or_temporarily_hold_your_cash.pdf">Vanguard, Cost averaging: Invest now or temporarily hold your cash?</a></p>
+    <p><b>📰 Market sources</b><br>
+    <a href="https://www.news1.kr/finance/market-exr/6347932">News1</a> ·
+    <a href="https://www.newspim.com/news/view/20261106000385">Newspim</a> ·
+    <a href="https://www.tokenpost.kr/news/market/434169">TokenPost</a> ·
+    <a href="https://www.heraldk.com/article/2026062123583678530">Herald Economy</a> ·
+    <a href="https://news.tf.co.kr/read/ogmeta/2385895.htm">The Fact</a> ·
+    <a href="https://www.cnbc.com/2026/11/05/stock-market-selloff-ai-fears.html">CNBC</a> ·
+    <a href="https://www.cnbc.com/2026/11/05/democrats-data-center-restrictions-midterms.html">CNBC (Democrats on data centers)</a> ·
+    <a href="https://www.axios.com/2026/03/27/stocks-trump-iran-nasdaq">Axios (Iran war correction)</a> ·
+    <a href="https://www.interactivebrokers.com/campus/traders-insight/ibkr-economic-landscape/nasdaq-slips-into-correction-territory-as-chip-selloff-worsens/">IBKR (July chip sell-off)</a> ·
+    <a href="https://www.iphoneincanada.ca/2026/08/27/nvidia-blows-past-expectations-with-96-2-billion-revenue-in-q2-2027/">Nvidia Q2 results</a> ·
+    <a href="https://www.bnnbloomberg.ca/business/2026/07/20/how-paypal-went-from-wall-street-favorite-to-unwilling-merger-target/">Bloomberg (PayPal)</a> ·
+    <a href="https://biz.heraldcorp.com/article/10876946">Herald Economy (investment scams)</a></p>
+    <p><b>⚠️ Disclaimer</b><br>
+    This guide is reference material to help you set rules when stocks fall sharply. Past results don't guarantee future returns. Companies named here are not buy recommendations. Investment decisions and their results are your own responsibility.</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.tabs button');
+  tabs.forEach(function(b){b.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});
+    document.querySelectorAll('.pane').forEach(function(p){p.classList.toggle('on',p.id===b.dataset.t)});
+  })});
+
+  function show(id,cls,title,items){
+    var el=document.getElementById(id);
+    el.className='result '+cls;
+    el.innerHTML='<div class="tt">'+title+'</div>'+(items&&items.length?'<ul><li>'+items.join('</li><li>')+'</li></ul>':'');
+  }
+  function q(sel){return [].slice.call(document.querySelectorAll(sel))}
+
+  function r1(){
+    var n=q('#t1 input').filter(function(x){return x.checked}).length;
+    if(!n) show('r1','wait','⏸️ Time to hold and wait',['No urgent spending or debt, but if you need this money within 5 years, pause new buys','As the date gets closer, move it to cash in steps on set dates']);
+    else show('r1','cut','🛑 Time to cut back',['Stop buying, even if you have cash to invest','Plan to move money with a set date into something steadier, like savings','If you bought on borrowed money, pay down the debt first','Don\'t sell everything in one day. Sell set amounts on set dates']);
+  }
+  function r2(){
+    var s={};q('#t2 input').forEach(function(x){s[x.dataset.k]=x.checked});
+    var any=s.cash||s.reason||s.weight||s.money;
+    if(!any){show('r2','idle','Check what applies',['Your case will show up here']);return}
+    if(!s.reason){show('r2','cut','🛑 Time to cut back on some',['If your reason for buying is gone, consider trimming that stock','Do it in steps on set dates, not all at once']);return}
+    if(s.cash&&s.weight&&s.money){show('r2','add','➕ OK to buy more, by your rules',['Only the per-buy amount from the PART 5 calculator','Buy once each time a set drop level is hit (e.g. single stocks from -20%)','Once you hit your limit, stop even if prices keep falling']);return}
+    var t=[];
+    if(!s.cash) t.push('Set aside an emergency fund first, so you never have to sell stocks in a pinch');
+    if(!s.weight) t.push('If you already own a lot of it, hold it even at a loss, but don\'t buy more');
+    if(!s.money) t.push('No spare cash? Wait. If you invest monthly, keep going');
+    show('r2','wait','⏸️ Time to hold and wait',t);
+  }
+  function r3(){
+    var all=q('#t3 input'), n=all.filter(function(x){return x.checked}).length;
+    if(n===all.length) show('r3','add','🌱 You\'re ready to start',['Start with a broad index ETF, using one of the three ways in PART 4','No leveraged ETFs and no borrowed money']);
+    else show('r3','wait','⏸️ Get ready first',['Fill in the unchecked boxes first. Starting once they\'re all checked is not too late']);
+  }
+  q('.checks input').forEach(function(x){x.addEventListener('change',function(){r1();r2();r3()})});
+  r1();r2();r3();
+
+  var $=function(id){return document.getElementById(id)};
+  function num(id){var v=parseFloat(($(id).value||'').replace(/[^0-9.]/g,''));return isNaN(v)?0:v}
+  function fmt(v){return '$'+Math.round(v).toLocaleString('en-US')}
+  function tidy(el){var raw=(el.value||'').replace(/[^0-9]/g,'');el.value=raw?parseInt(raw,10).toLocaleString('en-US'):''}
+  var TIP='Could you still sleep if it fell 30%? If not, lower your limit.';
+  function calc(){
+    ['f1','f2','f4','f5'].forEach(function(i){tidy($(i))});
+    var out=$('out');
+    if(!$('f1').value){out.className='out';$('oNow').textContent='Enter your numbers';['oMax','oRest','oDrop'].forEach(function(i){$(i).textContent='-'});$('oTip').textContent=TIP;return}
+    var max=num('f1')-num('f2')*parseInt($('f3').value,10)-num('f4')-num('f5');
+    max*=1-parseInt($('f7').value,10)/100;
+    var k=parseInt($('f6').value,10);
+    var how=document.querySelector('input[name="how"]:checked').value;
+    if(max<=0){
+      out.className='out bad';$('oNow').textContent='$0';$('oMax').textContent='$0';$('oRest').textContent='-';$('oDrop').textContent='-';
+      $('oTip').textContent=num('f5')>0?'Pay down debt and build your emergency fund before investing.':'Build your emergency fund and set aside money you\'ll need before investing.';
+      return;
+    }
+    out.className='out';
+    if(how==='a'){
+      $('oNow').textContent=fmt(max/k);
+      $('oRest').textContent=fmt(max/k)+' × '+(k-1)+' more';
+    }else{
+      var first=max/3;
+      $('oNow').textContent=fmt(first);
+      $('oRest').textContent=fmt((max-first)/k)+' × '+k;
+    }
+    $('oMax').textContent=fmt(max);
+    $('oDrop').textContent='−'+fmt(max*0.3);
+    $('oTip').textContent=(num('f5')>0?'Your debt is already taken out of the limit. Pay it off before investing. ':'')+TIP;
+  }
+  ['f1','f2','f3','f4','f5','f6','f7'].forEach(function(i){$(i).addEventListener('input',calc);$(i).addEventListener('change',calc)});
+  q('input[name="how"]').forEach(function(x){x.addEventListener('change',calc)});
+  calc();
+})();
+</script>
+
+</body>
+</html>
