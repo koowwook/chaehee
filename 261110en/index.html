@@ -520,18 +520,18 @@ b,strong{color:var(--ink)}
       <div class="judge-t">📏 Can I keep holding this company? Earnings traffic light</div>
       <p class="small" style="margin:0 0 10px">There's no magic percentage. Normal growth differs by industry, so look at the <b>direction (up or down)</b> and the <b>trend (is it slowing?)</b> more than the size. Always compare with the same quarter last year.</p>
       <table class="judge">
-        <thead><tr><th></th><th class="g">🟢 OK</th><th class="y">🟡 Caution</th><th class="r">🔴 Warning</th></tr></thead>
+        <thead><tr><th></th><th class="g">🟢 OK to buy more</th><th class="y">🟡 Hold and wait</th><th class="r">🔴 Cut back</th></tr></thead>
         <tbody>
           <tr><th>Revenue</th><td>Up</td><td>About flat</td><td>Down</td></tr>
           <tr><th>Operating income</th><td>Profitable and up</td><td>Profitable but down</td><td>Losing money</td></tr>
           <tr><th>Trend<small>last 3–4 quarters</small></th><td>Growth is steady</td><td>Growth keeps slowing</td><td>Revenue and profit keep falling</td></tr>
-          <tr class="act"><th>Then?</th><td>You can buy in steps (PART 3)</td><td>Don't add. Wait for the next earnings</td><td>Stop adding. Consider trimming</td></tr>
+          <tr class="act"><th>What to do</th><td>You can buy in steps (PART 3)</td><td>Don't add. Wait for the next earnings</td><td>Stop adding. Consider trimming</td></tr>
         </tbody>
       </table>
       <div class="judge-m">
-        <div class="jm g"><div class="h">🟢 OK</div><ul><li><b>Revenue</b>Up</li><li><b>Op. income</b>Profitable and up</li><li><b>Trend</b>Growth is steady</li></ul><div class="go">→ You can buy in steps (PART 3)</div></div>
-        <div class="jm y"><div class="h">🟡 Caution</div><ul><li><b>Revenue</b>About flat</li><li><b>Op. income</b>Profitable but down</li><li><b>Trend</b>Growth keeps slowing</li></ul><div class="go">→ Don't add. Wait for the next earnings</div></div>
-        <div class="jm r"><div class="h">🔴 Warning</div><ul><li><b>Revenue</b>Down</li><li><b>Op. income</b>Losing money</li><li><b>Trend</b>Revenue and profit keep falling</li></ul><div class="go">→ Stop adding. Consider trimming</div></div>
+        <div class="jm g"><div class="h">🟢 OK to buy more</div><ul><li><b>Revenue</b>Up</li><li><b>Op. income</b>Profitable and up</li><li><b>Trend</b>Growth is steady</li></ul><div class="go">→ You can buy in steps (PART 3)</div></div>
+        <div class="jm y"><div class="h">🟡 Hold and wait</div><ul><li><b>Revenue</b>About flat</li><li><b>Op. income</b>Profitable but down</li><li><b>Trend</b>Growth keeps slowing</li></ul><div class="go">→ Don't add. Wait for the next earnings</div></div>
+        <div class="jm r"><div class="h">🔴 Cut back</div><ul><li><b>Revenue</b>Down</li><li><b>Op. income</b>Losing money</li><li><b>Trend</b>Revenue and profit keep falling</li></ul><div class="go">→ Stop adding. Consider trimming</div></div>
       </div>
       <div class="note2">⚠️ The easiest one to miss is 🟡 <b>"growth keeps slowing."</b> If growth goes from 40% to 20% to 5%, the stock can fall hard even while it's still growing. That's what happened to PayPal.</div>
     </div>
@@ -552,11 +552,11 @@ b,strong{color:var(--ink)}
 
   <section class="card howread">
     <p><b>How to read this</b> · In each case, <span class="pill">your situation</span> is paired with <span class="pill do">what to do</span>. Just read the rows that apply to you.</p>
-    <div class="jump"><a class="cut" href="#case-cut">🛑 Cut back</a><a class="wait" href="#case-wait">⏸️ Hold</a><a class="add" href="#case-add">➕ Buy more</a><a class="chk" href="#case-check">✅ Check</a></div>
+    <div class="jump"><a class="cut" href="#case-cut">🔴 Cut back</a><a class="wait" href="#case-wait">🟡 Hold and wait</a><a class="add" href="#case-add">🟢 OK to buy more</a><a class="chk" href="#case-check">✅ Check</a></div>
   </section>
 
   <section class="case cut" id="case-cut">
-    <div class="case-head"><span>CASE 1</span><h3>🛑 Time to cut back</h3></div>
+    <div class="case-head"><span>CASE 1</span><h3>🔴 Cut back</h3></div>
     <div class="pair">
       <div class="sit">Money you need within 5 years is in stocks<small>home deposit, a move, tuition</small></div>
       <div class="act">Count back from the date you need it, and move it into savings in set amounts on set dates.
@@ -581,7 +581,7 @@ b,strong{color:var(--ink)}
   </section>
 
   <section class="case wait" id="case-wait">
-    <div class="case-head"><span>CASE 2</span><h3>⏸️ Time to hold and wait</h3></div>
+    <div class="case-head"><span>CASE 2</span><h3>🟡 Hold and wait</h3></div>
     <div class="pair">
       <div class="sit">You have no spare cash to add</div>
       <div class="act">Keep what you have. If you invest a set amount every month, keep going.</div>
@@ -607,7 +607,7 @@ b,strong{color:var(--ink)}
   </section>
 
   <section class="case add" id="case-add">
-    <div class="case-head"><span>CASE 3</span><h3>➕ OK to buy more, by your rules</h3></div>
+    <div class="case-head"><span>CASE 3</span><h3>🟢 OK to buy more</h3></div>
     <p class="one">Only when <b>all four</b> are true, buy more in pre-set amounts.</p>
     <ul class="cond">
       <li>You have spare cash you won't need for 5+ years</li>
@@ -877,25 +877,25 @@ b,strong{color:var(--ink)}
 
   function r1(){
     var n=q('#t1 input').filter(function(x){return x.checked}).length;
-    if(!n) show('r1','wait','⏸️ Time to hold and wait',['No urgent spending or debt, but if you need this money within 5 years, pause new buys','As the date gets closer, move it to cash in steps on set dates']);
-    else show('r1','cut','🛑 Time to cut back',['Stop buying, even if you have cash to invest','Plan to move money with a set date into something steadier, like savings','If you bought on borrowed money, pay down the debt first','Don\'t sell everything in one day. Sell set amounts on set dates']);
+    if(!n) show('r1','wait','🟡 Hold and wait',['No urgent spending or debt, but if you need this money within 5 years, pause new buys','As the date gets closer, move it to cash in steps on set dates']);
+    else show('r1','cut','🔴 Cut back',['Stop buying, even if you have cash to invest','Plan to move money with a set date into something steadier, like savings','If you bought on borrowed money, pay down the debt first','Don\'t sell everything in one day. Sell set amounts on set dates']);
   }
   function r2(){
     var s={};q('#t2 input').forEach(function(x){s[x.dataset.k]=x.checked});
     var any=s.cash||s.reason||s.weight||s.money;
     if(!any){show('r2','idle','Check what applies',['Your case will show up here']);return}
-    if(!s.reason){show('r2','cut','🛑 Time to cut back on some',['If your reason for buying is gone, consider trimming that stock','Do it in steps on set dates, not all at once']);return}
-    if(s.cash&&s.weight&&s.money){show('r2','add','➕ OK to buy more, by your rules',['Only the per-buy amount from the PART 5 calculator','Buy once each time a set drop level is hit (e.g. single stocks from -20%)','Once you hit your limit, stop even if prices keep falling']);return}
+    if(!s.reason){show('r2','cut','🔴 Cut back',['For the stock whose reason for buying is gone, consider trimming it','Do it in steps on set dates, not all at once']);return}
+    if(s.cash&&s.weight&&s.money){show('r2','add','🟢 OK to buy more',['Only the per-buy amount from the PART 5 calculator','Buy once each time a set drop level is hit (e.g. single stocks from -20%)','Once you hit your limit, stop even if prices keep falling']);return}
     var t=[];
     if(!s.cash) t.push('Set aside an emergency fund first, so you never have to sell stocks in a pinch');
     if(!s.weight) t.push('If you already own a lot of it, hold it even at a loss, but don\'t buy more');
     if(!s.money) t.push('No spare cash? Wait. If you invest monthly, keep going');
-    show('r2','wait','⏸️ Time to hold and wait',t);
+    show('r2','wait','🟡 Hold and wait',t);
   }
   function r3(){
     var all=q('#t3 input'), n=all.filter(function(x){return x.checked}).length;
-    if(n===all.length) show('r3','add','🌱 You\'re ready to start',['Start with a broad index ETF, using one of the three ways in PART 4','No leveraged ETFs and no borrowed money']);
-    else show('r3','wait','⏸️ Get ready first',['Fill in the unchecked boxes first. Starting once they\'re all checked is not too late']);
+    if(n===all.length) show('r3','add','🟢 OK to start',['Start with a broad index ETF, using one of the three ways in PART 4','No leveraged ETFs and no borrowed money']);
+    else show('r3','wait','🟡 Get ready first',['Fill in the unchecked boxes first. Starting once they\'re all checked is not too late']);
   }
   q('.checks input').forEach(function(x){x.addEventListener('change',function(){r1();r2();r3()})});
   r1();r2();r3();
