@@ -347,6 +347,20 @@ b,strong{color:var(--ink)}
 .promo .pf li{display:flex;gap:10px;align-items:center;font-size:14.5px;color:var(--ink);background:#faf8ff;border-radius:10px;padding:10px 12px}
 .promo .pf i{font-style:normal;font-size:17px;flex:none}
 .promo .msmall{font-size:12px;color:var(--sub);margin-top:10px;text-align:center;line-height:1.6}
+/* PART3 SECTIONS */
+.jump{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.jump a{font-size:13px;font-weight:800;text-decoration:none;border-radius:999px;padding:6px 12px;color:var(--ink)}
+.jump a.cut{background:var(--reds)} .jump a.wait{background:var(--yels)} .jump a.add{background:var(--grns)} .jump a.chk{background:var(--pps)}
+.case{padding:0 20px 22px;border-top:0;margin-bottom:26px;overflow:hidden}
+.case-head{margin:0 -20px 14px;padding:14px 20px 14px}
+.case-head span{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.8px;color:#fff;border-radius:6px;padding:2px 8px;margin-bottom:6px}
+.case-head h3{margin:0!important}
+.case.cut .case-head{background:var(--reds)} .case.cut .case-head span{background:var(--red)}
+.case.wait .case-head{background:var(--yels)} .case.wait .case-head span{background:var(--yel)}
+.case.add .case-head{background:var(--grns)} .case.add .case-head span{background:var(--grn)}
+.sec-div{display:flex;align-items:center;gap:10px;margin:30px 0 12px;color:var(--sub);font-size:12px;font-weight:800;letter-spacing:.8px}
+.sec-div::before,.sec-div::after{content:"";flex:1;height:1px;background:#e3dcf3}
+.sec-div span{background:#fff;border:1.5px solid var(--pps);color:var(--pp);border-radius:999px;padding:4px 12px;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -534,11 +548,12 @@ b,strong{color:var(--ink)}
 
   <section class="card howread">
     <p><b>읽는 법</b> · 케이스마다 <span class="pill">내 상황</span> 바로 옆에 <span class="pill do">이렇게</span>가 짝지어 있어요. 나에게 해당하는 줄만 보면 돼요.</p>
+    <div class="jump"><a class="cut" href="#case-cut">🛑 줄여야</a><a class="wait" href="#case-wait">⏸️ 기다려야</a><a class="add" href="#case-add">➕ 더 사도 됨</a><a class="chk" href="#case-check">✅ 체크하기</a></div>
   </section>
 
   <!-- 줄여야 -->
-  <section class="case cut">
-    <h3>🛑 줄여야 하는 케이스</h3>
+  <section class="case cut" id="case-cut">
+    <div class="case-head"><span>CASE 1</span><h3>🛑 줄여야 하는 케이스</h3></div>
 
     <div class="pair">
       <div class="sit">5년 안에 쓸 돈이 주식에 들어 있어요<small>전세금, 이사, 등록금</small></div>
@@ -564,8 +579,8 @@ b,strong{color:var(--ink)}
   </section>
 
   <!-- 기다려야 -->
-  <section class="case wait">
-    <h3>⏸️ 기다려야 하는 케이스</h3>
+  <section class="case wait" id="case-wait">
+    <div class="case-head"><span>CASE 2</span><h3>⏸️ 기다려야 하는 케이스</h3></div>
 
     <div class="pair">
       <div class="sit">더 넣을 여윳돈이 없어요</div>
@@ -576,11 +591,11 @@ b,strong{color:var(--ink)}
       <div class="act">그 종목은 더 사지 않아요. 여윳돈은 다른 업종이나 지수 ETF로 나눠 담거나, 현금으로 두고 기다려요.
         <div class="ex">예) 주식 3,000만 원 중 반도체가 1,200만 원(40%)이고 여윳돈 500만 원이 있다면<br>→ 반도체를 더 사면 비중이 49%까지 올라가요<br>→ 반도체는 손실이어도 그대로 두고, 500만 원은 S&amp;P500 ETF처럼 다른 곳에 나눠 넣거나 현금으로</div></div>
     </div>
-    <div class="mine">💬 저도 이번에 그랬어요. 여윳돈은 있었지만 일부 종목은 손실이어도 그대로 뒀어요. 이미 비중이 많아서, 더 사지 않은 게 아니라 <b>못 샀어요.</b></div>
     <div class="common">공통 · 앱 알림은 끄고, 한 달에 한 번 정한 날에만 확인해요.</div>
   </section>
 
   <!-- 비중 가이드 -->
+  <div class="sec-div"><span>TIP · 비중 기준</span></div>
   <section class="card weight">
     <h3>⚖️ 비중, 얼마나 되면 '많은' 걸까?</h3>
     <p>정해진 정답은 없어요. 그래도 기준이 없으면 계속 사게 되니까, 업계에서 흔히 쓰는 선을 가이드로 드려요.</p>
@@ -593,8 +608,8 @@ b,strong{color:var(--ink)}
   </section>
 
   <!-- 물타기 해도 되는 -->
-  <section class="case add">
-    <h3>➕ 기준대로 물타기 해도 되는 케이스</h3>
+  <section class="case add" id="case-add">
+    <div class="case-head"><span>CASE 3</span><h3>➕ 기준대로 물타기 해도 되는 케이스</h3></div>
     <p class="one">아래 4가지가 <b>모두</b> 해당할 때만, 미리 정한 금액을 나눠서 더 사요.</p>
     <ul class="cond">
       <li>5년 넘게 안 쓸 여윳돈이 있어요</li>
@@ -622,6 +637,7 @@ b,strong{color:var(--ink)}
     </div>
   </section>
 
+  <div class="sec-div"><span>TIP · 물타기 vs 추가 매수</span></div>
   <section class="card">
     <h3>🤔 물타기, 해도 되는 거예요?</h3>
     <div class="diff">
@@ -630,7 +646,8 @@ b,strong{color:var(--ink)}
     </div>
   </section>
 
-  <section class="card calc-wrap">
+  <div class="sec-div"><span>CHECK · 내 케이스 찾기</span></div>
+  <section class="card calc-wrap" id="case-check">
     <h3>✅ 내 케이스 체크하기</h3>
     <p class="who" style="margin-bottom:12px">내 상황 탭을 누르고 해당하는 칸에 체크해 보세요.</p>
     <div class="tabs" role="tablist">

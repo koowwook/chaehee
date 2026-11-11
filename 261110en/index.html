@@ -352,6 +352,20 @@ b,strong{color:var(--ink)}
 .promo .pf i{font-style:normal;font-size:17px;flex:none}
 .promo .msmall{font-size:12px;color:var(--sub);margin-top:10px;text-align:center;line-height:1.6}
 .en-name{font-size:13px;font-weight:700;color:var(--sub);letter-spacing:.3px;margin:-4px 0 10px}
+/* PART3 SECTIONS */
+.jump{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.jump a{font-size:13px;font-weight:800;text-decoration:none;border-radius:999px;padding:6px 12px;color:var(--ink)}
+.jump a.cut{background:var(--reds)} .jump a.wait{background:var(--yels)} .jump a.add{background:var(--grns)} .jump a.chk{background:var(--pps)}
+.case{padding:0 20px 22px;border-top:0;margin-bottom:26px;overflow:hidden}
+.case-head{margin:0 -20px 14px;padding:14px 20px 14px}
+.case-head span{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.8px;color:#fff;border-radius:6px;padding:2px 8px;margin-bottom:6px}
+.case-head h3{margin:0!important}
+.case.cut .case-head{background:var(--reds)} .case.cut .case-head span{background:var(--red)}
+.case.wait .case-head{background:var(--yels)} .case.wait .case-head span{background:var(--yel)}
+.case.add .case-head{background:var(--grns)} .case.add .case-head span{background:var(--grn)}
+.sec-div{display:flex;align-items:center;gap:10px;margin:30px 0 12px;color:var(--sub);font-size:12px;font-weight:800;letter-spacing:.8px}
+.sec-div::before,.sec-div::after{content:"";flex:1;height:1px;background:#e3dcf3}
+.sec-div span{background:#fff;border:1.5px solid var(--pps);color:var(--pp);border-radius:999px;padding:4px 12px;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -538,10 +552,11 @@ b,strong{color:var(--ink)}
 
   <section class="card howread">
     <p><b>How to read this</b> · In each case, <span class="pill">your situation</span> is paired with <span class="pill do">what to do</span>. Just read the rows that apply to you.</p>
+    <div class="jump"><a class="cut" href="#case-cut">🛑 Cut back</a><a class="wait" href="#case-wait">⏸️ Hold</a><a class="add" href="#case-add">➕ Buy more</a><a class="chk" href="#case-check">✅ Check</a></div>
   </section>
 
-  <section class="case cut">
-    <h3>🛑 Time to cut back</h3>
+  <section class="case cut" id="case-cut">
+    <div class="case-head"><span>CASE 1</span><h3>🛑 Time to cut back</h3></div>
     <div class="pair">
       <div class="sit">Money you need within 5 years is in stocks<small>home deposit, a move, tuition</small></div>
       <div class="act">Count back from the date you need it, and move it into savings in set amounts on set dates.
@@ -565,8 +580,8 @@ b,strong{color:var(--ink)}
     <div class="scam">⚠️ The bigger your loss, the more careful you need to be with <b>chat groups that promise to win back your losses</b>. In Korea alone, investment-scam losses hit ₩181.7 billion in Q1 2026, and 3 in 4 victims were in their 50s or older.</div>
   </section>
 
-  <section class="case wait">
-    <h3>⏸️ Time to hold and wait</h3>
+  <section class="case wait" id="case-wait">
+    <div class="case-head"><span>CASE 2</span><h3>⏸️ Time to hold and wait</h3></div>
     <div class="pair">
       <div class="sit">You have no spare cash to add</div>
       <div class="act">Keep what you have. If you invest a set amount every month, keep going.</div>
@@ -576,10 +591,10 @@ b,strong{color:var(--ink)}
       <div class="act">Don't buy more of it. Put the spare cash into other industries or an index ETF, or keep it in cash and wait.
         <div class="ex">e.g. $12,000 of $30,000 in chips (40%) and $5,000 of spare cash<br>→ buying more chips would push it to 49%<br>→ hold the chips even at a loss, and put the $5,000 somewhere else like an S&amp;P 500 ETF, or keep it in cash</div></div>
     </div>
-    <div class="mine">💬 That's what I did this time. I had spare cash, but I left some stocks alone even at a loss. I already owned too much of them, so I didn't just choose not to buy. <b>I couldn't.</b></div>
     <div class="common">For all · Turn off app alerts and check only once a month, on a set day.</div>
   </section>
 
+  <div class="sec-div"><span>TIP · How much is too much</span></div>
   <section class="card weight">
     <h3>⚖️ How much is too much?</h3>
     <p>There's no single right answer. But without a limit you'll keep buying, so here are lines commonly used in the industry as a guide.</p>
@@ -591,8 +606,8 @@ b,strong{color:var(--ink)}
     <div class="big ok"><div class="t">Past this line? Stop adding, no matter how cheap it looks</div></div>
   </section>
 
-  <section class="case add">
-    <h3>➕ OK to buy more, by your rules</h3>
+  <section class="case add" id="case-add">
+    <div class="case-head"><span>CASE 3</span><h3>➕ OK to buy more, by your rules</h3></div>
     <p class="one">Only when <b>all four</b> are true, buy more in pre-set amounts.</p>
     <ul class="cond">
       <li>You have spare cash you won't need for 5+ years</li>
@@ -620,6 +635,7 @@ b,strong{color:var(--ink)}
     </div>
   </section>
 
+  <div class="sec-div"><span>TIP · Averaging down vs. buying by rules</span></div>
   <section class="card">
     <h3>🤔 Is averaging down ever OK?</h3>
     <div class="diff">
@@ -628,7 +644,8 @@ b,strong{color:var(--ink)}
     </div>
   </section>
 
-  <section class="card calc-wrap">
+  <div class="sec-div"><span>CHECK · Find your case</span></div>
+  <section class="card calc-wrap" id="case-check">
     <h3>✅ Check your case</h3>
     <p class="who" style="margin-bottom:12px">Tap your situation and check what applies.</p>
     <div class="tabs" role="tablist">
