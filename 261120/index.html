@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>추천 체크카드 TOP3, 연말정산까지 똑똑하게 쓰는 법</title>
+<meta name="description" content="연말정산 카드 공제 3가지 규칙, 신용/체크 나눠 쓰기 계산기, 추천 체크카드 TOP3">
+<meta property="og:title" content="추천 체크카드 TOP3, 연말정산까지 똑똑하게 쓰는 법 💳">
+<meta property="og:description" content="카드 공제 3가지 규칙 · 신용/체크 나눠 쓰기 계산기 · 추천 체크카드 TOP3">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+:root{
+  --ink:#2a2244; --sub:#6a5a8a; --body:#4a4a6a; --line:#eee8fa;
+  --pp:#7c4dff; --pps:#f0e4ff; --pp-bg:#faf8ff;
+  --red:#c44a1e; --reds:#ffe1d3;
+  --grn:#2a8a5f; --grns:#d3f5e1;
+  --yel:#b07a00; --yels:#fff3cc; --hl:#fff0a3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:linear-gradient(135deg,#faf5ff 0%,#fff5f5 100%);background-attachment:fixed;
+  color:var(--ink);line-height:1.7;word-break:keep-all;-webkit-font-smoothing:antialiased}
+.container{max-width:720px;margin:0 auto;padding:28px 18px 60px}
+.hl{background:linear-gradient(180deg,transparent 60%,var(--hl) 60%);font-weight:700;color:var(--ink)}
+b,strong{color:var(--ink)}
+
+/* 헤더 */
+.header{text-align:center;padding:38px 20px 30px;background:linear-gradient(135deg,#fef3f8 0%,#f8f3ff 100%);border-radius:24px;margin-bottom:22px}
+.header .date{display:inline-block;font-size:12px;font-weight:700;color:var(--pp);background:#fff;border-radius:12px;padding:4px 12px;margin-bottom:14px}
+.header h1{font-size:27px;font-weight:800;line-height:1.4;letter-spacing:-.5px;margin-bottom:10px}
+.header h1 strong{color:var(--pp)}
+.header .subtitle{font-size:14.5px;color:var(--sub);font-weight:500}
+.note2.warn-o{color:var(--red);font-weight:700;background:#fff6f2}
+
+.calc1{font-size:13px;color:var(--body);background:var(--pp-bg);border-radius:10px;padding:8px 12px;margin:-4px 0 14px;line-height:1.6}
+.calc1 b{color:var(--ink)}
+.st .amt i{font-style:normal;font-size:12px;font-weight:700;color:var(--sub);background:#fff;border-radius:6px;padding:1px 6px;margin-left:4px;white-space:nowrap}
+
+/* R6 */
+.what .wl{display:block;font-size:14px;line-height:1.6;margin-top:3px}
+.what .wl em{font-style:normal;font-weight:800;color:var(--ink);background:#fff;border-radius:6px;padding:1px 7px;margin-right:6px}
+.lt{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px;background:#fff;border-radius:10px;overflow:hidden}
+.lt th,.lt td{padding:7px 6px;text-align:center;border-bottom:1px solid var(--line)}
+.lt th{background:var(--pps);color:var(--ink);font-weight:800;font-size:12.5px}
+.lt td:first-child{text-align:left;font-weight:700;color:var(--ink);white-space:nowrap}
+.lt tr:last-child td{border-bottom:0}
+.nod{margin-top:16px;background:#f6f6f8;border-radius:14px;padding:14px 16px}
+.nod .t{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.nod .chips{display:flex;flex-wrap:wrap;gap:5px}
+.nod .chips span{font-size:12.5px;font-weight:700;background:#fff;border:1px solid #e3e3ea;border-radius:8px;padding:3px 8px;color:var(--body)}
+.nod p{font-size:13.5px;color:var(--body);margin-top:8px;line-height:1.6}
+.flow3 .cr{background:var(--pp-bg)} .flow3 .cr b,.flow3 .cr small{color:var(--pp)}
+.flow3 .ck{background:#f0faf4} .flow3 .ck b,.flow3 .ck small{color:var(--grn)}
+.flow3 .ar{font-size:18px}
+.st.cr{background:var(--pp-bg);border-color:var(--pp)} .st.cr .use{color:var(--pp)}
+.st.ck{background:#f0faf4;border-color:var(--grn)} .st.ck .use{color:var(--grn)}
+.jt,.cmp{width:100%;border-collapse:collapse;font-size:13px;margin:4px 0 12px}
+.jt th,.cmp th{background:var(--pps);color:var(--ink);font-weight:800;font-size:12.5px;padding:8px 6px;text-align:center}
+.jt td,.cmp td{padding:9px 6px;border-bottom:1px solid var(--line);text-align:center;color:var(--body);vertical-align:middle}
+.jt td:last-child{text-align:right}
+.jt td small,.cmp td small{display:block;font-size:11.5px;color:var(--sub);font-weight:600;line-height:1.4;margin-top:2px}
+.jt td:last-child b{color:var(--grn)}
+.cmp{margin:12px 0 0}
+.cmp td:first-child{text-align:left}
+.cmp td b{color:var(--ink)}
+.cmp th:nth-child(2),.cmp td:nth-child(2){white-space:nowrap}
+.exl{list-style:none;display:grid;gap:10px;margin-top:12px}
+.exl li{background:var(--pp-bg);border-radius:12px;padding:12px 14px}
+.exl li>b{display:block;font-size:15px;color:var(--ink)}
+.exl li>span{display:block;font-size:13px;color:var(--sub);margin-bottom:6px}
+.ex2{background:#fff;border-radius:10px;padding:8px 12px;font-size:13.5px;line-height:1.6;color:var(--body);margin-top:6px}
+.ex2 b{color:var(--grn)}
+.ex2 i{display:block;font-style:normal;font-size:12.5px;font-weight:700;color:var(--sub)}
+.lt th{white-space:nowrap}
+.go-calc{display:block;margin-top:12px;background:var(--pp);color:#fff;text-decoration:none;font-weight:800;font-size:14px;border-radius:12px;padding:11px 14px;text-align:center}
+
+/* 공제 한도 칩 */
+.card .who{flex-wrap:wrap}
+.limbox{flex-basis:100%;background:#faf8fe;border-radius:12px;padding:9px 10px}
+.limbox .lim-t{margin-top:0}
+.lim-t{font-size:12.5px;font-weight:700;color:var(--sub);margin-top:8px}
+.lim{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.lim span{font-size:12px;font-weight:700;color:var(--body);background:#efeaf8;border-radius:7px;padding:3px 6px;white-space:nowrap}
+.lim span.on{background:var(--grns);color:var(--grn)}
+.lim-n{font-size:11.5px;color:var(--sub);margin-top:5px;line-height:1.5}
+
+/* R5: 카드 쓰는 순서 · 소제목 */
+.flow3{display:grid;grid-template-columns:1fr 14px 1fr 14px 1fr;align-items:stretch;gap:4px;margin-top:6px}
+.flow3 .f{border-radius:12px;padding:12px 6px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:3px}
+.flow3 .f b{font-size:14px;font-weight:800;line-height:1.3}
+.flow3 .f span{font-size:12px;color:var(--body);line-height:1.4}
+.flow3 .f small{font-size:11.5px;font-weight:800;border-radius:6px;padding:2px 4px;background:#fff;margin:2px auto 0}
+.flow3 .s1{background:#fff6f2} .flow3 .s1 b,.flow3 .s1 small{color:var(--red)}
+.flow3 .s2{background:#f0faf4} .flow3 .s2 b,.flow3 .s2 small{color:var(--grn)}
+.flow3 .s3{background:#fffaeb} .flow3 .s3 b,.flow3 .s3 small{color:var(--yel)}
+.flow3 .ar{display:grid;place-items:center;color:var(--sub);font-weight:800;font-size:13px}
+.g-q2{font-size:15px;font-weight:800;color:var(--ink);margin:0 0 12px}
+.g-q2 b{color:var(--pp)}
+.subh{font-size:16.5px;font-weight:800;color:var(--ink);margin:24px 0 10px;padding-top:18px;border-top:1.5px dashed var(--line)}
+.why .eg{display:block;margin-top:6px;background:var(--pp-bg);border-radius:10px;padding:8px 12px;font-size:13.5px;line-height:1.6;color:var(--ink)}
+.c-lead{text-align:center;font-size:14px;color:var(--sub);margin:-2px 0 12px}
+.opt li b{display:block;font-size:15px}
+.opt li span{display:block}
+.opt li small{display:block;font-size:11.5px;color:var(--sub);font-weight:600;margin-top:1px}
+
+/* 나누는 순서 */
+.lad{display:grid;gap:8px}
+.st{border-radius:12px;padding:12px 14px;border-left:5px solid}
+.st.s1{background:#fff6f2;border-color:var(--red)} .st.s2{background:#f0faf4;border-color:var(--grn)} .st.s3{background:#fffaeb;border-color:var(--yel)}
+.st .amt{font-size:14px;color:var(--body);font-weight:600}
+.st .amt b{color:var(--ink);font-size:15.5px}
+.st .use{font-size:17px;font-weight:800;margin:2px 0}
+.st.s1 .use{color:var(--red)} .st.s2 .use{color:var(--grn)} .st.s3 .use{color:var(--yel)}
+.st .wy{font-size:13.5px;color:var(--body);line-height:1.55}
+.st .wy b{color:var(--ink)}
+
+/* 상단 TOP3 */
+.top3{display:grid;gap:8px;margin-top:10px}
+.top3 a{display:flex;align-items:center;gap:14px;background:#fff;border-radius:14px;padding:13px 12px 13px 16px;text-decoration:none;color:var(--ink);box-shadow:0 1px 4px rgba(124,77,255,.08)}
+.t3 .cat{display:inline-block;font-size:11.5px;font-weight:800;border-radius:6px;padding:1px 8px;margin-bottom:4px}
+.cat.k1{background:var(--yels);color:var(--yel)} .cat.k2{background:#e4e6fb;color:#3a42a8} .cat.k3{background:#dcf0fb;color:#1f6fb8}
+.key.pick{padding:16px 12px 14px 14px}
+.key.pick .label{font-size:13px}
+.top3 a{gap:12px;padding:12px 10px 12px 14px}
+.top3 .cardic{width:54px;height:35px;border-radius:6px}
+.top3 .cardic::before{left:6px;top:11px;width:10px;height:8px}
+.top3 .cardic i{font-size:11px;right:5px;top:3px}
+.top3 .cardic b{font-size:8px;right:5px;bottom:3px}
+.t3 b{font-size:14.5px;letter-spacing:-.3px}
+.t3 em{font-size:15px}
+.t3 b{display:block;font-size:15px;font-weight:800;line-height:1.35}
+.t3 span{display:block;font-size:12.5px;color:var(--sub);font-weight:600;line-height:1.45}
+.t3 em{display:block;font-style:normal;font-size:16px;font-weight:800;color:var(--grn);line-height:1.35;margin-top:2px}
+.what{background:var(--yels);border-radius:14px;padding:13px 16px;font-size:14.5px;color:var(--ink);line-height:1.65;margin-bottom:16px}
+.what b{display:block;font-size:15.5px;margin-bottom:2px}
+
+/* 상단 요약 */
+.mini-q{font-size:15px;font-weight:800;color:var(--ink);margin-top:22px}
+.mini-q b{color:var(--pp)}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.mini a{display:block;background:#fff;border-radius:16px;padding:14px 8px;text-decoration:none;color:var(--ink)}
+.mini .w{font-size:14.5px;font-weight:800;line-height:1.4}
+.mini .w em{display:block;font-style:normal;font-size:13px;color:var(--pp)}
+.mini .v{font-size:26px;font-weight:800;letter-spacing:-.5px;line-height:1.2;color:var(--grn);margin:6px 0 4px}
+.mini .d{font-size:12px;color:var(--sub);line-height:1.5}
+.mini-n{font-size:12px;color:var(--sub);margin-top:10px}
+
+/* 한눈에 보기 */
+.glance{margin-bottom:16px}
+.g-q{text-align:center;font-size:17px;font-weight:800;line-height:1.5;margin:0 0 12px;color:var(--ink)}
+.g-q b{color:var(--pp)}
+.sitc{background:#fff;border-radius:20px;padding:18px 18px 16px;margin-bottom:12px;box-shadow:0 2px 12px rgba(124,77,255,.07)}
+.who{display:flex;align-items:center;gap:12px;padding-bottom:14px;margin-bottom:12px;border-bottom:1.5px dashed var(--line)}
+.who-ic{width:46px;height:46px;border-radius:14px;background:var(--pps);display:grid;place-items:center;font-size:24px;flex:none}
+.who b{display:block;font-size:20px;font-weight:800;line-height:1.3}
+.who em{display:block;font-style:normal;font-size:16.5px;font-weight:800;color:var(--pp);line-height:1.35}
+.g-rows{display:grid;gap:12px}
+.g-row{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:end}
+.g-l{font-size:14.5px;font-weight:700;color:var(--body);line-height:1.4}
+.g-l small{display:block;font-size:12px;font-weight:600;color:var(--sub)}
+.g-v{font-size:21px;font-weight:800;letter-spacing:-.5px;line-height:1.2;text-align:right;color:var(--sub)}
+.g-v small{display:block;font-size:11.5px;font-weight:600;letter-spacing:0;color:var(--sub)}
+.g-bar{grid-column:1/-1;height:12px;background:#f4f0fb;border-radius:6px;overflow:hidden}
+.g-bar i{display:block;height:100%;border-radius:6px;background:#cfc6e3}
+.g-row.best .g-l{color:var(--ink)}
+.g-row.best .g-v{color:var(--grn)}
+.g-row.best .g-bar i{background:var(--grn)}
+.g-take{margin-top:14px;background:var(--grns);border-radius:12px;padding:11px 14px;font-size:15px;font-weight:700;color:var(--ink);line-height:1.5}
+.g-take b{color:var(--grn)}
+.g-note{text-align:center;font-size:12.5px;color:var(--sub);line-height:1.6}
+
+/* 기준 표시 */
+.base{display:flex;align-items:center;gap:8px;font-size:16.5px;font-weight:800;color:var(--ink);background:var(--pps);border-radius:12px;padding:10px 14px;margin-bottom:10px}
+.base span{font-size:20px}
+
+/* 맞벌이 갈림길 */
+.split{display:grid;gap:10px;margin-top:14px}
+.sp-box{border-radius:14px;padding:14px 16px}
+.sp-box.hi{background:var(--grns)} .sp-box.lo{background:var(--pp-bg)}
+.sp-k{font-size:13px;font-weight:800;color:var(--sub)}
+.sp-t{font-size:17px;font-weight:800;line-height:1.45;margin:2px 0 8px}
+.sp-ex{font-size:14px;color:var(--ink);background:#fff;border-radius:10px;padding:9px 12px;line-height:1.6}
+.sp-ex b{color:var(--grn)}
+.sp-why{font-size:13.5px;color:var(--body);margin-top:8px;line-height:1.6}
+
+/* 카드 아이콘 */
+.cw{position:relative;flex:none}
+.cardic{position:relative;width:66px;height:42px;border-radius:7px;overflow:hidden;box-shadow:0 2px 6px rgba(42,34,68,.18)}
+.cardic::before{content:"";position:absolute;left:8px;top:14px;width:12px;height:9px;border-radius:2px;background:linear-gradient(135deg,#f7e8ad,#c9a640)}
+.cardic::after{content:"";position:absolute;right:-14px;top:-18px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.18)}
+.cardic i{position:absolute;right:6px;top:4px;font-style:normal;font-size:13px;line-height:1;z-index:1}
+.cardic b{position:absolute;right:6px;bottom:4px;font-size:9px;font-weight:800;letter-spacing:.4px;line-height:1;z-index:1}
+.cardic.c1{background:linear-gradient(135deg,#ffe56e 0%,#f6c400 100%)} .cardic.c1 b{color:#3b3000}
+.cardic.c2{background:linear-gradient(135deg,#262a63 0%,#4954c8 100%)} .cardic.c2 b{color:#fff}
+.cardic.c3{background:linear-gradient(135deg,#5ccbe9 0%,#2c7fd4 100%)} .cardic.c3 b{color:#fff}
+.cw .no{background:var(--pp);color:#fff;font-weight:800;display:grid;place-items:center;position:absolute;left:-7px;top:-7px;width:22px!important;height:22px!important;border-radius:50%!important;font-size:12px;border:2px solid #fff}
+
+/* 공통 카드 */
+.card{background:#fff;padding:26px 22px;border-radius:20px;margin-bottom:16px;box-shadow:0 2px 12px rgba(124,77,255,.06)}
+.card p{font-size:15px;color:var(--body);line-height:1.8}
+.card p + p{margin-top:12px}
+.card h3{font-size:18px;font-weight:800;margin-bottom:12px;letter-spacing:-.3px}
+.key{margin-top:20px;padding:20px;background:linear-gradient(135deg,#f8f3ff 0%,#fef3f8 100%);border-radius:14px;border-left:4px solid var(--pp)}
+.key .label{font-size:12px;color:var(--pp);font-weight:700;margin-bottom:6px;letter-spacing:.5px}
+.key .text{font-size:16.5px;font-weight:800;line-height:1.5}
+.toc{list-style:none;display:grid;gap:6px;margin-top:18px}
+.toc a{display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--ink);font-size:14.5px;font-weight:600;background:var(--pp-bg);border-radius:12px;padding:10px 14px}
+.toc a span{font-size:11px;font-weight:800;color:#fff;background:var(--pp);border-radius:8px;padding:2px 8px;white-space:nowrap;flex:none}
+
+/* PART 헤더 */
+.part-header{margin:46px 0 20px;text-align:center}
+.part-num{display:inline-block;padding:5px 14px;background:var(--pp);color:#fff;border-radius:14px;font-size:12px;font-weight:700;margin-bottom:12px;letter-spacing:.5px}
+.part-header h2{font-size:23px;font-weight:800;line-height:1.4;letter-spacing:-.5px}
+.part-header .desc{margin-top:8px;font-size:14.5px;color:var(--sub)}
+
+/* 이유 */
+.why{list-style:none;display:grid;gap:14px}
+.why li{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start}
+.why .ic{width:40px;height:40px;border-radius:12px;background:var(--pp-bg);display:grid;place-items:center;font-size:20px}
+.why b{display:block;font-size:16px;margin-bottom:2px}
+.why span{font-size:14.5px;color:var(--body);line-height:1.65;display:block}
+.why span b{display:inline;font-size:inherit;margin:0}
+
+/* 막대 */
+.grp{font-size:12.5px;font-weight:800;color:var(--sub);margin:12px 0 8px}
+.bars{display:grid;gap:10px}
+.bar{display:grid;grid-template-columns:110px 1fr 92px;gap:10px;align-items:center;font-size:14.5px;font-weight:600}
+.bar .t{height:14px;background:#f4f0fb;border-radius:7px;overflow:hidden}
+.bar .t i{display:block;height:100%;border-radius:7px;background:#e8826a}
+.bar.idx .t i{background:var(--pp)}
+.bar .p{text-align:right;font-weight:800}
+.bar span small{display:block;font-size:11px;color:var(--sub);font-weight:600}
+.small{font-size:13px!important;color:var(--sub)!important;margin-top:12px}
+
+/* 표 */
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{font-size:12px;color:var(--sub);font-weight:700;text-align:right;padding:0 0 8px;border-bottom:2px solid var(--line)}
+.tbl th:first-child{text-align:left}
+.tbl td{padding:10px 0;border-bottom:1px solid var(--line);text-align:right;font-weight:700}
+.tbl td:first-child{text-align:left;font-weight:600}
+.tbl td:first-child small{display:block;font-size:11.5px;color:var(--sub);font-weight:500}
+.tbl tr:last-child td{border-bottom:0}
+.tbl th+th,.tbl td+td{padding-left:6px}
+.tbl .up{color:var(--grn)}
+.tbl .pp{color:var(--pp)}
+.tbl tr.cur td{background:#f6fbf8}
+.tbl.step3 th:first-child,.tbl.step3 td:first-child{width:34%}
+.tbl.step3 td:last-child{color:var(--sub);font-weight:600}
+.tbl td:not(:first-child) small{display:block;font-size:11px;color:var(--sub);font-weight:600}
+.insight{margin-top:16px;background:var(--pp-bg);border-radius:14px;padding:16px 18px}
+.insight .t{font-size:15.5px;font-weight:800;margin-bottom:6px}
+.insight p{font-size:14.5px!important}
+.note2{font-size:13.5px;color:var(--body);background:var(--pp-bg);border-radius:10px;padding:10px 12px;margin-top:10px;line-height:1.6}
+.big{margin-top:16px;background:linear-gradient(135deg,#7c4dff 0%,#9d6bff 100%);color:#fff;border-radius:16px;padding:18px 20px}
+.big .t{font-size:17px;font-weight:800;line-height:1.5}
+.big p{color:#fff!important;font-size:14.5px!important;margin-top:8px;opacity:.95}
+.big b{color:#fff}
+.big.ok{background:linear-gradient(135deg,#2a8a5f 0%,#3fae7b 100%)}
+.warn{margin-top:12px;background:#fff6f2;border-radius:14px;padding:16px 18px}
+.warn .t{font-size:15.5px;font-weight:800;margin-bottom:4px}
+.warn p{font-size:14.5px!important;margin-top:10px}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin-top:12px;text-align:center}
+.vs div{background:#fff;border-radius:12px;padding:10px 6px;font-size:13.5px;font-weight:700}
+.vs div em{display:block;font-style:normal;font-size:18px;font-weight:800}
+.vs div small{display:block;font-size:11px;color:var(--sub);font-weight:600;margin-top:2px}
+.vs .g em{color:var(--grn)} .vs .r em{color:var(--red)}
+.vs span{font-size:12px;font-weight:800;color:var(--sub)}
+
+/* 펼쳐 보기 */
+.more{margin-top:14px;border:1.5px solid var(--pps);border-radius:14px;background:#fff}
+.more summary{cursor:pointer;list-style:none;font-size:14px;font-weight:800;color:var(--pp);padding:12px 16px}
+.more summary::-webkit-details-marker{display:none}
+.more summary::after{content:" ▾"}
+.more[open] summary::after{content:" ▴"}
+.more .in{padding:0 16px 14px;font-size:14px;color:var(--body);line-height:1.7}
+.more .in p{font-size:14px!important}
+.more .in ul{margin:4px 0 0 18px}
+
+/* 케이스 */
+.case{border-radius:18px;padding:0 20px 22px;margin-bottom:26px;background:#fff;box-shadow:0 2px 10px rgba(124,77,255,.05);overflow:hidden}
+.case-head{margin:0 -20px 14px;padding:14px 20px}
+.case-head span{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.8px;color:#fff;border-radius:6px;padding:2px 8px;margin-bottom:6px}
+.case h3{display:flex;align-items:center;gap:8px;font-size:18.5px;margin:0}
+.case.cut .case-head{background:var(--reds)} .case.cut .case-head span{background:var(--red)} .case.cut h3{color:var(--red)}
+.case.wait .case-head{background:var(--yels)} .case.wait .case-head span{background:var(--yel)} .case.wait h3{color:var(--yel)}
+.case.add .case-head{background:var(--grns)} .case.add .case-head span{background:var(--grn)} .case.add h3{color:var(--grn)}
+.case .range{font-size:14px;font-weight:700;color:var(--ink);margin-top:4px}
+.pair{display:grid;grid-template-columns:1fr 1.25fr;gap:8px;margin-top:10px}
+.pair .sit{background:#f7f5fb;border-radius:12px;padding:12px 13px;font-size:14px;font-weight:700;line-height:1.5;position:relative}
+.pair .sit small{display:block;font-size:12px;font-weight:500;color:var(--sub);margin-top:2px}
+.pair .act{background:#fff;border:1.5px solid var(--pps);border-radius:12px;padding:12px 13px;font-size:14px;color:var(--body);line-height:1.6}
+.case.cut .pair .act{border-color:#ffd2bf} .case.wait .pair .act{border-color:#f3e0a6} .case.add .pair .act{border-color:#c8ecd8}
+.ex{margin-top:8px;font-size:13px;background:var(--pp-bg);border-radius:8px;padding:8px 10px;color:var(--ink);line-height:1.6}
+.dont{margin-top:12px;font-size:13.5px;line-height:1.6;color:var(--ink);background:var(--reds);border-radius:10px;padding:10px 12px}
+.dont b{color:var(--red)}
+.howread p{font-size:14px!important}
+.pill{display:inline-block;font-size:12px;font-weight:800;border-radius:6px;padding:1px 8px;background:#f4f0fb;color:var(--sub)}
+.pill.do{background:var(--pps);color:var(--pp)}
+.jump{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.jump a{font-size:13px;font-weight:800;text-decoration:none;border-radius:999px;padding:6px 12px;color:var(--ink)}
+.jump a.cut{background:var(--reds)} .jump a.wait{background:var(--yels)} .jump a.add{background:var(--grns)} .jump a.chk{background:var(--pps)}
+.sec-div{display:flex;align-items:center;gap:10px;margin:30px 0 12px;color:var(--sub);font-size:12px;font-weight:800;letter-spacing:.8px}
+.sec-div::before,.sec-div::after{content:"";flex:1;height:1px;background:#e3dcf3}
+.sec-div span{background:#fff;border:1.5px solid var(--pps);color:var(--pp);border-radius:999px;padding:4px 12px;white-space:nowrap}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.steps>div{background:#fff;border:1.5px solid #c8ecd8;border-radius:12px;padding:12px;font-size:13.5px;color:var(--body);line-height:1.55}
+.steps span{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--grn);color:#fff;font-size:11px;font-weight:800;margin-right:6px}
+.steps b{color:var(--ink);font-size:14px;display:inline}
+.steps b::after{content:"";display:block}
+.common{margin-top:12px;font-size:13.5px;font-weight:700;color:var(--ink);background:#f4f0fb;border-radius:10px;padding:10px 12px}
+.diff{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.diff div{border-radius:14px;padding:14px}
+.diff .x{background:var(--reds)} .diff .o{background:var(--grns)}
+.diff b{display:block;font-size:15px;margin-bottom:4px}
+.diff span{font-size:13.5px;color:var(--body);line-height:1.6;display:block}
+
+/* 탭 */
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:#f4effc;padding:5px;border-radius:16px;margin-bottom:12px}
+.tabs button{font:inherit;font-size:15px;font-weight:800;border:0;background:transparent;color:var(--sub);padding:10px 4px;border-radius:12px;cursor:pointer;line-height:1.35}
+.tabs button small{display:block;font-size:11.5px;font-weight:600}
+.tabs button[aria-selected="true"]{background:#fff;color:var(--pp);box-shadow:0 1px 4px rgba(124,77,255,.15)}
+.pane{display:none} .pane.on{display:block}
+
+/* 카드 소개 */
+.ways{display:grid;gap:14px}
+.way{background:#fff;border-radius:18px;padding:20px;box-shadow:0 2px 10px rgba(124,77,255,.05)}
+.way .top{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.way .no{width:30px;height:30px;border-radius:10px;background:var(--pp);color:#fff;font-weight:800;display:grid;place-items:center;flex:none}
+.way h4{font-size:17px;font-weight:800;letter-spacing:-.3px;line-height:1.4}
+.way h4 small{font-size:12px;font-weight:700;color:var(--pp);background:var(--pps);border-radius:6px;padding:1px 7px;margin-left:4px;vertical-align:2px;white-space:nowrap}
+.way .typ{font-size:13.5px;color:var(--sub);font-weight:700;margin-top:2px}
+.way .tip1{font-size:14px;margin-top:10px}
+.way p{font-size:14.5px;color:var(--body);line-height:1.7}
+.spec{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
+.spec td{padding:9px 0;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55;color:var(--body)}
+.spec tr:last-child td{border-bottom:0}
+.spec td:first-child{width:88px;font-size:12.5px;font-weight:800;color:var(--sub);padding-right:10px}
+.spec td b{color:var(--ink)}
+.spec .big-v{font-size:16px;font-weight:800;color:var(--pp)}
+.packs{display:grid;gap:6px;margin-top:6px}
+.pk{background:var(--pp-bg);border-radius:12px;padding:11px 13px;font-size:13.5px;line-height:1.6;color:var(--body)}
+.pk.main{background:var(--grns)}
+.pk b{display:block;font-size:14.5px;color:var(--ink)}
+.pk .r{font-weight:800;color:var(--pp)}
+.pk.main .r{color:var(--grn)}
+.day{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
+.day div{background:#fff;border:1.5px solid var(--pps);border-radius:12px;padding:10px 8px;text-align:center;font-size:12.5px;line-height:1.45;color:var(--body)}
+.day div b{display:block;font-size:13.5px;color:var(--ink)}
+.day div em{display:block;font-style:normal;font-weight:800;color:var(--pp);margin-top:2px}
+.opt{list-style:none;display:grid;gap:6px;margin-top:6px}
+.opt li{background:var(--pp-bg);border-radius:12px;padding:10px 13px;font-size:13.5px;line-height:1.6;color:var(--body)}
+.opt li b{color:var(--ink)}
+.badge-end{display:inline-block;font-size:11px;font-weight:800;color:var(--red);background:var(--reds);border-radius:6px;padding:1px 7px;margin-left:4px;vertical-align:1px}
+.badge-new{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:var(--red);border-radius:6px;padding:1px 7px;margin-left:4px;vertical-align:2px}
+.lnk{display:block;text-align:center;margin-top:12px;background:var(--pp);color:#fff;text-decoration:none;font-weight:800;font-size:14.5px;border-radius:12px;padding:11px}
+.cwcol{display:flex;flex-direction:column;align-items:center;gap:8px;flex:none}
+.way .top{align-items:flex-start}
+.way .tx{flex:1;min-width:0}
+.way .nm h4{font-size:15.5px;letter-spacing:-.5px}
+.way .top{gap:12px}
+.way .cardic{width:58px;height:37px}
+.way .cardic::before{left:7px;top:12px;width:11px;height:8px}
+.way .nm{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.issue{flex:none;margin-top:2px;font-size:11px;font-weight:800;color:var(--pp);background:var(--pps);border-radius:999px;padding:3px 8px;text-decoration:none;white-space:nowrap}
+.lnk2{display:block;text-align:center;margin-top:6px;font-size:12.5px;color:var(--pp);font-weight:700}
+.checks3{list-style:none;counter-reset:c;display:grid;gap:6px;margin-top:12px}
+.checks3 li{counter-increment:c;position:relative;background:var(--pp-bg);border-radius:12px;padding:11px 14px 11px 44px;font-size:14.5px;color:var(--body)}
+.checks3 li::before{content:counter(c);position:absolute;left:12px;top:11px;width:22px;height:22px;border-radius:50%;background:var(--pp);color:#fff;font-weight:800;font-size:12px;display:grid;place-items:center}
+.checks3 li b{color:var(--ink)}
+
+/* 계산기 */
+.calc{display:grid;gap:10px}
+.field{display:grid;grid-template-columns:1fr 150px;gap:10px;align-items:center}
+.field label{font-size:15px;font-weight:700}
+.field label small{display:block;font-weight:500;color:var(--sub);font-size:12px}
+.field .in{display:flex;align-items:center;border:1.5px solid var(--line);border-radius:12px;background:#fff;padding:0 10px}
+.field .in:focus-within{border-color:var(--pp)}
+.field input,.field select{width:100%;border:0;background:transparent;font:inherit;font-size:16px;font-weight:700;padding:10px 0;text-align:right;color:var(--ink);outline:none}
+.field select{text-align:left}
+.field .u{font-size:12.5px;color:var(--sub);margin-left:4px;white-space:nowrap}
+.toggle{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;font-weight:700;color:var(--ink);background:var(--pp-bg);border-radius:12px;padding:12px 14px;cursor:pointer}
+.toggle input{width:18px;height:18px;margin-top:3px;accent-color:var(--pp);flex:none}
+.spouse{display:none;gap:10px}
+.spouse.on{display:grid}
+.out{margin-top:8px;border-radius:18px;background:linear-gradient(135deg,#7c4dff 0%,#9d6bff 100%);color:#fff;padding:20px}
+.out .k{font-size:14px;opacity:.85}
+.out .v{font-size:28px;font-weight:800;letter-spacing:-.5px;line-height:1.3;margin:2px 0 12px}
+.out .rows{display:grid;gap:5px;font-size:14px;border-top:1px solid rgba(255,255,255,.25);padding-top:12px}
+.out .rows div{display:flex;justify-content:space-between;gap:10px}
+.out .rows span:last-child{font-weight:800;text-align:right}
+.out .tip{font-size:13.5px;margin-top:12px;background:rgba(255,255,255,.15);border-radius:10px;padding:10px 12px;line-height:1.6}
+.out.r{background:linear-gradient(135deg,#c44a1e 0%,#e0704a 100%)}
+.out.g{background:linear-gradient(135deg,#2a8a5f 0%,#3fae7b 100%)}
+.out.y{background:linear-gradient(135deg,#a06f00 0%,#d39a12 100%)}
+@media (max-width:440px){.field{grid-template-columns:1fr 128px}}
+
+/* 내 기준 */
+.mine-box{background:linear-gradient(135deg,#f8f3ff 0%,#fef3f8 100%);border-radius:20px;padding:24px 20px;margin-top:16px}
+.mine-box .q{font-size:15px;color:var(--sub);text-align:center;margin-bottom:16px;line-height:1.6;font-weight:700}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.two div{background:#fff;border-radius:14px;padding:16px 12px;text-align:center}
+.two .k{font-size:12.5px;color:var(--sub);font-weight:700}
+.two .v{font-size:22px;font-weight:800;color:var(--pp);letter-spacing:-.5px;line-height:1.3}
+.two .d{font-size:13px;margin-top:2px;color:var(--body)}
+.now{margin-top:12px;background:#fff;border-radius:14px;padding:14px 16px;font-size:14.5px;line-height:1.7;color:var(--body);text-align:center}
+.closing{text-align:center;padding:30px 20px;margin-top:30px;background:#fff;border-radius:20px;box-shadow:0 2px 12px rgba(124,77,255,.06)}
+.closing .e{font-size:28px}
+.closing p{font-size:16px;font-weight:700;line-height:1.7;margin-top:8px}
+.save{margin-top:14px;font-size:13.5px;color:var(--pp);font-weight:700}
+.print{display:block;margin:16px auto 0;font:inherit;font-size:13px;font-weight:700;border:1.5px solid var(--line);background:#fff;color:var(--pp);border-radius:999px;padding:8px 16px;cursor:pointer}
+
+/* 모이딧 */
+.promo{margin-top:16px;background:#fff;border:1.5px solid var(--pps);border-radius:20px;padding:24px 20px;box-shadow:0 2px 12px rgba(124,77,255,.06)}
+.promo .badge{display:inline-block;font-size:12px;font-weight:800;color:#fff;background:var(--pp);border-radius:999px;padding:4px 12px}
+.promo .pt{font-size:20px;font-weight:800;margin:10px 0 12px;letter-spacing:-.3px}
+.promo .pq{font-size:15.5px;font-weight:700;line-height:1.6;color:var(--ink);background:var(--pp-bg);border-radius:12px;padding:12px 14px;margin:0 0 12px}
+.promo .pl{font-size:14.5px;color:var(--body);line-height:1.7;margin:0}
+.promo .pf{list-style:none;display:grid;gap:6px;margin:14px 0}
+.promo .pf li{display:flex;gap:10px;align-items:center;font-size:14.5px;color:var(--ink);background:#faf8ff;border-radius:10px;padding:10px 12px}
+.promo .pf i{font-style:normal;font-size:17px;flex:none}
+.mbtn{display:block;text-align:center;margin-top:14px;background:var(--pp);color:#fff;text-decoration:none;font-weight:800;font-size:15px;border-radius:12px;padding:12px}
+.promo .msmall{font-size:12px;color:var(--sub);margin-top:10px;text-align:center;line-height:1.6}
+
+/* 바닥 */
+.maker{margin-top:26px;background:#fff;border-radius:20px;padding:22px}
+.maker .t{font-size:12px;font-weight:800;color:var(--pp);margin-bottom:4px}
+.maker p{font-size:14px;color:var(--body);line-height:1.7}
+.links{display:grid;gap:6px;margin-top:14px}
+.links a{display:block;text-decoration:none;background:var(--pp-bg);border-radius:12px;padding:11px 14px;font-size:14px;font-weight:700;color:var(--ink)}
+.foot{margin-top:22px;font-size:12px;color:var(--sub);line-height:1.75}
+.foot b{color:var(--sub)}
+.foot a{color:var(--pp)}
+.foot p + p{margin-top:8px}
+@media print{
+  body{background:#fff}
+  .tabs,.print,.calc-wrap{display:none}
+  .pane{display:block!important;margin-bottom:12px}
+  .more .in{display:block}
+  .card,.case,.way{box-shadow:none;border:1px solid var(--line);break-inside:avoid}
+}
+@media (max-width:520px){
+  .container{padding:20px 14px 48px}
+  .card{padding:22px 18px}
+  .key .text{font-size:15.5px}
+  .g-v{font-size:19px}
+  .who b{font-size:18.5px} .who em{font-size:15.5px}
+  .bar{grid-template-columns:96px 1fr 82px;gap:8px;font-size:13.5px}
+  .tbl{font-size:13px}
+  .tbl th{font-size:11px}
+  .pair{grid-template-columns:1fr;gap:14px}
+  .pair .sit::after{content:"↓";position:absolute;left:50%;bottom:-15px;font-size:13px;color:var(--sub)}
+  .spec td:first-child{width:74px}
+  .day div{font-size:11.5px;padding:9px 4px}
+  .day div b{font-size:12.5px}
+  .way h4 small{display:inline-block;margin:4px 0 0}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 헤더 -->
+  <header class="header">
+    <div class="date">2026.11.17 기준</div>
+    <h1><strong>추천 체크카드 TOP3</strong><br>연말정산까지<br>똑똑하게 쓰는 법 💳</h1>
+  </header>
+
+  <!-- 목차 -->
+  <section class="card">
+    <ul class="toc" style="margin-top:0">
+      <li><a href="#p1"><span>PART 1</span>연말정산 카드 공제, 3가지 규칙</a></li>
+      <li><a href="#p2"><span>PART 2</span>그럼 저는 신용, 체크 얼마씩 써요?</a></li>
+      <li><a href="#p3"><span>PART 3</span>추천 체크카드 TOP3</a></li>
+      <li><a href="#todo"><span>마무리</span>오늘 할 일 4가지</a></li>
+    </ul>
+  </section>
+
+  <!-- PART 1 -->
+  <div class="part-header" id="p1">
+    <span class="part-num">PART 1</span>
+    <h2>연말정산 카드 공제,<br>3가지 규칙</h2>
+  </div>
+
+  <section class="card">
+    <div class="what"><b>💡 '공제'와 '돌려받는 돈'은 달라요</b><span class="wl"><em>공제</em>세금을 계산할 때 연봉에서 빼 주는 돈</span><span class="wl"><em>돌려받는 돈</em>공제 덕분에 줄어든 세금. 공제의 약 16%예요 (연봉 4천~6천만 원 기준)</span></div>
+    <ul class="why">
+      <li><div class="ic">🚪</div><div><b>① 연봉의 25%까지는 공제 0원</b><span>1년 카드값 중 연봉의 25%까지는 한 푼도 공제가 안 돼요.</span><span class="eg">예) 연봉 4,000만 원인 사람이 1년에 1,100만 원을 썼다면?<br>→ 1,000만 원까지는 공제 0원<br>→ <b>넘은 100만 원만</b> 공제 대상</span></div></li>
+      <li><div class="ic">✌️</div><div><b>② 넘은 돈부터 공제, 체크카드는 2배</b><span>넘은 돈에 신용카드는 15%, 체크카드는 30%를 공제해 줘요.</span><span class="eg">예) 넘은 100만 원을<br>→ 신용카드로 쓰면 15만 원 공제 → 약 2만 5천 원 돌려받기<br>→ <b>체크카드로 쓰면 30만 원 공제 → 약 5만 원 돌려받기</b></span></div></li>
+      <li><div class="ic">🏁</div><div><b>③ 공제 한도는 연봉·자녀 수에 따라 250만~400만 원</b><span>한도가 차면 더 써도 공제가 없어요. 한도 300만 원이면 연봉의 25%를 넘긴 뒤 체크카드로 1년 1,000만 원(한 달 약 83만 원)을 쓰면 꽉 차요.</span>
+        <table class="lt">
+          <tr><th></th><th>자녀 없음</th><th>1명</th><th>2명 이상</th></tr>
+          <tr><td>연봉 7천만 원 이하</td><td><b>300만</b></td><td>350만</td><td>400만</td></tr>
+          <tr><td>연봉 7천만 원 초과</td><td><b>250만</b></td><td>275만</td><td>300만</td></tr>
+        </table>
+      </div></li>
+    </ul>
+    <div class="nod">
+      <div class="t">🙅 어떤 카드로 내도 공제가 안 되는 돈</div>
+      <div class="chips"><span>관리비</span><span>전기·가스·수도요금</span><span>휴대폰·인터넷 요금</span><span>보험료</span><span>세금</span><span>상품권</span><span>해외에서 쓴 돈</span></div>
+      <p>이 돈은 1년 카드값에서 빼고 계산해요. 할인되는 신용카드로 내도 세금 손해가 없어요.</p>
+    </div>
+  </section>
+
+  <!-- PART 2 -->
+  <div class="part-header" id="p2">
+    <span class="part-num">PART 2</span>
+    <h2>그럼 저는 신용, 체크<br>얼마씩 써요?</h2>
+  </div>
+
+  <div class="sec-div"><span>1. 금액 나누기</span></div>
+  <section class="card">
+    <h3>💳 1년 카드값, 이렇게 나눠요</h3>
+    <div class="flow3">
+      <div class="f cr"><b>신용카드</b><span>연봉의 25%만큼</span><small>공제 0원</small></div>
+      <div class="ar">+</div>
+      <div class="f ck"><b>체크카드</b><span>공제 한도가 찰 때까지</span><small>30% 공제</small></div>
+      <div class="ar">+</div>
+      <div class="f cr"><b>나머지는 신용카드</b><span>그 이상</span><small>공제 0원</small></div>
+    </div>
+    <p style="margin-top:14px">연말정산은 <b>1년 합계</b>로 계산해요. 연봉의 25%는 신용카드로 쓴 돈부터 채워져서, 언제 어느 카드를 썼는지는 상관없어요.</p>
+    <p class="note2">💡 세금만 보면 전부 체크카드도 같거나 더 많아요. 신용카드로 나눠 쓰는 건 세금 손해 없이 신용카드 혜택까지 챙기려는 거예요.</p>
+  </section>
+
+  <div class="sec-div" id="solo"><span>2. 외벌이 편</span></div>
+  <section class="card">
+    <div class="who"><span class="who-ic">🧑</span><div><b>외벌이</b><em>연봉 6,000만 원</em></div><div class="limbox"><div class="lim-t">1년 공제 한도</div><div class="lim"><span class="on">자녀 없음 300만</span><span>1자녀 350만</span><span>2자녀 이상 400만</span></div></div></div>
+    <div class="g-q2">자녀 없음 · 한 달 카드값 <b>180만 원</b>이면<br>1년에 돌려받는 돈</div>
+    <div class="calc1">1년 <b>2,160만 원</b> − 연봉의 25% <b>1,500만 원</b> = 넘은 돈 <b>660만 원</b></div>
+    <div class="g-rows">
+      <div class="g-row"><div class="g-l">전부 신용카드<small>660만 원 × 15%</small></div><div class="g-v">16만 3천 원<small>(공제 99만 원)</small></div><div class="g-bar"><i style="width:33%"></i></div></div>
+      <div class="g-row best"><div class="g-l">125만 원까지 신용 + 나머지 체크<small>660만 원 × 30%</small></div><div class="g-v">32만 7천 원<small>(공제 198만 원)</small></div><div class="g-bar"><i style="width:65%"></i></div></div>
+      <div class="g-row best"><div class="g-l">전부 체크카드<small>660만 원 × 30%</small></div><div class="g-v">32만 7천 원<small>(공제 198만 원)</small></div><div class="g-bar"><i style="width:65%"></i></div></div>
+    </div>
+    <div class="g-take">👉 넘는 돈을 체크카드로 내면 <b>16만 원 더</b>. 전부 체크카드여도 같아요.</div>
+
+    <h4 class="subh">📏 연봉 6,000만 원이면 이렇게 나눠요</h4>
+    <div class="lad">
+      <div class="st cr"><div class="amt">한 달 <b>125만 원</b>까지 <i>1년 1,500만 원</i></div><div class="use">💳 신용카드</div><div class="wy">6,000만 원 × 25% = 1년 1,500만 원. 여기까지는 공제 0원</div></div>
+      <div class="st ck"><div class="amt">그다음 월 <b>83만 원</b> <i>1년 1,000만 원</i></div><div class="use">✅ 체크카드</div><div class="wy">1,000만 원 × 30% = <b>1년 공제 300만 원, full</b></div></div>
+      <div class="st cr"><div class="amt">월 <b>208만 원</b> 넘는 돈 <i>1년 2,500만 원 넘게</i></div><div class="use">💳 나머지는 신용카드</div><div class="wy">공제가 이미 다 차서 더 써도 0원 → 신용카드 혜택을 챙겨요</div></div>
+    </div>
+    <p class="small">자녀가 있으면 공제 한도가 늘어서 체크카드를 1명 월 97만, 2명 이상 월 111만 원까지 써도 돼요.</p>
+
+    <h4 class="subh">📋 한 달 카드값별로 보면</h4>
+    <table class="jt">
+      <tr><th>한 달 카드값</th><th>신용</th><th>체크</th><th>돌려받는 돈</th></tr>
+      <tr><td><b>100만 원</b></td><td>100만</td><td>-</td><td><b>0원</b><small>어느 카드든 공제 0원</small></td></tr>
+      <tr><td><b>180만 원</b></td><td>125만</td><td>55만</td><td><b>32만 7천 원</b><small>전부 신용이면 16만 3천 원</small></td></tr>
+      <tr><td><b>250만 원</b></td><td>167만</td><td>83만</td><td><b>49만 5천 원</b><small>전부 신용이면 37만 1천 원</small></td></tr>
+    </table>
+    <div class="dont">🚫 <b>하지 말 것</b> · 공제받으려고 안 쓸 돈을 더 쓰기</div>
+  </section>
+
+  <div class="sec-div" id="couple"><span>3. 맞벌이 편</span></div>
+  <section class="card">
+    <div class="who"><span class="who-ic">👫</span><div><b>맞벌이</b><em>연봉 4,000만 + 6,000만 원</em></div><div class="limbox"><div class="lim-t">1년 공제 한도 (한 사람당)</div><div class="lim"><span class="on">자녀 없음 300만</span><span>1자녀 350만</span><span>2자녀 이상 400만</span></div><div class="lim-n">자녀 한도는 자녀를 기본공제로 올린 한 사람에게만 붙어요</div></div></div>
+    <div class="g-q2">자녀 없음 · 부부 합계 한 달 카드값 <b>180만 원</b>이면<br>1년에 돌려받는 돈</div>
+    <div class="calc1">1년 카드값 <b>2,160만 원</b> · 연봉의 25%는 6천만 원(<b>1,500만 원</b>), 4천만 원(<b>1,000만 원</b>)</div>
+    <div class="g-rows">
+      <div class="g-row"><div class="g-l">연봉 6천 쪽 카드로<small>넘은 660만 원 × 30%</small></div><div class="g-v">32만 7천 원<small>(공제 198만 원)</small></div><div class="g-bar"><i style="width:65%"></i></div></div>
+      <div class="g-row best"><div class="g-l">연봉 4천 쪽 카드로<small>넘은 1,160만 원 × 30% = 348만</small></div><div class="g-v">49만 5천 원<small>(공제 300만 원, 한도 full)</small></div><div class="g-bar"><i style="width:99%"></i></div></div>
+    </div>
+    <div class="g-take">👉 이 부부는 낮은 쪽 카드로 몰면 <b>17만 원 더</b></div>
+
+    <h4 class="subh">🧮 누구 카드로 쓸지는 계산해 봐야 알아요</h4>
+    <p>부부 카드값은 합쳐지지 않고, <b>각자 본인 명의 카드로 쓴 돈만</b> 따로 계산해요. 보통은 연봉 낮은 쪽이 공제가 빨리 시작돼요. 하지만 아래 두 경우는 달라요.</p>
+    <ul class="exl">
+      <li><b>① 낮은 쪽이 낼 세금이 적을 때</b><span>연봉이 낮거나 육아휴직을 했을 때</span>
+        <div class="ex2"><i>3,000만 + 6,000만 원 · 월 180만 원</i>높은 쪽 카드 <b>32만 7천 원</b><br>낮은 쪽 카드 17만 1천 원</div>
+        <div class="ex2"><i>3,500만 + 6,000만 원 · 월 250만 원</i>높은 쪽 카드 <b>49만 5천 원</b><br>낮은 쪽 카드 44만 3천 원</div></li>
+      <li><b>② 카드값이 커서 둘 다 연봉의 25%를 넘길 때</b><span>두 사람 카드로 나눠 써야 둘 다 공제받아요</span>
+        <div class="ex2"><i>4,000만 + 8,000만 원 · 1년 4,850만 원(월 약 404만 원)</i>나눠 쓰면 <b>약 115만 원</b><br>한쪽에 몰면 많아야 66만 원</div></li>
+    </ul>
+    <a class="go-calc" href="#calc">👉 우리 부부는? 아래 계산기에 두 사람 연봉을 넣어 보세요</a>
+    <div class="dont">🚫 <b>하지 말 것</b> · 계산 없이 반반 나눠 쓰기 (카드값이 적으면 둘 다 25%를 못 넘을 수 있어요)</div>
+  </section>
+
+  <div class="sec-div" id="calc"><span>4. 내 숫자로 계산하기</span></div>
+  <section class="card calc-wrap">
+    <h3>🧮 신용/체크 나눠 쓰기 계산기</h3>
+    <p class="small" style="margin:0 0 12px">연봉과 한 달 카드값만 넣으면 신용·체크를 얼마씩 쓸지 나와요 (단위: 만 원)</p>
+    <div class="calc">
+      <div class="field"><label for="f1">내 연봉<small>세전, 비과세(식대 등) 뺀 금액</small></label><div class="in"><input id="f1" inputmode="numeric" placeholder="0"><span class="u">만 원</span></div></div>
+      <div class="field"><label for="f2">한 달 카드값<small>관리비·통신비·보험료·세금 빼고, 맞벌이면 부부 합계</small></label><div class="in"><input id="f2" inputmode="numeric" placeholder="0"><span class="u">만 원</span></div></div>
+      <div class="field"><label for="f3">기본공제 받는 자녀</label><div class="in"><select id="f3"><option value="0" selected>없음</option><option value="1">1명</option><option value="2">2명 이상</option></select></div></div>
+      <label class="toggle"><input type="checkbox" id="fc"><span>맞벌이예요 (배우자도 연말정산을 해요)</span></label>
+      <div class="spouse" id="sp">
+        <div class="field"><label for="f4">배우자 연봉</label><div class="in"><input id="f4" inputmode="numeric" placeholder="0"><span class="u">만 원</span></div></div>
+        <div class="field"><label for="f5">자녀 기본공제는 누가?</label><div class="in"><select id="f5"><option value="me" selected>나</option><option value="sp">배우자</option></select></div></div>
+      </div>
+
+      <div class="out" id="out">
+        <div class="k" id="oK">내 결과</div>
+        <div class="v" id="oV">숫자를 넣어보세요</div>
+        <div class="rows" id="oRows">
+          <div><span>연봉의 25% (여기까지 신용)</span><span>-</span></div>
+          <div><span>이렇게 나눠 써요</span><span>-</span></div>
+          <div><span>돌려받는 돈 (예상)</span><span>-</span></div>
+          <div><span>전부 신용카드면</span><span>-</span></div>
+        </div>
+        <div class="tip" id="oTip">입력한 숫자는 어디에도 저장되지 않아요.</div>
+      </div>
+    </div>
+    <p class="small">대략적인 값이에요. 정확한 금액은 홈택스 연말정산 미리보기로 확인해요.</p>
+  </section>
+
+  <div class="mine-box">
+    <div class="q">📌 나만의 기준 (저장해 두세요)</div>
+    <div class="two">
+      <div><div class="k">이만큼은 신용카드로</div><div class="v" id="mA">월 -</div><div class="d">연봉의 25%</div></div>
+      <div><div class="k">그다음 체크카드로</div><div class="v" id="mB">월 -</div><div class="d">이만큼 쓰면 공제 한도 full</div></div>
+    </div>
+    <div class="now" id="mC">계산기에 숫자를 넣으면 채워져요</div>
+  </div>
+
+  <!-- PART 3 -->
+  <div class="part-header" id="p3">
+    <span class="part-num">PART 3</span>
+    <h2>추천 체크카드 TOP3</h2>
+  </div>
+
+  <section class="card">
+    <p><b>세 카드 공통</b> · 연회비 없음 · 국내에서 쓴 돈은 <b>체크카드 30%</b> 공제 (해외 사용분 제외)</p>
+    <table class="cmp">
+      <tr><th>카드</th><th>전월 실적</th><th>월 최대 혜택</th></tr>
+      <tr><td><b>카카오뱅크 더(The)</b><small>병원·약국·학원 지출이 잦은 집</small></td><td><b>없음</b></td><td><b>2만 원</b></td></tr>
+      <tr><td><b>케이뱅크 ONE</b><small>버스·지하철로 출퇴근하는 분</small></td><td><b>없음</b><small>교통 5천 원만 30만 원</small></td><td>고른 캐시백에 따라<small>5%형은 2만 5천 원 + 교통 5천 원</small></td></tr>
+      <tr><td><b>KB국민 트래블러스</b><small>가족 여행·국내 나들이가 잦은 집</small></td><td><b>20만 원</b></td><td><b>국내 2만 원</b><small>+ 해외 1만 원</small></td></tr>
+    </table>
+  </section>
+
+  <div class="ways">
+
+    <!-- 카드 1 -->
+    <div class="way" id="card1">
+      <div class="top">
+        <div class="cw"><div class="cardic c1"><i>🧾</i><b>THE</b></div><span class="no">1</span></div>
+        <div class="tx"><div class="nm"><h4>카카오뱅크 더(The) 체크카드</h4><a class="issue" href="https://www.kakaobank.com">발급하기</a></div><div class="typ">연말정산·생활비형 · 실적 없이</div></div>
+      </div>
+
+      <div class="tabs" role="tablist" data-group="pack">
+        <button role="tab" aria-selected="true" data-t="pk1">연말정산<small>메인 · 5%</small></button>
+        <button role="tab" aria-selected="false" data-t="pk2">알뜰하게<small>5%</small></button>
+        <button role="tab" aria-selected="false" data-t="pk3">어디서나<small>0.5%</small></button>
+      </div>
+      <div class="pane on" id="pk1" data-group="pack">
+        <div class="pk main"><b>🧾 '연말정산' 팩 <span class="r">5% 캐시백</span></b>전통시장 · 병원(치과·한방·건강검진 포함) · 약국 · 학원 · 안경점 · 헬스장·수영장 · 교보문고 · CGV</div>
+      </div>
+      <div class="pane" id="pk2" data-group="pack">
+        <div class="pk"><b>🛒 '알뜰하게' 팩 <span class="r">5% 캐시백</span></b>GS25 · 다이소 · 올리브영 · 메가MGC커피·빽다방·컴포즈커피·매머드커피 · 네이버플러스·쿠팡와우·배민클럽 구독료 · 알뜰폰 요금 자동납부</div>
+      </div>
+      <div class="pane" id="pk3" data-group="pack">
+        <div class="pk"><b>🌐 '어디서나' 팩 <span class="r">0.5% 캐시백</span></b>국내 모든 가맹점 (국세·지방세·보험료·상품권 결제 포함) — 캐시백은 되지만 연말정산 공제는 안 돼요</div>
+      </div>
+      <p class="tip1">팩은 앱에서 <b>하루 1번</b> 바꿔요. 병원 가는 날은 연말정산 팩, 다이소 가는 날은 알뜰하게 팩.</p>
+
+      <table class="spec">
+        <tr><td>전월 실적</td><td><b>없음</b></td></tr>
+        <tr><td>최대 혜택</td><td><span class="big-v">월 2만 원</span> · 하루 1천 원까지</td></tr>
+        <tr><td>이런 분께</td><td>아이 병원·약국·학원, 전통시장 지출이 잦은 집</td></tr>
+        <tr><td>주의</td><td>학원비 30만 원을 결제해도 캐시백은 <b>하루 1천 원</b>까지</td></tr>
+      </table>
+      <div class="insight"><p>💡 '연말정산' 팩 업종은 대부분 <b>공제도 따로 받는 곳</b>이라, 공제와 캐시백 5%를 같이 챙겨요.</p></div>
+      <details class="more">
+        <summary>더 보기 · 금액 예시, 통장, 빠지는 곳</summary>
+        <div class="in"><ul>
+          <li><b>금액 예시</b> · 병원비 3만 원 → 1천 원 (5%는 1,500원이지만 하루 1천 원까지) · 전통시장 2만 원 → 1천 원 · 약국 1만 원 → 500원. 하루 2만 원 이상 쓰는 날을 20일 채우면 월 2만 원.</li>
+          <li><b>통장</b> · 카카오뱅크 입출금통장에서 발급 (카카오뱅크 앱 '내 카드', 1인 1장). 최소 결제금액 조건도 없어요.</li>
+          <li><b>빠지는 곳</b> · 학습지, 온라인·키오스크(PG) 결제, 대형마트 입점 매장. 병원과 다이소를 같은 날 가면 한 팩만 적용돼요. 지금 팩 구성은 2027년 6월 30일까지예요.</li>
+        </ul></div>
+      </details>
+    </div>
+
+    <!-- 카드 2 -->
+    <div class="way" id="card2">
+      <div class="top">
+        <div class="cw"><div class="cardic c2"><i>🚌</i><b>ONE</b></div><span class="no">2</span></div>
+        <div class="tx"><div class="nm"><h4>케이뱅크 ONE 체크카드</h4><a class="issue" href="https://www.kbanknow.com">발급하기</a></div><div class="typ">교통비형 · 실적 없이 캐시백</div></div>
+      </div>
+      <p><b>캐시백 3가지 중 1개를 골라요</b><span class="badge-end">2026.12.31까지</span></p>
+      <ul class="opt">
+        <li><b>💰 업종 상관없이 0.6~1.1%</b><span>오프라인 0.6%, 온라인 1.1%, 한도 없음</span><small>카드사 이름: 모두 다 캐시백</small></li>
+        <li><b>☕ 커피·편의점·배달 등 5%</b><span>OTT·영화 포함, 월 2만 5천 원까지</span><small>카드사 이름: 여기서 더 캐시백</small></li>
+        <li><b>🧾 결제 3번마다 1천 원</b><span>1만 원 이상 결제할 때, 한도 없음</span><small>카드사 이름: 369 캐시백</small></li>
+      </ul>
+      <table class="spec">
+        <tr><td>교통</td><td><b>모두의카드(K-패스)</b> 환급 + 추가 캐시백 최대 <b>5,000원</b> <span class="badge-end">10~12월</span></td></tr>
+        <tr><td>전월 실적</td><td><b>없음</b> (교통 추가 5천 원만 전월 30만 원)</td></tr>
+        <tr><td>이런 분께</td><td>버스·지하철로 출퇴근하는 분</td></tr>
+        <tr><td>주의</td><td>캐시백 3가지와 교통 추가 캐시백 모두 <b>12월 31일까지</b> 프로모션이라 1월부터 바뀔 수 있어요</td></tr>
+      </table>
+      <details class="more">
+        <summary>더 보기 · 금액 예시, 교통 환급, 통장, 빠지는 곳</summary>
+        <div class="in"><ul>
+          <li><b>금액 예시</b> · 업종 상관없이(모두 다 캐시백): 오프라인 50만 + 온라인 30만 원 → 6,300원 · 교통비 월 8만 원(수도권) → 모두의카드 환급 1만 8천 원 + 추가 캐시백 5천 원 (실적 30만 원 이상)</li>
+          <li><b>교통 환급</b> · 수도권 일반형은 월 6만 2천 원 넘는 교통비 전액 환급. 대중교통 월 5만 원 이상이면 2,500원, 전월 실적 30만 원 이상이면 5,000원 추가 캐시백. K-패스 환급은 마지막에 등록한 카드 1장만 돼요.</li>
+          <li><b>커피·편의점 등 5%(여기서 더 캐시백)</b> · 스타벅스·커피빈, 편의점, OTT, 배달, 영화에서 1만 원 이상 결제할 때 5%, 영역별 하루 700원까지.</li>
+          <li><b>통장</b> · 케이뱅크 계좌 (케이뱅크 앱에서 발급, K-패스는 후불교통 기능 선택)</li>
+          <li><b>빠지는 곳</b> · 아파트관리비·공과금·대중교통 이용금액은 캐시백에서 빠져요.</li>
+        </ul></div>
+      </details>
+    </div>
+
+    <!-- 카드 3 -->
+    <div class="way" id="card3">
+      <div class="top">
+        <div class="cw"><div class="cardic c3"><i>✈️</i><b>TRAVEL</b></div><span class="no">3</span></div>
+        <div class="tx"><div class="nm"><h4>KB국민 트래블러스 체크카드</h4><a class="issue" href="https://www.kbcard.com">발급하기</a></div><div class="typ">여행형 · 국내 나들이까지</div></div>
+      </div>
+      <table class="spec">
+        <tr><td>해외</td><td>결제·ATM 수수료 면제 · 환율 우대 100% · <b>해외 결제 10% 할인</b></td></tr>
+        <tr><td>국내</td><td>카페·빵집·기차·고속버스·주차장·맛집 할인</td></tr>
+        <tr><td>최대 혜택</td><td><span class="big-v">국내 월 2만 원</span> + 해외 월 1만 원</td></tr>
+        <tr><td>전월 실적</td><td><b>20만 원</b> (해외 수수료·환율 우대·맛집은 실적 없이)</td></tr>
+        <tr><td>이런 분께</td><td>가족 여행·국내 나들이가 잦은 집</td></tr>
+      </table>
+      <details class="more">
+        <summary>더 보기 · 금액 예시, 국내 할인, 통장, 주의</summary>
+        <div class="in"><ul>
+          <li><b>금액 예시</b> · 해외에서 10만 원 결제 → 1만 원 할인 · 국내 기차·카페·빵집 한 번씩 → 8천 원</li>
+          <li><b>국내 할인 (월 1회씩)</b> · 카페 1천 원(5천 원 이상) · 빵집 2천 원(1만 원 이상) · 철도(코레일 앱) 5천 원(2만 원 이상) · 고속버스 2천 원(1만 원 이상) · 주차장 500원×6회 · 전국 맛집 5천 원 · KB Pay 200원×10회</li>
+          <li><b>해외</b> · ATM 수수료 면제는 월 10회, 환율 우대는 KB Pay 외화머니 기준</li>
+          <li><b>통장</b> · KB국민은행 원화 통장 + 해외는 KB Pay 외화머니 또는 KB국민은행 외화통장</li>
+          <li><b>주의</b> · 공항 라운지는 기본 혜택이 아니에요. 카페·빵집 등은 앱·온라인 결제가 빠져요. 해외에서 쓴 돈은 연말정산 공제 대상이 아니에요.</li>
+        </ul></div>
+      </details>
+    </div>
+  </div>
+
+  <p class="small" style="text-align:center">광고·협찬 아니에요. 혜택은 2026.11.17 기준이며 카드사 사정으로 바뀔 수 있어요.</p>
+
+  <!-- 마무리 -->
+  <div class="sec-div" id="todo"><span>마무리</span></div>
+  <section class="card">
+    <h3>🗓️ 오늘 할 일 4가지</h3>
+    <ul class="checks3">
+      <li><b>홈택스 '연말정산 미리보기' 열기</b> · 12월 18일까지, 1~9월 카드값 확인</li>
+      <li><b>연봉의 25% 넘었는지 보기</b> · 내 연봉 × 25% (6,000만 원이면 1,500만 원)</li>
+      <li><b>넘었거나 넘을 것 같으면 남은 돈은 체크카드로</b> · 미리보기에 10~12월 예상 카드값까지 넣어 보고 정해요</li>
+      <li><b>체크카드 1~2장 만들기</b> · 연결 통장 조건 먼저 확인</li>
+    </ul>
+  </section>
+
+  <div class="closing">
+    <div class="e">🫶</div>
+    <p>카드를 더 쓰라는 얘기가 아니에요.<br>이미 쓰는 돈을 어떤 카드로 낼지만 정해도<br>연말정산이 달라져요.</p>
+    <div class="save">💜 이 자료를 저장해 두고, 카드 바꿀 때 다시 펼쳐 보세요</div>
+    <button class="print" onclick="window.print()">PDF로 저장</button>
+  </div>
+
+  <section class="promo">
+    <div class="badge">12월 론칭 예정</div>
+    <div class="pt">📒 가계부 앱 '모이딧'</div>
+    <p class="pq">"이번 달 신용카드로 얼마, 체크카드로 얼마 썼는지<br>알아야 카드를 제대로 나눠 쓸 수 있어요."</p>
+    <p class="pl">그래서 매달 내 돈 흐름부터 보이게 하는 가계부 앱을 만들고 있어요.</p>
+    <ul class="pf">
+      <li><i>📊</i>꾸준히 돈 관리하는 습관을 돕는 도구들</li>
+      <li><i>🗺️</i>전국 통계와 비교해 내 살림의 위치 확인</li>
+      <li><i>🏡</i>이웃의 가계부에서 우리 집에 맞는 힌트</li>
+      <li><i>🤝</i>함께 밀어주고 끌어주는 커뮤니티</li>
+      <li><i>💻</i>휴대폰은 물론 PC 버전까지</li>
+    </ul>
+    <p class="pl">혼자 쓰다가 흐지부지되는 가계부를 넘어, 함께 오래 이어갈 수 있는 돈 관리 공간이에요.</p>
+    <a class="mbtn" href="https://www.instagram.com/chaeheekoo/">출시 소식 받기 · @chaeheekoo 팔로우 →</a>
+    <p class="msmall">출시 소식은 인스타그램에서 가장 먼저 알려드릴게요. 모이딧은 구채희가 대표로 있는 자사 서비스예요.</p>
+  </section>
+
+  <div class="maker">
+    <div class="t">만든이 · 구채희</div>
+    <p>신혼부부 재테크 멘토이자 경제 인플루언서.<br>돈 관리 노하우와 기준 있는 투자를 공유해요.</p>
+    <div class="links">
+      <a href="https://www.instagram.com/chaeheekoo/">📷 @chaeheekoo 팔로우하기</a>
+      <a href="https://smartstore.naver.com/prettywife">🛒 채움 가계부 · 원데이 특강 보러 가기</a>
+    </div>
+  </div>
+
+  <div class="foot">
+    <p><b>📊 데이터 기준</b><br>
+    기준일 2026.11.17. 2026년 1월 1일~12월 31일에 쓴 돈(2027년 1월 연말정산) 기준이에요.<br>
+    연봉 = 총급여(세전, 비과세 제외). 기본은 자녀 없음(한도 300만 원), 본인 기본공제만 받는다고 가정했어요.<br>
+    돌려받는 돈 = 카드 공제 전후 결정세액 차이 × 1.1(지방소득세). 근로소득공제, 본인 기본공제, 4대보험 근로자 부담(근사), 근로소득세액공제, 표준세액공제만 반영했어요. 예시 카드값은 월 180만 원(1년 2,160만 원)이에요. 과세표준은 연봉 4천만 원 약 2,340만 원, 6천만 원 약 3,992만 원(둘 다 15% 구간)이에요.<br>
+    전통시장·대중교통·문화체육 추가 공제와 다른 공제는 빼고 계산했어요.<br>
+    카드 혜택: 각 카드 상세 페이지와 카드사 안내(2026.11.17 확인).</p>
+    <p><b>📚 참고한 기준</b><br>
+    <a href="https://www.korea.kr/news/cardnewsView.do?newsId=148974171">국세청(정책브리핑), 13월의 월급 나는 얼마나 받을까?</a> ·
+    <a href="https://www.fnnews.com/news/202512311126446311">기획재정부 '2026년부터 이렇게 달라집니다'(파이낸셜뉴스)</a> ·
+    <a href="https://www.newsis.com/view/NISX20250731_0003273783">2025년 세제개편안(뉴시스)</a> ·
+    <a href="https://www.taxnet.co.kr/contents/practicelecture/practicelecture-detail?id=4652">2026 개정세법(택스넷)</a> ·
+    <a href="https://news.mtn.co.kr/news-detail/2026080315521251297">2026 세제개편안 대중교통 공제(MTN)</a> ·
+    <a href="https://www.tossbank.com/articles/year-end-tax-preview">연말정산 미리보기 2026(토스뱅크)</a> ·
+    <a href="https://www.ibabynews.com/qa/tx-c-02">가족카드 명의자 기준(국세청 Q&amp;A, 베이비뉴스)</a></p>
+    <p><b>💳 카드 정보</b><br>
+    <a href="https://www.card-gorilla.com/chart/check100?term=weekly&amp;date=2026-11-17">카드고릴라 체크카드 주간 차트</a> ·
+    <a href="https://www.card-gorilla.com/card/detail/3087">카카오뱅크 더(The) 체크카드</a> ·
+    <a href="https://www.etnews.com/20261014000346">더 체크카드 출시(전자신문)</a> ·
+    <a href="https://www.card-gorilla.com/card/detail/2749">케이뱅크 ONE 체크카드</a> ·
+    <a href="https://www.heraldk.com/article/2026010516355701724">ONE 모두의카드(헤럴드경제)</a> ·
+    <a href="https://www.card-gorilla.com/card/detail/2691">KB국민 트래블러스 체크카드</a> ·
+    <a href="https://kbthink.com/life/card/travelers-card.html">트래블러스 사용법(KB Think)</a></p>
+    <p><b>⚠️ 면책</b><br>
+    이 자료는 연말정산 카드 공제를 이해하기 위한 일반 정보예요. 세무 상담을 대신하지 않으며, 실제 공제·환급액은 개인별 공제 항목에 따라 달라요. 소개한 카드는 예시이며 광고·협찬이 아니에요. 카드 혜택은 카드사 사정으로 바뀔 수 있으니 발급 전에 카드사 안내를 꼭 확인하세요.</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  /* 탭 (그룹별) */
+  document.querySelectorAll('.tabs').forEach(function(tb){
+    var g=tb.dataset.group, bs=tb.querySelectorAll('button');
+    bs.forEach(function(b){b.addEventListener('click',function(){
+      bs.forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});
+      document.querySelectorAll('.pane[data-group="'+g+'"]').forEach(function(p){p.classList.toggle('on',p.id===b.dataset.t)});
+    })});
+  });
+
+  /* 세금 근사 계산 (단위: 만 원) */
+  function earnedDed(g){
+    if(g<=500) return g*0.7;
+    if(g<=1500) return 350+(g-500)*0.4;
+    if(g<=4500) return 750+(g-1500)*0.15;
+    if(g<=10000) return 1200+(g-4500)*0.05;
+    return 1475+(g-10000)*0.02;
+  }
+  function progressive(t){
+    var br=[[1400,.06],[5000,.15],[8800,.24],[15000,.35],[30000,.38],[50000,.40],[100000,.42],[Infinity,.45]];
+    var prev=0,tax=0;
+    for(var i=0;i<br.length;i++){ if(t>br[i][0]){tax+=(br[i][0]-prev)*br[i][1];prev=br[i][0];} else {tax+=(Math.max(t,0)-prev)*br[i][1];return Math.max(tax,0);} }
+    return tax;
+  }
+  function wtc(g,calc){
+    var v=calc<=130?calc*0.55:71.5+(calc-130)*0.3, lim;
+    if(g<=3300) lim=74; else if(g<=7000) lim=Math.max(66,74-(g-3300)*0.008); else if(g<=12000) lim=Math.max(50,66-(g-7000)*0.5); else lim=Math.max(20,50-(g-12000)*0.5);
+    return Math.min(v,lim);
+  }
+  function finalTax(g,ded){
+    var ins=Math.min(g,7644)*0.0475+g*(0.03595+0.0047+0.009);
+    var base=g-earnedDed(g)-150-ins-ded;
+    var c=progressive(base);
+    return Math.max(0,c-wtc(g,c)-13);
+  }
+  function refund(g,ded){ return Math.max(0,(finalTax(g,0)-finalTax(g,ded))*1.1); }
+  function limitOf(g,k){ return g<=7000 ? 300+50*k : 250+25*k; }
+  function dedBest(g,T,k){ var th=g*.25; return Math.min(limitOf(g,k),Math.max(0,T-th)*0.3); }
+  function dedCredit(g,T,k){ var th=g*.25; return Math.min(limitOf(g,k),Math.max(0,T-th)*0.15); }
+
+  /* 표시 */
+  function man(v){ v=Math.round(v); return v.toLocaleString('ko-KR')+'만'; }
+  function won(v){ var w=Math.round(v*10)/10, m=Math.floor(w), c=Math.round((w-m)*10); if(m===0&&c===0) return '0원'; return (m?m.toLocaleString('ko-KR')+'만 ':'')+(c?c+'천 ':'')+'원'; }
+
+  var $=function(id){return document.getElementById(id)};
+  function num(id){var v=parseFloat(($(id).value||'').replace(/[^0-9.]/g,''));return isNaN(v)?0:v}
+  function tidy(el){var raw=(el.value||'').replace(/[^0-9]/g,'');el.value=raw?parseInt(raw,10).toLocaleString('ko-KR'):''}
+  function rows(list){ $('oRows').innerHTML=list.map(function(r){return '<div><span>'+r[0]+'</span><span>'+r[1]+'</span></div>'}).join(''); }
+
+  function single(g,m,k){
+    var T=m*12, th=g*.25, lim=limitOf(g,k), chk=lim/0.3, full=th+chk, crFull=th+lim/0.15;
+    var cls,title,split;
+    if(T<=th){cls='r';title='💳 어느 카드든 공제 0원';split='공제 0원 구간 · 혜택 큰 카드로';}
+    else if(T<=full){cls='g';title='✅ 넘는 돈은 체크카드로';split='신용 월 '+man(th/12)+' + 체크 월 '+man(m-th/12)+' 원';}
+    else {cls='y';title='✅ 체크카드는 월 '+man(chk/12)+' 원까지';split='신용 월 '+man(m-chk/12)+' + 체크 월 '+man(chk/12)+' 원';}
+    var rb=refund(g,dedBest(g,T,k)), rc=refund(g,dedCredit(g,T,k));
+    return {cls:cls,title:title,split:split,rb:rb,rc:rc,th:th,chk:chk,full:full,crFull:crFull,T:T};
+  }
+
+  function calc(){
+    ['f1','f2','f4'].forEach(function(i){tidy($(i))});
+    var couple=$('fc').checked; $('sp').classList.toggle('on',couple);
+    var out=$('out');
+    var g1=num('f1'), m=num('f2'), k=parseInt($('f3').value,10);
+    if(!g1||!m){out.className='out';$('oK').textContent='내 결과';$('oV').textContent='숫자를 넣어보세요';rows([['연봉의 25% (여기까지 신용)','-'],['이렇게 나눠 써요','-'],['돌려받는 돈 (예상)','-'],['전부 신용카드면','-']]);$('oTip').textContent='입력한 숫자는 어디에도 저장되지 않아요.';$('mA').textContent='월 -';$('mB').textContent='월 -';$('mC').textContent='계산기에 숫자를 넣으면 채워져요';return}
+
+    if(!couple || !num('f4')){
+      var s=single(g1,m,k);
+      out.className='out'+(s.cls==='r'?'':' g');
+      $('oK').textContent='한 달 '+man(m)+' 원 쓰는 내 결과';
+      $('oV').textContent=s.title;
+      rows([['연봉의 25% (여기까지 신용)','월 '+man(s.th/12)+' 원'],['이렇게 나눠 써요',s.split],['돌려받는 돈 (예상)','약 '+won(s.rb)],['전부 신용카드면','약 '+won(s.rc)]]);
+      var tip;
+      if(s.cls==='r') tip='1년 카드값이 연봉의 25%(연 '+man(s.th)+' 원)를 못 넘어서 공제가 0원이에요. 체크카드로 바꿔도 연말정산은 그대로예요.';
+      else if(s.cls==='g') tip='전부 신용카드로 쓸 때보다 약 '+won(s.rb-s.rc)+' 더 돌려받아요. 전부 체크카드로 써도 공제는 같아요.';
+      else tip=(s.T>=s.crFull?'신용카드만 써도 한도가 차는 구간이에요. 신용카드 혜택을 챙겨도 돼요. ':'체크카드는 월 '+man(s.chk/12)+' 원이면 한도가 꽉 차요. 그 이상은 신용카드 혜택을 챙겨요. ')+'전부 신용카드보다 약 '+won(s.rb-s.rc)+' 더.';
+      if(couple) tip='배우자 연봉을 넣으면 누구 카드로 쓸지 나눠 드려요. '+tip;
+      $('oTip').textContent=tip;
+      $('mA').textContent='월 '+man(s.th/12);
+      $('mB').textContent='월 '+man(s.chk/12);
+      $('mC').innerHTML='한 달 카드값이 <b>월 '+man(s.full/12)+' 원</b>을 넘으면, 나머지는 신용카드로';
+      return;
+    }
+
+    /* 맞벌이: 두 사람에게 나누는 모든 경우(10만 원 단위)를 계산 */
+    var g2=num('f4'), who=$('f5').value, k1=who==='me'?k:0, k2=who==='sp'?k:0, T=m*12;
+    function personRef(g,x,kk){ return refund(g,dedBest(g,x,kk)); }
+    var best={v:-1,x:0};
+    for(var x=0;x<=T+0.001;x+=12){ var v=personRef(g1,x,k1)+personRef(g2,T-x,k2); if(v>best.v+0.05) best={v:v,x:x}; }
+    var all1=personRef(g1,T,k1), all2=personRef(g2,T,k2);
+    if(Math.max(all1,all2)>=best.v-0.05){ best = all1>=all2 ? {v:all1,x:T} : {v:all2,x:0}; }
+    var m1=best.x/12, m2=m-m1;
+    var both = best.x>g1*.25+0.001 && (T-best.x)>g2*.25+0.001;
+    var zero = best.v<0.05, under = T<=Math.min(g1,g2)*.25+0.001;
+    out.className = zero ? 'out' : 'out g';
+    $('oK').textContent='부부 합계 한 달 '+man(m)+' 원, 이렇게 나눠요';
+    var lead = m1>=m2 ? '내 카드' : '배우자 카드';
+    function plan(g,mm,kk){ if(mm<0.5) return '안 써도 돼요'; var th=g*.25/12, cap=limitOf(g,kk)/0.3/12; if(mm<=th) return '월 '+man(mm)+' 원 (신용)'; if(mm<=th+cap) return '신용 '+man(th)+' + 체크 '+man(mm-th)+' 원'; return '신용 '+man(mm-cap)+' + 체크 '+man(cap)+' 원'; }
+    var tip='카드값은 명의자 기준으로 따로 계산돼요. ';
+    var meMain = m1>=m2, gMain = meMain?g1:g2, gOther = meMain?g2:g1;
+    if(zero){
+      $('oV').textContent = under ? '💳 어느 카드든 공제 0원' : '💳 어느 카드든 돌려받는 돈 0원';
+      rows([['내 연봉의 25%','월 '+man(g1*.25/12)+' 원'],['배우자 연봉의 25%','월 '+man(g2*.25/12)+' 원'],['돌려받는 돈 합계','0원'],['한쪽에 다 몰면','나 '+won(all1)+' · 배우자 '+won(all2)]]);
+      tip += under ? '두 사람 모두 연봉의 25%를 못 넘어서 어느 카드로 써도 공제가 0원이에요. 혜택 큰 카드로 쓰세요.' : '낼 세금이 적어서 공제를 받아도 돌려받는 돈이 거의 없어요. 혜택 큰 카드로 쓰세요.';
+    } else {
+      $('oV').textContent = both ? '두 사람 카드로 나눠요' : (m2<0.5? '전부 내 카드로' : (m1<0.5? '전부 배우자 카드로' : '주로 '+lead+'로'));
+      rows([['내 카드 (연봉 '+man(g1)+')',plan(g1,m1,k1)],['배우자 카드 (연봉 '+man(g2)+')',plan(g2,m2,k2)],['돌려받는 돈 합계','약 '+won(best.v)],['한쪽에 다 몰면','나 '+won(all1)+' · 배우자 '+won(all2)]]);
+      if(both) tip+='둘 다 연봉의 25%를 넘겨서, 나눠 써야 둘 다 공제받아요.';
+      else if(g1===g2) tip+='두 사람 연봉이 같아서 한 사람 카드로 몰면 돼요.';
+      else if(gMain>gOther) tip+='낮은 쪽은 세율이 낮아서 같은 공제를 받아도 돌려받는 돈이 작아요.';
+      else tip+='연봉 낮은 쪽은 연봉의 25%가 낮아서 공제가 더 빨리 시작돼요.';
+    }
+    $('oTip').textContent=tip;
+    var gc=meMain?g1:g2, kc=meMain?k1:k2, nm=meMain?'내 카드':'배우자 카드';
+    $('mA').textContent='월 '+man(gc*.25/12);
+    $('mB').textContent='월 '+man(limitOf(gc,kc)/0.3/12);
+    $('mC').innerHTML = zero ? '지금 카드값으로는 '+(under?'공제':'돌려받는 돈')+' 0원 구간이에요. <b>'+nm+'</b> 기준 숫자예요' : '<b>'+nm+'</b> 기준이에요'+(both?'. 나눠 쓰는 금액은 위 계산 결과를 따라요':'');
+  }
+  ['f1','f2','f3','f4','f5','fc'].forEach(function(i){$(i).addEventListener('input',calc);$(i).addEventListener('change',calc)});
+  calc();
+})();
+</script>
+</body>
+</html>
