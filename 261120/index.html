@@ -755,6 +755,17 @@ body{background:#ECE8F3!important}
 /* ===== 이해는 함께 · 밝은 라벤더 (2026-11-22) ===== */
 .mz-g.lav{background:#F5F2FF;border-color:#E3DCFB}
 .mz-g.lav .mz-gt,.mz-g.lav .n{background:#9B85F2}
+
+/* ===== 예시 칸 2개로 (2026-11-22) ===== */
+.exbar.ex2{display:flex;gap:8px;padding:8px;border-radius:14px;background:var(--m-orange-bg,#FFEDE5)}
+.ex2 span{flex:1;min-width:0;background:#fff;border-radius:10px;padding:8px 4px;text-align:center}
+.ex2 i{display:block;font-style:normal;font-size:12px;font-weight:600;color:var(--m-ink2);margin-bottom:2px}
+.ex2 b{display:block;white-space:nowrap;font-size:17px;font-weight:800;font-family:'Manrope','Pretendard',sans-serif;color:var(--m-orange-tx2)}
+
+/* ===== 이럴 땐 달라져요 · 연봉을 줄 제목으로 (2026-11-22) ===== */
+.kt-grp tr.grp td{background:var(--m-warm);font-size:12.5px;padding-top:8px;padding-bottom:7px;color:var(--m-ink2)}
+.kt-grp tr.grp+tr td{border-top:0}
+#couple + section .kt-one td:first-child small{white-space:normal}
 </style>
 </head>
 <body>
@@ -865,23 +876,27 @@ body{background:#ECE8F3!important}
     <div class="who slim"><span class="who-ic">👫</span><div class="one-line"><b>맞벌이</b> <em>· 누구 카드로 몰아줄까?</em></div></div>
     <p class="cap" style="margin-top:0">부부 카드값은 합치지 않고, <b>각자 자기 카드로 쓴 돈</b>으로 따로 계산해요.</p>
     <div class="tt" style="margin-top:12px">경우별 비교 <small>1년에 줄어드는 세금</small></div>
-    <div class="exbar">예시) 부부 연봉 4천 + 6천, 1년 카드값 2,000만 원</div>
+    <div class="exbar ex2"><span><i>아내 연봉</i><b>4천</b></span><span><i>남편 연봉</i><b>6천</b></span><span><i>부부 1년 카드값</i><b>2,000만 원</b></span></div>
     <table class="kt kt-one">
-      <tr><th>이렇게 쓰면</th><th class="num">4천 쪽</th><th class="num">6천 쪽</th><th class="num">줄어드는 세금</th></tr>
-      <tr class="hl"><td><b>4천 쪽으로 몰기</b></td><td class="num">2,000만</td><td class="num mute">0</td><td class="num win">49만 5천</td></tr>
-      <tr><td><b>6천 쪽으로 몰기</b></td><td class="num mute">0</td><td class="num">2,000만</td><td class="num">24만 8천</td></tr>
-      <tr><td><b>반반 나누기</b></td><td class="num">1,000만</td><td class="num">1,000만</td><td class="num mute">0원</td></tr>
-      <tr class="hl"><td><b>둘 다 한도 채우기</b><small>부부 1년 4,500만 원이면</small></td><td class="num">2,000만</td><td class="num">2,500만</td><td class="num win">99만</td></tr>
+      <tr><th>이렇게 쓰면</th><th class="num">아내 카드</th><th class="num">남편 카드</th><th class="num">줄어드는 세금</th></tr>
+      <tr class="hl"><td><b>아내 카드로만 쓰기</b></td><td class="num">2,000만</td><td class="num mute">0</td><td class="num win">49만 5천</td></tr>
+      <tr><td><b>남편 카드로만 쓰기</b></td><td class="num mute">0</td><td class="num">2,000만</td><td class="num">24만 8천</td></tr>
+      <tr><td><b>반반 나눠 쓰기</b></td><td class="num">1,000만</td><td class="num">1,000만</td><td class="num mute">0원</td></tr>
+      <tr class="hl"><td><b>둘 다 한도까지 쓰기</b><small>부부 1년 4,500만 원이면</small></td><td class="num">2,000만</td><td class="num">2,500만</td><td class="num win">99만</td></tr>
     </table>
-    <p class="cap">연봉 4천 쪽은 1,000만 원(연봉의 25%)만 넘기면 공제가 시작돼요. 반반이면 둘 다 25%를 못 넘어서 0원이에요.</p>
+    <p class="cap">연봉이 낮은 아내는 1,000만 원(연봉의 25%)만 넘기면 공제가 시작돼요. 반반이면 둘 다 25%를 못 넘어서 0원이에요.</p>
 
     <div class="tt" style="margin-top:16px">이럴 땐 달라져요</div>
-    <table class="kt">
-      <tr><th>연봉</th><th class="num">1년 카드값</th><th>유리한 조합</th><th class="num">줄어드는 세금</th></tr>
-      <tr><td><b>3천</b><br><b>6천</b></td><td class="num">2,000만</td><td><b>6천 쪽 카드로 몰기</b><small>3천 쪽은 낼 세금이 적어요</small></td><td class="num win">24만 8천<small>3천 쪽 카드면 17만 1천</small></td></tr>
-      <tr><td><b>4천</b><br><b>6천</b></td><td class="num">3,000만</td><td><b>어느 쪽이든 한 사람 카드로</b><small>한 사람 카드로도 한도가 차요</small></td><td class="num win">49만 5천<small>반반이면 24만 8천</small></td></tr>
-      <tr><td><b>4천</b><br><b>8천</b></td><td class="num">5,000만</td><td><b>4천 쪽 2,000만<br>+ 8천 쪽 3,000만</b><small>둘 다 25%를 넘겨요</small></td><td class="num win">115만 5천<small>한쪽만 쓰면 66만</small></td></tr>
-      <tr><td><b>4천</b><br><b>6천</b><small>자녀 1명</small></td><td class="num">3,000만</td><td><b>자녀를 공제받는 사람 카드로</b><small>한도가 50만 원 늘어요</small></td><td class="num win">57만 8천<small>다른 쪽이면 49만 5천</small></td></tr>
+    <table class="kt kt-grp">
+      <tr><th>유리한 조합</th><th class="num">줄어드는 세금</th></tr>
+      <tr class="grp"><td colspan="2"><b>아내 6천 + 남편 3천</b> · <span style="white-space:nowrap">1년 카드값 2,000만 원</span></td></tr>
+      <tr><td><b>아내 카드로만 쓰기</b><small>남편(3천)은 낼 세금이 적어요</small></td><td class="num win">24만 8천<small>남편 카드면 17만 1천</small></td></tr>
+      <tr class="grp"><td colspan="2"><b>아내 4천 + 남편 6천</b> · <span style="white-space:nowrap">1년 카드값 3,000만 원</span></td></tr>
+      <tr><td><b>누구든 한 사람 카드로</b><small>한 사람 카드로도 한도가 차요</small></td><td class="num win">49만 5천<small>반반이면 24만 8천</small></td></tr>
+      <tr class="grp"><td colspan="2"><b>아내 8천 + 남편 4천</b> · <span style="white-space:nowrap">1년 카드값 5,000만 원</span></td></tr>
+      <tr><td><b>아내 3,000만<br>+ 남편 2,000만</b><small>둘 다 25%를 넘겨요</small></td><td class="num win">115만 5천<small>한쪽만 쓰면 66만</small></td></tr>
+      <tr class="grp"><td colspan="2"><b>아내 4천 + 남편 6천 · 자녀 1명</b> · <span style="white-space:nowrap">1년 카드값 3,000만 원</span></td></tr>
+      <tr><td><b>자녀를 공제받는 사람 카드로</b><small>한도가 50만 원 늘어요</small></td><td class="num win">57만 8천<small>다른 사람 카드면 49만 5천</small></td></tr>
     </table>
     <a class="go-calc" href="#calc">👉 우리 부부는? 아래 계산기에 두 사람 연봉을 넣어 보세요</a>
     <p class="note2">⚠️ 자녀 공제는 교육비·의료비 공제와 같이 움직여요. 카드만 보고 누가 받을지 바꾸지 마세요.</p>
@@ -1261,8 +1276,8 @@ body{background:#ECE8F3!important}
       rows([['내 카드 (연봉 '+man(g1)+')',plan(g1,m1,k1)],['배우자 카드 (연봉 '+man(g2)+')',plan(g2,m2,k2)],['카드 소득공제','나 '+mw(dedBest(g1,m1*12,k1))+' · 배우자 '+mw(dedBest(g2,m2*12,k2))],['줄어드는 세금 합계',yak(best.v)],['한쪽에 다 몰면','나 '+won(all1)+' · 배우자 '+won(all2)]]);
       if(both) tip+='둘 다 연봉의 25%를 넘겨서, 나눠 써야 둘 다 공제받아요.';
       else if(g1===g2) tip+='두 사람 연봉이 같아서 한 사람 카드로 몰면 돼요.';
-      else if(gMain>gOther) tip+='낮은 쪽은 세율이 낮아서 같은 공제를 받아도 줄어드는 세금이 작아요.';
-      else tip+='연봉 낮은 쪽은 연봉의 25%가 낮아서 공제가 더 빨리 시작돼요.';
+      else if(gMain>gOther) tip+='연봉 낮은 사람은 세율이 낮아서 같은 공제를 받아도 줄어드는 세금이 작아요.';
+      else tip+='연봉 낮은 사람은 연봉의 25%가 낮아서 공제가 더 빨리 시작돼요.';
     }
     $('oTip').textContent=tip;
     var gc=meMain?g1:g2, kc=meMain?k1:k2, nm=meMain?'내 카드':'배우자 카드';
