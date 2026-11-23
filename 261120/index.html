@@ -766,6 +766,10 @@ body{background:#ECE8F3!important}
 .kt-grp tr.grp td{background:var(--m-warm);font-size:12.5px;padding-top:8px;padding-bottom:7px;color:var(--m-ink2)}
 .kt-grp tr.grp+tr td{border-top:0}
 #couple + section .kt-one td:first-child small{white-space:normal}
+
+/* 이럴 땐 표: 연봉/카드값 라벨 (2026-11-23) */
+.kt-grp .gw{white-space:nowrap;display:inline-block;margin-right:10px}
+.kt-grp .gl{display:inline-block;font-size:11px;font-weight:700;color:var(--m-lav);background:var(--m-lav-bg);border-radius:6px;padding:1px 6px;margin-right:5px;vertical-align:1px}
 </style>
 </head>
 <body>
@@ -889,13 +893,13 @@ body{background:#ECE8F3!important}
     <div class="tt" style="margin-top:16px">이럴 땐 달라져요</div>
     <table class="kt kt-grp">
       <tr><th>유리한 조합</th><th class="num">줄어드는 세금</th></tr>
-      <tr class="grp"><td colspan="2"><b>아내 6천 + 남편 3천</b> · <span style="white-space:nowrap">1년 카드값 2,000만 원</span></td></tr>
+      <tr class="grp"><td colspan="2"><span class="gw"><span class="gl">연봉</span>아내 <b>6천</b> · 남편 <b>3천</b></span> <span class="gw"><span class="gl">1년 카드값</span><b>2,000만 원</b></span></td></tr>
       <tr><td><b>아내 카드로만 쓰기</b><small>남편(3천)은 낼 세금이 적어요</small></td><td class="num win">24만 8천<small>남편 카드면 17만 1천</small></td></tr>
-      <tr class="grp"><td colspan="2"><b>아내 4천 + 남편 6천</b> · <span style="white-space:nowrap">1년 카드값 3,000만 원</span></td></tr>
+      <tr class="grp"><td colspan="2"><span class="gw"><span class="gl">연봉</span>남편 <b>6천</b> · 아내 <b>4천</b></span> <span class="gw"><span class="gl">1년 카드값</span><b>3,000만 원</b></span></td></tr>
       <tr><td><b>누구든 한 사람 카드로</b><small>한 사람 카드로도 한도가 차요</small></td><td class="num win">49만 5천<small>반반이면 24만 8천</small></td></tr>
-      <tr class="grp"><td colspan="2"><b>아내 8천 + 남편 4천</b> · <span style="white-space:nowrap">1년 카드값 5,000만 원</span></td></tr>
+      <tr class="grp"><td colspan="2"><span class="gw"><span class="gl">연봉</span>아내 <b>8천</b> · 남편 <b>4천</b></span> <span class="gw"><span class="gl">1년 카드값</span><b>5,000만 원</b></span></td></tr>
       <tr><td><b>아내 3,000만<br>+ 남편 2,000만</b><small>둘 다 25%를 넘겨요</small></td><td class="num win">115만 5천<small>한쪽만 쓰면 66만</small></td></tr>
-      <tr class="grp"><td colspan="2"><b>아내 4천 + 남편 6천 · 자녀 1명</b> · <span style="white-space:nowrap">1년 카드값 3,000만 원</span></td></tr>
+      <tr class="grp"><td colspan="2"><span class="gw"><span class="gl">연봉</span>남편 <b>6천</b> · 아내 <b>4천</b> · 자녀 1명</span> <span class="gw"><span class="gl">1년 카드값</span><b>3,000만 원</b></span></td></tr>
       <tr><td><b>자녀를 공제받는 사람 카드로</b><small>한도가 50만 원 늘어요</small></td><td class="num win">57만 8천<small>다른 사람 카드면 49만 5천</small></td></tr>
     </table>
     <a class="go-calc" href="#calc">👉 우리 부부는? 아래 계산기에 두 사람 연봉을 넣어 보세요</a>
